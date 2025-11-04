@@ -1,2 +1,7 @@
-include examples/*
+include README.md
+include requirements.txt
+
 recursive-include examples *
+recursive-include kimuni *
+
+global-exclude __pycache__ *.py[cod] .DS_Store
