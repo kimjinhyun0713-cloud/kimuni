@@ -95,8 +95,6 @@ def cal_distance(pos1, pos2, matrix, cartesian=False):
     distance = np.where(r <= 0.01, 2000, r)
     return distance
 
-def cal_volume():
-    pass
 
 def cal_uniform(matrix, mole_sum, spacing=3.5, **kwargs):
     """

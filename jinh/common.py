@@ -1,7 +1,9 @@
 import numpy as np
 from pathlib import Path
 import sys, os
-import subprocess as sp 
+import subprocess as sp
+import time
+
 def list2arr(data):
     """
     if data's type is list, convert to arr
@@ -48,3 +50,28 @@ def sp_run(command):
     ;; command -> list
     """
     return sp.run(command, capture_output=True, text=True)
+
+def overwritePrint(string):
+    """
+    overwrite the stdout
+
+    args
+    ;; string -> str
+    """
+    print(f"\r{string}", end="", flush=True)
+
+
+def checkTime(func):
+    """
+    decoration to check processing time
+    args
+    ;; func -> func
+    
+    """
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        result = func(*args, **kwargs)
+        end_time = time.time()
+        print(f"processing time : {func.__name__} in {end_time - start_time:.5f} seconds")
+        return result
+    return wrapper

@@ -27,6 +27,27 @@ loop_
    _atom_site_adp_type
    _atom_site_U_iso_or_equiv
    _atom_site_type_symbol
-"""
+""".strip()
 
 cif_tail = "{:>5} {:>10.7f} {:>15.10f} {:>15.10f} {:>15.10f} {:>5s} {:>8.7f} {:>5s}"
+
+
+lmp_head_unwrapped = """
+ITEM: TIMESTEP
+{}
+ITEM: NUMBER OF ATOMS
+{}
+ITEM: BOX BOUNDS xy xz yz pp pp pp
+{}
+ITEM: ATOMS id type element xu yu zu mol
+""".strip()
+
+lmp_head = """
+ITEM: TIMESTEP
+{}
+ITEM: NUMBER OF ATOMS
+{}
+ITEM: BOX BOUNDS xy xz yz pp pp pp
+{}
+ITEM: ATOMS id type element xu yu zu mol
+""".strip()
