@@ -4,5 +4,5 @@ from .util import *
 from .common import *
 from .analysis import *
 
-# __all__ = ['molDic', 'molWeight']
-
+funcs = {name: obj for name, obj in globals().items() if callable(obj)}
+__str__ = "\n".join(str(p) for p in funcs)

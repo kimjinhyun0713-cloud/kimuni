@@ -27,3 +27,19 @@ molWeight["CO3"] = 60.009
 molWeight["Ca"] = 40.0718
 molWeight["I"] = 126.90447
 molWeight["IO3"] = 174.90407
+
+molCharge = {}
+molCharge["O"] = -2
+molCharge["H"] = 1
+molCharge["Ca"] = 2
+molCharge["Si"] = 4
+molCharge["C"] = 4
+molCharge["I"] = -1
+molCharge["CO3"] = -2
+molCharge["HCO3"] = -1
+molCharge["H2CO3"] = 0
+molCharge["H2O"] = 0
+molCharge["CO2"] = 0
+molCharge["OH"] = -1
+molCharge["SiO4"] = -4
+

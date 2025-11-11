@@ -1,4 +1,5 @@
 import numpy as np
+import pandas as pd
 from pathlib import Path
 import sys, os
 import subprocess as sp
@@ -16,7 +17,45 @@ def list2arr(data):
         raise TypeError("Error: input must to be list or arr")
     return data
 
+def sum_traindata(path, return_df=False):
+    """
+    print name of traindata, nstep, natom recursively
+    and if return_df, return DataFrame of that.
+
+    stdout: name of traindata, nstep, natom
     
+    args
+    ;; path -> path
+    
+    return
+    None if return_df df.DataFrame
+    """
+    total_nstep = 0
+    generator = Path(path).rglob("coord.npy")
+    if return_df:
+        df_list = []
+    for dat in generator:
+        tname = str(dat).split("set.000")[0]
+        print(f"{str(tname):<40s}", end="")
+        loaded = np.load(dat)
+        if loaded.ndim == 1:
+            loaded.reshape(1, -1)
+        try:
+            nstep, natom = np.load(dat).shape
+        except ValueError:
+            print("no data")
+            continue
+        if return_df:
+            df = pd.Series([tname, nstep, natom])
+            df_list.append(df)
+        natom /= 3
+        total_nstep += nstep
+
+        print(f"Steps: {int(nstep):<10}", f"Atoms: {int(natom):<10}")
+    print()
+    print("Total steps: ", total_nstep)
+    return pd.concat(df_list, ignore_index=True) if return_df else None
+
 def find2pipe():
     """
     convert pipelines stdout to list
