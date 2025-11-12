@@ -5,16 +5,39 @@ import sys, os
 import subprocess as sp
 import time
 
-def list2arr(data):
+def type2list(data):
     """
-    if data's type is list, convert to arr
-    if data's type is neither list nor arr
-    raise TypeError
+    convert int, float or str to list
+    if only in case the data can converted to numerical value
+    
+    args:
+    ;; data
+
+    return
+    ;; data
     """
     if isinstance(data, list):
-        data = np.array(data, dtype=float)
-    if not isinstance(data, np.ndarray):
-        raise TypeError("Error: input must to be list or arr")
+        return data
+    elif isinstance(data, (int, float)):
+        return [data]
+    elif isinstance(data, str):
+        try:
+            return [float(data)]
+        except ValueError:
+            raise TypeError("Error: cannot convert to a numerical value")
+    
+def list2arr(data, dtype=float):
+    """
+    convert int, float, str or list to array
+    if only in case the data can converted to  numerical value
+    convert to arr if only 
+    if data's type is neither of that, then raise TypeError
+    """
+    if isinstance(data, np.ndarray):
+        pass
+    else:
+        data = type2list(data)
+        data = np.array(data, dtype=dtype)
     return data
 
 def sum_traindata(path, return_df=False):
