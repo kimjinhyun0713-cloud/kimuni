@@ -5,12 +5,12 @@ cif_head  = """
 data_VESTA_phase_1
 
 _chemical_name_common                  '{}'
-_cell_length_a                         {}
-_cell_length_b                         {}
-_cell_length_c                         {}
-_cell_angle_alpha                      {}
-_cell_angle_beta                       {}
-_cell_angle_gamma                      {}
+_cell_length_a                          {:20.16f}
+_cell_length_b                          {:20.16f}
+_cell_length_c                          {:20.16f}
+_cell_angle_alpha                       {:20.16f}
+_cell_angle_beta                        {:20.16f}
+_cell_angle_gamma                       {:20.16f}
 _space_group_name_H-M_alt              'P 1'
 _space_group_IT_number                 1
 
@@ -42,6 +42,7 @@ ITEM: BOX BOUNDS xy xz yz pp pp pp
 ITEM: ATOMS id type element xu yu zu mol
 """.strip()
 
+
 lmp_head = """
 ITEM: TIMESTEP
 {}
@@ -50,4 +51,12 @@ ITEM: NUMBER OF ATOMS
 ITEM: BOX BOUNDS xy xz yz pp pp pp
 {}
 ITEM: ATOMS id type element xu yu zu mol
+""".strip()
+
+
+SCAN_D3 = """
+IVDW   = 12
+VDW_S8 = 0 
+VDW_A1 = 0.538
+VDW_A2 = 5.4200
 """.strip()

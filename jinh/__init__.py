@@ -3,7 +3,6 @@ from .functions import *
 from .util import *
 from .common import *
 from .analysis import *
-from .convert import *
 from .equation import *
 
 funcs = {name: obj for name, obj in globals().items() if callable(obj)}

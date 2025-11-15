@@ -11,8 +11,8 @@ def eq_water_density(temp: np.ndarray | list, version: int = 0) -> np.ndarray:
     
     URL: chrome-extension://efaidnbmnnnibpcajpcglclefindmkaj/https://pubs.acs.org/doi/pdf/10.1021/je60064a005
     """
-    t = list2arr(temp)
-    t -= 273.15
+    temp = list2arr(temp)
+    t = temp - 273.15
     if version == 0:
         eq = (999.83952 + 16.945176 * t - 7.9870401e-3 * t**2 - 46.170461e-6 * t**3
               + 105.56302e-9 * t**4 - 280.54253e-12 * t**5) / (1 + 16.87985e-3 * t) / 1000

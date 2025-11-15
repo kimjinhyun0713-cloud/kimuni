@@ -6,7 +6,44 @@ import os
 from .functions import setMatrix
 from .functions import calLattice
 from .common import overwritePrint
+from .common import list2arr
 
+def poscar2Dic(infile):
+    with open(infile) as o:
+        base = o.readline().strip()
+        dic = {"base": base}
+        o.readline()
+        lst = []
+        for _ in range(3):
+            lst.append(o.readline())
+        matrix = [list(map(float, l.split())) for l in lst]
+        matrix = list2arr(matrix)
+        dic["matrix"] = matrix
+        abc = np.linalg.norm(matrix, axis=1)
+        dic["lattice"] = abc
+        a, b, c = abc
+        angle = []
+        angle.append(np.arccos(matrix[1, :] @ matrix[2, :] / (b*c)) * 180/np.pi)
+        angle.append(np.arccos(matrix[0, :] @ matrix[2, :] / (a*c)) * 180/np.pi)
+        angle.append(np.arccos(matrix[0, :] @ matrix[1, :] / (a*b)) * 180/np.pi)
+        dic["angle"] = angle
+        elem = o.readline().split()
+        dic["elem"] = elem
+        n_elem = [int(v) for v in o.readline().split()]
+        o.readline()
+        data = []
+        for i, n in enumerate(n_elem):
+            lst = []
+            arr = np.empty((n, 4), dtype=object)
+            arr[:, 0] = elem[i]
+            for _ in range(n):
+                lst.append([float(v) for v in o.readline().split()])
+            arr[:, 1:4] = lst
+            data.append(arr)
+        dic["data"] = np.vstack(data)
+        return dic
+
+        
 def lmp2Dic(lammpstrj, to_fract=False):
     """
     convert lammpstrj to dictionary of which havs or local values
@@ -18,12 +55,9 @@ def lmp2Dic(lammpstrj, to_fract=False):
     ;; locals()
     """
     with open(lammpstrj) as o:
-        for i in range(4):
-            line = o.readline()
-        natoms = int(line)
-        nlines = natoms + 9
-    with open(lammpstrj) as o:
         readlines = o.readlines()
+        natoms = int(readlines[3])
+        nlines = natoms + 9
         nstep = len(readlines) / nlines
         assert nstep == int(nstep), f"Please check the file is completely written nstep={nstep}"
         nstep = int(nstep)
@@ -59,16 +93,33 @@ def lmp2Dic(lammpstrj, to_fract=False):
                 ldata[i, :, 1:4] = ldata[i, :, 1:4] @ np.linalg.inv(matrix_)
             matrix = np.vstack(matrix_list).reshape(-1, 3, 3)
             del matrix_list
-        return locals()
             
+        dic = {k: v for k, v in locals().items() if k in ["nlines", "ldata", "natoms", "nstep", "lattice", "angle", "elem", "ldata", "matrix"]}
+        return dic
             
-def cif2data(fname, cartesian=False):
+
+def excel2data(infile):
+    """
+    convert excel(.xlsx) data to Pd.dataFrame
+    args:
+    ;; infile -> .xlsx
+
+    return
+    pd.DataFrame
+    """
+    with pd.ExcelFile(infile) as o:
+        sheet_names = o.sheet_names
+        for sheet in sheet_names:
+            df = o.parse(sheet)
+    return df
+    
+def cif2data(infile, cartesian=False):
     """
     convert cif data to pd.DateFrame includes whole columns in cif.
     For example symbol, occupancy
     
     args
-    ;; fname -> str, infile
+    ;; infile -> str, infile
     ;;; cartesian  -> bool, convert fractional coordinations to cartesian(default: False)
     
     returns
@@ -76,8 +127,8 @@ def cif2data(fname, cartesian=False):
     angle -> list
     data -> pd.DateFrame
     """
-    with open(fname) as o:
-        assert os.path.splitext(fname)[1] == ".cif", "Make sure to put 'CIF'"
+    with open(infile) as o:
+        assert os.path.splitext(infile)[1] == ".cif", "Make sure to put 'CIF'"
         read = o.read()
         lattice_ptn  = r"_cell_length_[abc]+ +([0-9\.]+)"
         angle_ptn = r"_cell_angle_[a-zA-Z]+ +([0-9\.]+)"
