@@ -3,8 +3,8 @@ import pandas as pd
 import os, sys
 from .analysis import find_bond, find_mole, unwrap_mole, df2charge
 from .functions import setMatrix, cal_uniform
-from . import cif2data, cif_head, cif_tail
-from . import molDic, molWeight
+from .util import cif2data, cif_head, cif_tail
+from .util import molDic, molWeight
 import subprocess as sp
 from scipy.spatial import KDTree, cKDTree
 
@@ -18,19 +18,11 @@ class CIF():
     def __init__(self, infile):        
         self.infile = infile
         print(f"{infile} was loaded ... ")
-        assert os.path.splitext(infile)[1] == ".cif", "Error: Ciffile required "
         self.lattice, self.angle, self.df = cif2data(self.infile)
         self.columns = self.df.columns
         self.natom, self.natom_init = len(self.df), len(self.df)
+        print("Number of atoms", self.natom_init)
         self.matrix, self.V = setMatrix(self.lattice, self.angle)
-
-
-        
-    def __str__(self):
-        string = f"\nNumber of atoms: {self.natom_init}\n"
-        string += f"Lattice: {' '.join(str(v) for v in self.lattice)}\n"
-        string += f"Angle: {' '.join(str(v) for v in self.angle)}\n"
-        return string
             
                     
     def min_query(self, npoint=100, rcut=2, return_coord=False, **kwargs):
@@ -1148,7 +1140,7 @@ def main():
     RUN.shrink = args.shrink
     if args.mode != 0:
         setattr(RUN, f"mode{args.mode}", True)
-
+    
     infile = args.infile if args.infile else glob.glob("*cif")[0]
     if args.outfile:
         base = args.outfile.replace(".cif", "")
