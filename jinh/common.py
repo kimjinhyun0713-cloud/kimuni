@@ -5,6 +5,9 @@ import sys, os
 import subprocess as sp
 import time
 
+def df2xyz(df: pd.DataFrame) -> np.ndarray:
+    return df.loc[:, ["type_symbol", "fract_x", "fract_y", "fract_z"]].to_numpy()
+
 def type2list(data):
     """
     convert int, float or str to list

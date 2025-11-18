@@ -1,6 +1,4 @@
 import numpy as np
-import glob
-import re
 import pandas as pd
 import os, sys
 from .analysis import find_bond, find_mole, unwrap_mole, df2charge
@@ -20,11 +18,14 @@ class CIF():
     def __init__(self, infile):        
         self.infile = infile
         print(f"{infile} was loaded ... ")
+        assert os.path.splitext(infile)[1] == ".cif", "Error: Ciffile required "
         self.lattice, self.angle, self.df = cif2data(self.infile)
         self.columns = self.df.columns
         self.natom, self.natom_init = len(self.df), len(self.df)
         self.matrix, self.V = setMatrix(self.lattice, self.angle)
 
+
+        
     def __str__(self):
         string = f"\nNumber of atoms: {self.natom_init}\n"
         string += f"Lattice: {' '.join(str(v) for v in self.lattice)}\n"
@@ -1032,6 +1033,7 @@ class RUN():
             
 def main():
     import argparse
+    import glob
     description = """
     To modify a CIF file for system constructino
     """.strip()

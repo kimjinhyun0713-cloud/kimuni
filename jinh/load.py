@@ -136,6 +136,7 @@ def cif2data(infile, cartesian=False):
         angle = [float(v) for v in re.findall(angle_ptn, read)]
         ptn_col = r"_atom_site_(.*)"
         col = re.findall(ptn_col, read)
+        col = [c.strip() for c in col]
         data = read.split(col[-1])[-1]
         data = np.array([s.split() for s in data.strip().split("\n")], dtype=object).reshape(-1, len(col))
         data = pd.DataFrame(data, columns=col)
