@@ -1,8 +1,9 @@
 import numpy as np
 import pandas as pd
 import os, sys
-from .analysis import find_bond, find_mole, unwrap_mole, df2charge
+from .analysis import find_bond, find_mole, unwrap_mole, df2charge, df2charge4clayff
 from .functions import setMatrix, cal_uniform
+from .load import poscar2Dic
 from . import cif2data, cif_head, cif_tail
 from . import molDic, molWeight
 import subprocess as sp
@@ -17,13 +18,31 @@ class DATA():
         
     def __init__(self, infile):        
         self.infile = infile
-        print(f"{infile} was loaded ... \n")
-        assert os.path.splitext(infile)[1] == ".cif", "Error: Ciffile required "
-        self.lattice, self.angle, self.df = cif2data(self.infile)
-        self.columns = self.df.columns
+        print(f"{infile} was loaded")
+        self.base, ext = os.path.splitext(infile)
+        if self.base == "POSCAR" or ext == ".vasp":
+            dic = poscar2Dic(infile)
+            self.lattice = dic["lattice"]
+            self.angle = dic["angle"]
+            self.matrix = dic["matrix"]
+            columns = ["label", "type_symbol", "fract_x", "fract_y", "fract_z"]
+            data = dic["data"]
+            self.df = pd.DataFrame(columns=columns)
+            self.df.iloc[:, 0] = data[:, 0]
+            for i in range(4):
+                self.df.iloc[:, i + 1] = data[:, i]
+            self.ftype = "vasp"
+        elif ext == ".cif":
+            self.lattice, self.angle, self.df = cif2data(self.infile)
+            self.columns = self.df.columns
+            self.matrix, self.V = setMatrix(self.lattice, self.angle)
+            self.ftype = "cif"
+        else:
+            print("Error: Wrong input")
+            sys.exit(1)
         self.natom, self.natom_init = len(self.df), len(self.df)
-        self.matrix, self.V = setMatrix(self.lattice, self.angle)
 
+        
         
     def __str__(self):
         string = f"\nNumber of atoms: {self.natom_init}\n"
@@ -45,9 +64,9 @@ class DATA():
         """
         fract = self.df[["fract_x", "fract_y", "fract_z"]]
         fract = fract.to_numpy().reshape(-1, 3)
-        shifts = np.array([[i, j, k] for i in [-1,0, 1]
-                           for j in [-1,0, 1]
-                           for k in [-1,0, 1]])
+        shifts = np.array([[i, j, k] for i in [-1, 0, 1]
+                           for j in [-1, 0, 1]
+                           for k in [-1, 0, 1]])
         all_ = (fract[:, None, :] + shifts[None, :, :])
         all_ = all_.reshape(-1, 3) @ self.matrix
         tree = cKDTree(all_)
@@ -118,8 +137,6 @@ class DATA():
         matrix = matrix if matrix is not None else self.matrix
         def set_mask(coord, symbol, idx):
             r = np.abs(self.df[symbol] - coord)
-            # if np.max(r) > 1.0:
-            #     print(np.max(r))
             r = np.where(r > 0.5, 1 - r, r)
             mask = r < (rcut / matrix[idx, idx]) * 1.2
             return mask
@@ -472,30 +489,34 @@ class DATA():
         
     def writeCif(self, template=None):
         lines = ""
-        iso = [r for r in self.df.columns if "iso" in r][0]
+        for c in set(self.df.columns):
+            if "iso" in c:
+                iso = c
+                break
+        else:
+            iso = "U_iso_or_equiv"
         for _, row in self.df.iterrows():
             line = cif_tail.format(
                 str(row['label']),
-                float(row['occupancy']),
+                float(row['occupancy']) if 'occupancy' in row.keys() else 1.0,
                 float(row['fract_x']),          
                 float(row['fract_y']),          
                 float(row['fract_z']),
-                str(row['adp_type']),
-                float(row[iso]),     
-                str(row['type_symbol']),     
+                str(row['adp_type']) if 'adp_type' in row.keys() else "Uiso",
+                float(row[iso]) if iso in row.keys() else 0.0,     
+                str(row['type_symbol']),
             )
             lines += f"{line}\n"
 
         template = cif_head.format(self.infile, *self.lattice, *self.angle)
         template += "\n"
         template += lines
-        base, ext = os.path.splitext(self.infile)
         version = 0
         if hasattr(self, "outfile"):
             RUN.outfile = self.outfile
         else:
             while True:
-                RUN.outfile = f"{base}.{version:02d}{ext}"
+                RUN.outfile = f"{self.base}.{version:02d}.cif"
                 if not os.path.exists(RUN.outfile):
                     break
                 version += 1
@@ -572,10 +593,6 @@ class RUN():
         H2O = find_mole(OH_bond, nbond=2)
         CO3 = find_mole(find_bond(data, self.c.matrix, rcut=1.4, elem1="C", elem2="O"), nbond=3, elem1="C", elem2="O")
         SiO = find_bond(data, self.c.matrix, rcut=1.8, elem1="Si", elem2="O")
-        if len(OH) != 0:
-            oh, ho = OH[:, 0], OH[:, 1]
-            self.c.df.loc[oh, ["label"]] = "oh"
-            self.c.df.loc[ho, ["label"]] = "ho"
         if len(H2O) != 0:
             oo, hh = H2O[:, 0], np.unique(H2O[:, 1:])
             self.c.df.loc[oo, ["label"]] = "o*"
@@ -588,15 +605,25 @@ class RUN():
             st, ob = SiO[:, 0], np.unique(SiO[:, 1])
             self.c.df.loc[st, ["label"]] = "st"
             self.c.df.loc[ob, ["label"]] = "ob"
+        if len(OH) != 0:
+            oh, ho = OH[:, 0], OH[:, 1]
+            self.c.df.loc[oh, ["label"]] = "oh"
+            self.c.df.loc[ho, ["label"]] = "ho"
         mask_Ca = self.c.df["type_symbol"] == "Ca"
-        layerCa = (self.c.df.loc[mask_Ca, ["fract_z"]] < 0.40) & (self.c.df.loc[mask_Ca, ["fract_z"]] > 0.14)
+        layerCa = (self.c.df.loc[mask_Ca, ["fract_z"]] < 0.54) & (self.c.df.loc[mask_Ca, ["fract_z"]] > 0.14)
         cah = layerCa[layerCa["fract_z"]].index
         Ca = layerCa[~layerCa["fract_z"]].index
         self.c.df.loc[cah, ["label"]] = "cah"
         self.c.df.loc[Ca, ["label"]] = "Ca"
+        self.c.df.loc[Ca, ["label"]] = "cah"
         clayff_label = ['Ca', 'cah', 'co', 'h*', 'ho', 'o*', 'ob', 'oc', 'st', "oh"]
         unique = np.unique(self.c.df["label"])
         isin = np.isin(unique, clayff_label)
+        charge, charge_df = df2charge4clayff(self.c.df, return_charge=True)
+        print(f"Clayff charge: {charge:.3f}")
+        if charge != 0:
+            print(charge_df)
+        del charge_df
         assert isin.all(), f"Error: Unlabeled atoms exists, {unique[~isin]}"
         
         

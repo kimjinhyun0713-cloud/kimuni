@@ -4,6 +4,8 @@ from .util import *
 from .common import *
 from .analysis import *
 from .equation import *
+from .editor import *
+from .check import *
 
 funcs = {name: obj for name, obj in globals().items() if callable(obj)}
 

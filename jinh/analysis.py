@@ -3,7 +3,7 @@ from .common import list2arr
 from .util.molecule import molCharge
 import numpy as np
 import pandas as pd
-
+from pathlib import Path
 
 
 def find_bond(data, matrix, elem1="O", elem2="H", rcut=1.2, cartesian=False):
@@ -101,6 +101,24 @@ def df2charge(df):
         num = np.sum(mask.to_numpy())
         charge_total += num * molCharge[w]
     return charge_total
+
+def df2charge4clayff(df, return_charge=False):
+    base = Path(__file__).resolve().parent
+    charge_df = pd.read_pickle(f"{base}/data/clayff.pkl")
+    charge_total = 0
+    unique = np.unique(df.loc[:, ["label"]].to_numpy())
+    for w in unique:
+        if w in ["co", "oc"]:
+            continue
+        mask = df.loc[:, ["label"]] == w
+        num = np.sum(mask.to_numpy())
+        where = charge_df["type"] == w
+        c = charge_df.loc[where, "charge"].iloc[0]
+        charge_total += num * c
+    if return_charge:
+        return charge_total, charge_df
+    else:
+        return charge_total
     
 
 if __name__ == "__main__":

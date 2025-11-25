@@ -1,7 +1,6 @@
 import numpy as np
 from jinh import find_bond, find_mole, list2arr
 
-
 class BOND():
     """
     input -> np.ndarray shape(-1, 4) [[elem, x, y, z], []...]
@@ -11,13 +10,18 @@ class BOND():
         self.data = data
         self.matrix = matrix
         self.elem = np.unique(self.data[:, 0])
-
+        self.Ca = np.nonzero(self.data[:, 0] == "Ca")[0]
+        
     def __call__(self, keyword):
         if not hasattr(self, keyword):
             getattr(self, f"find_{keyword}")()
         val = getattr(self, keyword)
         return val
 
+    def vprint(self, string):
+        if self.verbose:
+            print(string)
+    
     def find_Si_O(self):
         self.Si_O = find_bond(self.data, self.matrix, "Si", "O", rcut=2.1, cartesian=False)
 
@@ -52,10 +56,42 @@ class BOND():
             getattr(self, "find_C_O")()
         self.CO3 = find_mole(self.C_O, "C", "O", nbond=3)
 
+    def check_where_OH(self, range_CaOH=None):
+        name_convert = {"SiO4": "SiOH",
+                        "CO3": "HCO3",
+                        "Ca": "CaOH"
+                        }
+        if not hasattr(self, "OH"):
+            getattr(self, "find_OH")()
+        if self.OH.size == 0:
+            return
+        O = self.OH[:, 0]
+        for m in ["CO3", "SiO4"]:
+            if hasattr(self, m):
+                self.vprint(f"[Info]: Searching 'OH' in {m}")
+                val_m = getattr(self, m)
+                if val_m.size == 0:
+                    continue
+                molecular_O = val_m[:, 1:].ravel()
+                not_in_mole = self.OH[~np.isin(O, molecular_O)]
+                in_mole = self.OH[np.isin(O, molecular_O)]
+                setattr(self, "OH", not_in_mole)
+                setattr(self, name_convert[m], in_mole)
+                O = self.OH[:, 0]
+        if range_CaOH is not None:
+            condition1 = self.data[O][:, 3] < range_CaOH[1]
+            condition2 = self.data[O][:, 3] > range_CaOH[0]
+            condition = condition1 & condition2
+            if condition.any():
+                not_in_caoh = self.OH[~condition]
+                in_caoh = self.OH[condition]
+                setattr(self, "OH", not_in_caoh)
+                setattr(self, name_convert["Ca"], in_caoh)
+
 def cal_Qn(SiO4: np.ndarray, verbose=False):
     """
-    found Qn from index of SiO4 
-    input -> np.ndarray shape(-1, 5) [[Si, O1, O2, O3, O4], []...]
+    Cal Qn from index of SiO4 
+    SiO4 -> np.ndarray shape(-1, 5) [[Si, O1, O2, O3, O4], []...]
     """
     index_O = SiO4[:, 1:]
     Qn = []
@@ -70,8 +106,26 @@ def cal_Qn(SiO4: np.ndarray, verbose=False):
         length = Qn.shape[0]
         for i in range(5):
             count = np.sum(Qn == i)
-            if count != 0:
-                print(f"[Info] Q{str(i)}: {count/length:.4f}\n")
+            if count != 0 and verbose:
+                print(f"[Stucture] Q{str(i)}: {count/length:.3f}")
     return Qn
 
+        
+def cal_CS(data: np.ndarray, layer=None, verbose=False):
+    """
+    cal Ca/Si from data
+    data -> np.ndarray shape(-1, 5) [[elem, O1, O2, O3, O4], []...]
+    """
+    n_Si = np.sum(data[:, 0] == "Si")
+    if layer is None:
+        n_Ca = np.sum(data[:, 0] == "Ca")
+    else:
+        mask1 = data[:, 3] > layer[0]
+        mask2 = data[:, 3] < layer[1]
+        mask = mask1 & mask2
+        n_Ca = np.sum(data[mask][:, 0] == "Ca")
+        CS = n_Ca/n_Si
+        if verbose:
+            print(f"[Stucture] C/S: {CS:.3f}")
+    return CS
         

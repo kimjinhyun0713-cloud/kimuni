@@ -7,6 +7,13 @@ from .functions import setMatrix
 from .functions import calLattice
 from .common import overwritePrint
 from .common import list2arr
+import yaml
+
+def load_yaml(infile):
+    with open(infile) as o:
+        data = yaml.load(o, Loader=yaml.FullLoader)
+    return data
+    
 
 def poscar2Dic(infile):
     with open(infile) as o:
@@ -112,7 +119,15 @@ def excel2data(infile):
         for sheet in sheet_names:
             df = o.parse(sheet)
     return df
-    
+
+def excel2Dic(infile):
+    dic = {}
+    with pd.ExcelFile(infile) as o:
+        sheet_names = o.sheet_names
+        for sheet in sheet_names:
+            dic[sheet] = o.parse(sheet)
+    return dic
+
 def cif2data(infile, cartesian=False):
     """
     convert cif data to pd.DateFrame includes whole columns in cif.
@@ -148,4 +163,3 @@ def cif2data(infile, cartesian=False):
             data[["fract_x", "fract_y", "fract_z"]] = data[["fract_x", "fract_y", "fract_z"]] @ matrix
         return lattice, angle, data
         
-    
