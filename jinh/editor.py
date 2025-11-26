@@ -358,7 +358,34 @@ class DATA():
             return True
         else:
             return False
-            
+ 
+    def protonation(self, idx: int):
+        before_natom = len(self.df)
+        fract = self.df.loc[idx, ["fract_x", "fract_y", "fract_z"]]
+        cartesian = fract @ self.matrix
+        if fract["fract_z"] > 0.25:
+            add_iter = iter([[0, 0, 1], [0, 0, -1], [0, 1, 0]])
+            add_iter = iter([[np.sqrt(2) / 2, 0, np.sqrt(2) / 2], [0, 0, -1], [0, 1, 0]])
+        else:
+            add_iter = iter([[0, 0, -1], [0, 0, 1], [0, 1, 0]])
+            add_iter = iter([[-np.sqrt(2) / 2, 0, -np.sqrt(2) / 2], [0, 0, -1], [0, 1, 0]])
+        add = next(add_iter)
+        new_fraction = (cartesian + add) @ np.linalg.inv(self.matrix)
+        while True:
+            proper = True
+            if proper:
+                self.insert(new_fraction, symbol="H", label="ho")
+                break
+            else:
+                try:
+                    add = next(add_iter)
+                except StopIteration:
+                    print("improper Site", f"Index: {idx}")
+                    break
+                new_fraction = (cartesian + add) @ np.linalg.inv(self.matrix)
+        print(f"Number of atoms: {before_natom} -> {len(self.df)}")
+        self.natom = len(self.df)
+        
         
     def substitute(self, before=None, after=None, **kwargs):
         """
@@ -728,41 +755,10 @@ class RUN():
                 if try_count == try_max:
                     print(f"Only can added {add_count}/{n} mol of {m}")
                     break
-        
                 
-    def exec_protonation(self, direct=False):
-        before_natom = len(self.c.df)
+    def exec_protonation(self):
         for s in self.protonation:
-            if direct:
-                cartesian = s
-            else:
-                fract = self.c.df.loc[s, ["fract_x", "fract_y", "fract_z"]]
-                cartesian = fract @ self.c.matrix
-
-            if fract["fract_z"] > 0.25:
-                add_iter = iter([[0, 0, 1], [0 , 0, -1], [0, 1, 0]])
-                add_iter = iter([[np.sqrt(2) / 2, 0, np.sqrt(2) /2], [0 , 0, -1], [0, 1, 0]])
-            else:
-                add_iter = iter([[0, 0, -1], [0 , 0, 1], [0, 1, 0]])
-                add_iter = iter([[-np.sqrt(2) / 2, 0, -np.sqrt(2) /2], [0 , 0, -1], [0, 1, 0]])
-            # add_iter = iter([[0, 0, -1], [0 , 0, 1], [0, 1, 0]])
-            add = next(add_iter)
-            new_fraction = (cartesian + add) @ np.linalg.inv(self.c.matrix)
-            while True:
-#                proper = self.c.proper_location(new_fraction, 1.1, exception=s)
-                proper = True
-                if proper:
-                    self.c.insert(new_fraction, symbol="H", label="ho")
-                    break
-                else:
-                    try:
-                        add = next(add_iter)
-                    except StopIteration:
-                        print("improper Site", f"Index: {s}")
-                        break
-                    new_fraction = (cartesian + add) @ np.linalg.inv(self.c.matrix)
-        print(f"\nNumber of atoms: {before_natom} -> {len(self.c.df)}")
-        self.c.natom = len(self.c.df)
+            self.c.protonation(s)
                     
     def exec_auto_protonation(self):
         if not self.auto_protonation:
@@ -893,7 +889,7 @@ class RUN():
         axis = "z"
         axisDic = {"x": 0, "y": 1, "z": 2}
         self.c.verbose = 2
-        density = 2.5
+        density = 0.5
         offset = 0
         convert = RUN.convert
         mole_dic = {}
@@ -917,13 +913,13 @@ class RUN():
             if s in ["x", "y", "z"]:
                 axis = s
                 continue
-            mole, num = s.split("-") 
+            mole, num = s.split("-")
             mole = mole if mole not in ["w", "c", "ca"] else convert[mole]
             mole_dic[mole] = int(num)
             if mole == "H2O":
                 molWeight_sum += int(num) * molWeight[mole]
             self.mole_sum += int(num)
-        molWeight_sum /= RUN.avo # [g]
+        molWeight_sum /= RUN.avo
         V = molWeight_sum / density * 1e24
         index = axisDic[axis]
         extend_c = V / self.c.V
@@ -937,9 +933,9 @@ class RUN():
         matrix, V = setMatrix(self.c.lattice, self.c.angle)
         grid = cal_uniform(matrix, self.mole_sum,
                            spacing=RUN.spacing,
-                           include_start=[False, False, False],
-                           include_end=[False, False, True],
-                           weight_z=1.5, weight_y=1.7)
+                           include_start=[True, False, False],
+                           include_end=[False, True, False],
+                           weight_z=1.1, weight_y=1)
         arange = np.arange(0, grid.shape[0])
         print("MODE: ", end="")
         if hasattr(RUN, "mode1"):

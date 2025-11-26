@@ -131,7 +131,8 @@ def cal_uniform(matrix, mole_sum, spacing=3.5, **kwargs):
     s = [1 - int(s) for s in start]
     end = kwargs.get("include_end", [True, True, True])
     e = [int(s) for s in end]
-    assert (not any(s and e for s, e in zip(start, end))), "Erorr: Both start & end are actiavte"
+    if (not any(s and e for s, e in zip(start, end))):
+        print("Warning: Both start & end point are actiavted")
     # start = 0 if include_start else 1
     # end = 1 if include_end else 0
     grid = np.mgrid[s[0]:nx+e[0], s[1]:ny+e[1], s[2]:nz+e[2]].reshape(3, -1).T

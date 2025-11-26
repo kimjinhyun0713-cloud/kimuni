@@ -3,7 +3,7 @@
 #----------------------------------------------------------------------
 data_VESTA_phase_1
 
-_chemical_name_common                  'T14_base.cif'
+_chemical_name_common                  'T14_111_origin.cif'
 _cell_length_a                            6.7351999999999999
 _cell_length_b                            7.4252000000000002
 _cell_length_c                           27.9875000000000007

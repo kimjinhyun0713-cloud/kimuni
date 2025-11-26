@@ -56,6 +56,18 @@ class BOND():
             getattr(self, "find_C_O")()
         self.CO3 = find_mole(self.C_O, "C", "O", nbond=3)
 
+    def cal_BO(self):
+        if not hasattr(self, "SiO4"):
+            getattr(self, "SiO4")()
+        unique = np.unique(self.SiO4[:, 1:], return_counts=True)
+        self.BO = np.vstack(unique).T
+
+    def find_NBO(self):
+        if not hasattr(self, "BO"):
+            getattr(self, "cal_BO")()
+        mask = self.BO[:, 1] == 1
+        return self.BO[mask][:, 0]
+
     def check_where_OH(self, range_CaOH=None):
         name_convert = {"SiO4": "SiOH",
                         "CO3": "HCO3",

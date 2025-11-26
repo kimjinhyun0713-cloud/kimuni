@@ -20,7 +20,9 @@ def type2list(data):
     ;; data
     """
     if isinstance(data, list):
-        return data
+        return data.copy()
+    elif isinstance(data, np.ndarray):
+        return list(data)
     elif isinstance(data, (int, float)):
         return [data]
     elif isinstance(data, str):
@@ -28,6 +30,10 @@ def type2list(data):
             return [float(data)]
         except ValueError:
             raise TypeError("Error: cannot convert to a numerical value")
+    else:
+        raise ValueError("Wrong Type")
+        
+            
     
 def list2arr(data, dtype=float):
     """
