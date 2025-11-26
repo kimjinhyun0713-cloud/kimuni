@@ -107,7 +107,7 @@ def cal_Qn(SiO4: np.ndarray, verbose=False):
         for i in range(5):
             count = np.sum(Qn == i)
             if count != 0 and verbose:
-                print(f"[Stucture] Q{str(i)}: {count/length:.3f}")
+                print(f"[Structure] Q{str(i)}: {count/length:.3f}")
     return Qn
 
         
@@ -126,6 +126,6 @@ def cal_CS(data: np.ndarray, layer=None, verbose=False):
         n_Ca = np.sum(data[mask][:, 0] == "Ca")
         CS = n_Ca/n_Si
         if verbose:
-            print(f"[Stucture] C/S: {CS:.3f}")
+            print(f"[Structure] C/S: {CS:.3f}")
     return CS
         

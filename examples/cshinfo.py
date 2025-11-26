@@ -2,6 +2,7 @@
 from jinh_csh import STRUCTURE
 from pathlib import Path
 import argparse
+
 par = argparse.ArgumentParser(description="", prog="")
 par.add_argument('infile', nargs="*",
                  help="Input CIF file (if not provided, it will be selected automatically)")

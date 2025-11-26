@@ -1,0 +1,89 @@
+#!/usr/bin/env python
+import numpy as np
+import re
+import os, sys
+from jinh import lmp2Dic
+import shutil
+import argparse
+import glob
+
+par = argparse.ArgumentParser(description="", prog="")
+par.add_argument('infiles', nargs="?", help="#Infile")
+par.add_argument('-s', '--size', nargs=2, type=int, default=[50, 10], help="The number of folder * POSCAR, 10 50")
+args = par.parse_args()
+
+n_folder, n_poscar = args.size
+
+INCAR = "./INCAR"
+POTCAR = "./POTCAR"
+KPOINTS = "./KPOINTS"
+
+infile = glob.glob("*lammpstrj")[0]
+dic = lmp2Dic(infile, to_fract=True)
+data = dic["ldata"]
+elem = dic["elem"]
+matrix = dic["matrix"]
+
+assert n_folder * n_poscar <= data.shape[0]
+
+
+folder_idx = 0
+PATH = []
+cwd = os.getcwd()
+basename, _ = os.path.splitext(infile)
+for i in range(n_folder):
+    dname = f"{basename}.{folder_idx:03}"
+    dpath = os.path.join(cwd, dname)
+    PATH.append(dpath)
+    folder_idx += 1
+    os.makedirs(dpath, exist_ok=True)
+    shutil.copy(INCAR, f"{dpath}/INCAR")
+    shutil.copy(KPOINTS, f"{dpath}/KPOINTS")
+    shutil.copy(POTCAR, f"{dpath}/POTCAR")
+    
+
+string_elem = f'{" ".join(e for e in elem)}\n'
+string_n_elem = f'{" ".join(str(np.sum(data[0, :, 0] == e)) for e in elem)}\n'
+string_zeros = "0.0 0.0 0.0\n"
+fmt = "{:24.16f} {:24.16f} {:24.16f}\n"
+
+elemMaskDic = {}
+for e in elem:
+    elemMaskDic[e] = data[0, :, 0] == e
+
+total_index = 0
+poscar_index = 0
+folder_index = 0
+for i in range(data.shape[0]):
+    # i *= 10
+    body = f"{basename}\n"
+    body += " 1.000000000000000\n"
+    body += "{:18.12f} {:18.12f} {:18.12f}\n".format(*matrix[i, 0, :])
+    body += "{:18.12f} {:18.12f} {:18.12f}\n".format(*matrix[i, 1, :])
+    body += "{:18.12f} {:18.12f} {:18.12f}\n".format(*matrix[i, 2, :])
+    body += string_elem
+    body += string_n_elem
+    body += "Direct\n"
+    for e in elem:
+        view = data[i, elemMaskDic[e]]
+        for j in range(view.shape[0]):
+            body += fmt.format(*view[j, 1:])
+    body += "\n"
+    body += string_zeros * data.shape[1]
+    fname = f"POSCAR.{poscar_index:03}"
+    fpath = os.path.join(PATH[folder_index], fname)
+    if poscar_index == n_poscar - 1:
+        poscar_index = 0
+        if folder_index == n_folder - 1:
+            print()
+            print("Total steps", data.shape[0])
+            print("Total POSCAR", total_index + 1)
+            break
+        else:
+            folder_index += 1
+    else:
+        poscar_index += 1
+    total_index += 1
+#    print(folder_index, poscar_index)
+    with open(fpath, "w") as o:
+        o.write(body)    

@@ -8,6 +8,6 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     package_data={
-        'kimuni': ['./misc/**/*', './examples/**/*'],
+        'kimuni': ['./misc/**/*', './examples/**/*', 'jinh/data/*', 'jinh_csh/data/*'],
     },
 )
