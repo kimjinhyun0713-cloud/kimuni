@@ -1,0 +1,148 @@
+reset_timestep  0
+dump            2 all custom 1000 ${base}.${fstep}.lammpstrj id type element x y z
+dump            2 all custom 1000 BT.h.00.00.${fstep}.lammpstrj id type element x y z
+dump            2 all custom 1000 BT.h.00.00.00000.lammpstrj id type element x y z
+dump_modify     2 element ${elem} sort id
+dump_modify     2 element Ca C H H O O O O Si sort id
+fix             1 all npt temp 330 330 $(dt * 100) aniso 1.01325 1.01325 $(dt * 1000)
+fix             1 all npt temp 330 330 0.050000000000000002776 aniso 1.01325 1.01325 $(dt * 1000)
+fix             1 all npt temp 330 330 0.050000000000000002776 aniso 1.01325 1.01325 0.5
+Resetting global fix info from restart file:
+  fix style: npt, fix ID: 1
+fix             2 layer recenter INIT INIT INIT
+variable        i loop 4
+label           loop
+run             2000
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Your simulation uses code contributions which should be cited:
+
+- USER-DEEPMD package:
+
+@article{Wang_ComputPhysCommun_2018_v228_p178,
+  author = {Wang, Han and Zhang, Linfeng and Han, Jiequn and E, Weinan},
+  doi = {10.1016/j.cpc.2018.03.016},
+  url = {https://doi.org/10.1016/j.cpc.2018.03.016},
+  year = 2018,
+  month = {jul},
+  publisher = {Elsevier {BV}},
+  volume = 228,
+  journal = {Comput. Phys. Commun.},
+  title = {{DeePMD-kit: A deep learning package for many-body potential energy representation and molecular dynamics}},
+  pages = {178--184}
+}
+@misc{Zeng_JChemPhys_2023_v159_p054801,
+  title  = {{DeePMD-kit v2: A software package for deep potential models}},
+  author =   {Jinzhe Zeng and Duo Zhang and Denghui Lu and Pinghui Mo and Zeyu Li
+         and Yixiao Chen and Mari{\'a}n Rynik and Li'ang Huang and Ziyao Li and 
+         Shaochen Shi and Yingze Wang and Haotian Ye and Ping Tuo and Jiabin
+         Yang and Ye Ding and Yifan Li and Davide Tisi and Qiyu Zeng and Han 
+         Bao and Yu Xia and Jiameng Huang and Koki Muraoka and Yibo Wang and 
+         Junhan Chang and Fengbo Yuan and Sigbj{\o}rn L{\o}land Bore and Chun
+         Cai and Yinnian Lin and Bo Wang and Jiayan Xu and Jia-Xin Zhu and 
+         Chenxing Luo and Yuzhi Zhang and Rhys E A Goodall and Wenshuo Liang
+         and Anurag Kumar Singh and Sikai Yao and Jingchao Zhang and Renata
+         Wentzcovitch and Jiequn Han and Jie Liu and Weile Jia and Darrin M
+         York and Weinan E and Roberto Car and Linfeng Zhang and Han Wang},
+  journal =  {J. Chem. Phys.},
+  volume =   159,
+  issue =    5,  
+  year =    2023,
+  pages  =   054801,
+  doi =      {10.1063/5.0155600},
+}
+
+CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE-CITE
+
+Generated 0 of 36 mixed pair_coeff terms from geometric mixing rule
+All restart file global fix info was re-assigned
+Neighbor list info ...
+  update: every = 1 steps, delay = 0 steps, check = yes
+  max neighbors/atom: 2000, page size: 100000
+  master list distance cutoff = 9
+  ghost atom cutoff = 9
+  binsize = 4.5, bins = 7 5 13
+  1 neighbor lists, perpetual/occasional/extra = 1 0 0
+  (1) pair deepmd, perpetual
+      attributes: full, newton on
+      pair build: full/bin/atomonly
+      stencil: full/bin/3d
+      bin: standard
+Per MPI rank memory allocation (min/avg/max) = 15.02 | 15.02 | 15.02 Mbytes
+   Step         TotEng          Temp          Press          Volume        Density    
+         0  -10915.981      330.66687      1124.7298      21814.37       1.5382349    
+      1000  -10913.561      346.52959      216.22104      21411.898      1.5671486    
+      2000  -10917.811      336.01528     -706.60156      21436.311      1.5653638    
+Loop time of 30.4934 on 12 procs for 2000 steps with 2008 atoms
+
+Performance: 2.833 ns/day, 8.470 hours/ns, 65.588 timesteps/s, 131.701 katom-step/s
+98.7% CPU use with 1 MPI tasks x 12 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 29.665     | 29.665     | 29.665     |   0.0 | 97.28
+Neigh   | 0.55984    | 0.55984    | 0.55984    |   0.0 |  1.84
+Comm    | 0.07019    | 0.07019    | 0.07019    |   0.0 |  0.23
+Output  | 0.0022521  | 0.0022521  | 0.0022521  |   0.0 |  0.01
+Modify  | 0.17172    | 0.17172    | 0.17172    |   0.0 |  0.56
+Other   |            | 0.02444    |            |       |  0.08
+
+Nlocal:           2008 ave        2008 max        2008 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           8067 ave        8067 max        8067 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:       574796 ave      574796 max      574796 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 574796
+Ave neighs/atom = 286.25299
+Neighbor list builds = 50
+Dangerous builds = 0
+write_restart   rst.*
+System init for write_restart ...
+Generated 0 of 36 mixed pair_coeff terms from geometric mixing rule
+write_data      ${base}.data.*
+write_data      BT.h.00.00.data.*
+System init for write_data ...
+Generated 0 of 36 mixed pair_coeff terms from geometric mixing rule
+next i
+jump            SELF loop
+run             2000
+Generated 0 of 36 mixed pair_coeff terms from geometric mixing rule
+Per MPI rank memory allocation (min/avg/max) = 16.48 | 16.48 | 16.48 Mbytes
+   Step         TotEng          Temp          Press          Volume        Density    
+      2000  -10917.811      336.01528     -706.60156      21436.311      1.5653638    
+      3000  -10914.446      333.19575      3819.191       21383.957      1.5691962    
+      4000  -10919.177      327.50111      1757.9525      21408.845      1.567372     
+Loop time of 33.0558 on 12 procs for 2000 steps with 2008 atoms
+
+Performance: 2.614 ns/day, 9.182 hours/ns, 60.504 timesteps/s, 121.492 katom-step/s
+97.0% CPU use with 1 MPI tasks x 12 OpenMP threads
+
+MPI task timing breakdown:
+Section |  min time  |  avg time  |  max time  |%varavg| %total
+---------------------------------------------------------------
+Pair    | 32.391     | 32.391     | 32.391     |   0.0 | 97.99
+Neigh   | 0.48243    | 0.48243    | 0.48243    |   0.0 |  1.46
+Comm    | 0.047129   | 0.047129   | 0.047129   |   0.0 |  0.14
+Output  | 0.0023077  | 0.0023077  | 0.0023077  |   0.0 |  0.01
+Modify  | 0.11477    | 0.11477    | 0.11477    |   0.0 |  0.35
+Other   |            | 0.01779    |            |       |  0.05
+
+Nlocal:           2008 ave        2008 max        2008 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Nghost:           8192 ave        8192 max        8192 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+Neighs:              0 ave           0 max           0 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+FullNghs:       575128 ave      575128 max      575128 min
+Histogram: 1 0 0 0 0 0 0 0 0 0
+
+Total # of neighbors = 575128
+Ave neighs/atom = 286.41833
+Neighbor list builds = 49
+Dangerous builds = 0

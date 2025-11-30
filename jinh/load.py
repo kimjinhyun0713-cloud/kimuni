@@ -7,9 +7,10 @@ from .functions import setMatrix
 from .functions import calLattice
 from .common import overwritePrint
 from .common import list2arr
-import yaml
+
 
 def load_yaml(infile):
+    import yaml
     with open(infile) as o:
         data = yaml.load(o, Loader=yaml.FullLoader)
     return data
@@ -100,8 +101,9 @@ def lmp2Dic(lammpstrj, to_fract=False):
                 ldata[i, :, 1:4] = ldata[i, :, 1:4] @ np.linalg.inv(matrix_)
             matrix = np.vstack(matrix_list).reshape(-1, 3, 3)
             del matrix_list
-            
-        dic = {k: v for k, v in locals().items() if k in ["nlines", "ldata", "natoms", "nstep", "lattice", "angle", "elem", "ldata", "matrix"]}
+        keyword = ["nlines", "ldata", "natoms", "nstep", "lattice",
+                   "angle", "elem", "ldata", "matrix", "ncol"]
+        dic = {k: v for k, v in locals().items() if k in keyword}
         return dic
             
 

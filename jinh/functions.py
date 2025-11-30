@@ -47,7 +47,7 @@ def calLattice(arr):
     return lattice, angle, zeropoint
 
 
-def setMatrix(lattice, angle):
+def setMatrix(lattice, angle, return_lammps_matrix=False):
     """
     It returns matrix suit for MD simulations
     Be careful the matrix shapes like
@@ -68,7 +68,32 @@ def setMatrix(lattice, angle):
         [x, y * np.cos(gamma), z * np.cos(beta)],
         [0, y * np.sin(gamma), z * (np.cos(alpha) - np.cos(beta) * np.cos(gamma)) / np.sin(gamma)],
         [0, 0, z * V / np.sin(gamma)]]).T
-    return matrix, V
+    if return_lammps_matrix:
+        a = lattice[0]
+        b = lattice[1]
+        c = lattice[2]
+        lx = a
+        xy = b * np.cos(gamma)
+        xz = c * np.cos(beta)
+        ly = np.sqrt(b**2 - xy**2)
+        yz = (b * c * np.cos(alpha) - xy * xz)/ly
+        lz = np.sqrt(c**2 - xz**2 - yz**2)
+        lammps_matrix = [[0, lx, xy], [0, ly, xz], [0, lz, yz]]
+        lammps_matrix = np.round(np.array(lammps_matrix), 6)
+        return matrix, V, lammps_matrix
+    else:
+        return matrix, V
+
+
+def lammpsLattice(self, matrix):
+    lx = a
+    xy = b * np.cos(gamma)
+    xz = c * np.cos(beta)
+    ly = np.sqrt(b**2 - xy**2)
+    yz = (b * c * np.cos(alpha) - xy * xz)/ly
+    lz = np.sqrt(c**2 - xz**2 - yz**2)
+    lammps_lattice = [[0, lx, xy], [0, ly, xz], [0, lz, yz]]
+    self.lammps_lattice = np.round(np.array(lammps_lattice), 6)
 
 def cal_distance(pos1, pos2, matrix, cartesian=False):
     """

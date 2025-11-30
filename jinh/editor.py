@@ -49,6 +49,9 @@ class DATA():
             
     def update_matrix(self):
         self.matrix, self.V = setMatrix(self.lattice, self.angle)
+
+    def return_charge(self):
+        return df2charge(self.df)
         
     def min_query(self, npoint=100, rcut=2, return_coord=False, **kwargs):
         """
@@ -82,7 +85,7 @@ class DATA():
         isolated_points = cart_points[r_min >= rcut] @ np.linalg.inv(self.matrix)
         if return_coord:
             return isolated_points[0] if len(isolated_points) != 0 else None
-        if self.verbose == 1:
+        if self.verbose:
             print()
             print(f"{len(isolated_points)} coordinations for insert element, rcut={rcut}")
             for point in isolated_points:
@@ -260,21 +263,24 @@ class DATA():
         symbol = [symbol] if symbol is not None and not isinstance(symbol, list) else symbol
         if idx:
             for i in idx:
-                print(f"Delete symbol: {self.df.at[i, 'type_symbol']}, idx: {i}")
+                if self.verbose:
+                    print(f"Delete symbol: {self.df.at[i, 'type_symbol']}, idx: {i}")
                 self.df.drop(i, axis=0, inplace=True)
         if label:
             for l in label:
                 flag = self.df["label"].str.lower() == l.lower()
                 matching_idx = self.df[flag].index
                 for i in matching_idx:
-                    print(f"Delete symbol: {self.df.at[i, 'type_symbol']}, label: {l}")
+                    if self.verbose:
+                        print(f"Delete symbol: {self.df.at[i, 'type_symbol']}, label: {l}")
                 self.df.drop(matching_idx, axis=0, inplace=True)
         if symbol:
             for s in symbol:
                 flag = self.df["symbol"].str.lower() == s.lower()
                 matching_idx = self.df[flag].index
                 for i in matching_idx:
-                    print(f"Delete symbol: {self.df.at[i, 'type_symbol']}, symbol: {s}")
+                    if self.verbose:
+                        print(f"Delete symbol: {self.df.at[i, 'type_symbol']}, symbol: {s}")
                 self.df.drop(matching_idx, axis=0, inplace=True)
                 
         self.natom = len(self.df)
@@ -295,11 +301,11 @@ class DATA():
             output = ""
             check = self.check_neigbor(x, y, z, rcut=2.5, matrix=matrix) if matrix is not None else self.check_neigbor(x, y, z, rcut=2.5)
             if check.size != 0:
-                if self.verbose == 0:
+                if self.verbose:
                     output += f"Warning! ({x:.3f}, {y:.3f}, {z:.3f}) label: {label} symbol: {symbol}\n"
                     output += "Has some near neighbor atoms\n"
                 for arr in check:
-                    if self.verbose == 0:
+                    if self.verbose:
                         output += "{} id: {} {:.2f}\n".format(*arr)
                         if arr[2] < 1.5:
                         # print(x, y, z)
@@ -318,8 +324,8 @@ class DATA():
                 template_df.loc[molecule, 'fract_x'] = x
                 template_df.loc[molecule, 'fract_y'] = y
                 template_df.loc[molecule, 'fract_z'] = z
-            if self.verbose >= 1:
-                output += f"Updated new molecule: ({x:.3f}, {y:.3f}, {z:.3f}) label: {label} symbol: {symbol}\n"
+            if self.verbose:
+                output += f"Updated new molecule: ({x:.3f}, {y:.3f}, {z:.3f}) label: {label} symbol: {symbol}"
             return True, output
         x, y, z = xyz
         columns = self.columns if columns is None else columns
@@ -347,7 +353,7 @@ class DATA():
             label = label.replace("@", "*") if label is not None else symbol
             updated, output = updateMole()
             output_ += output
-        if self.verbose == 1:
+        if self.verbose:
             print(output_)
         if updated:
             self.natom = len(self.df)
@@ -561,6 +567,7 @@ class RUN():
     convert["w"] = "H2O"
     convert["ca"] = "Ca"
     avo = 6.0221408e+23
+    verbose = False
     
     def __init__(self, infile):
         self.c = DATA(infile)
@@ -641,7 +648,7 @@ class RUN():
         Ca = layerCa[~layerCa["fract_z"]].index
         self.c.df.loc[cah, ["label"]] = "cah"
         self.c.df.loc[Ca, ["label"]] = "Ca"
-#        self.c.df.loc[Ca, ["label"]] = "cah"
+        self.c.df.loc[Ca, ["label"]] = "cah"
         clayff_label = ['Ca', 'cah', 'co', 'h*', 'ho', 'o*', 'ob', 'oc', 'st', "oh"]
         unique = np.unique(self.c.df["label"])
         isin = np.isin(unique, clayff_label)
@@ -715,7 +722,6 @@ class RUN():
             axis, *range_ = coord.split("-", 2)
             kwargs[f"range_{axis}"] = [float(s) for s in range_]
         self.c.min_query(rcut=2.5, **kwargs)
-        print()
         sys.exit(0)
 
     def exec_random_insert(self):
@@ -884,12 +890,20 @@ class RUN():
             dic[axis] = float(key)
             abc[index[axis]] = float(val)
         self.c.extendLattice(abc=abc, key=dic)
-
-    def exec_make_interface(self): #ckpt_interface
+    
+    def exec_make_interface(self, **kwargs): #ckpt_interface
+        d_density = 0.6
+        d_include_start = [True, False, False],
+        d_include_end = [False, True, False],
+        d_weight_z = 1.5
+        d_weight_y = 1.1
+        d_weight_x = 1.1
+        for key in ["density", "include_start", "include_end",
+                    "weight_z", "weight_y", "weight_x"]:
+            locals()[key] = kwargs.get("density", f"d_{key}")
         axis = "z"
         axisDic = {"x": 0, "y": 1, "z": 2}
-        self.c.verbose = 2
-        density = 0.5
+        self.c.verbose = False
         offset = 0
         convert = RUN.convert
         mole_dic = {}
@@ -933,9 +947,9 @@ class RUN():
         matrix, V = setMatrix(self.c.lattice, self.c.angle)
         grid = cal_uniform(matrix, self.mole_sum,
                            spacing=RUN.spacing,
-                           include_start=[True, False, False],
-                           include_end=[False, True, False],
-                           weight_z=1.1, weight_y=1)
+                           include_start=include_start,
+                           include_end=include_end,
+                           weight_z=weight_z, weight_y=weight_y, weight_x=weight_x)
         arange = np.arange(0, grid.shape[0])
         print("MODE: ", end="")
         if hasattr(RUN, "mode1"):
@@ -972,8 +986,8 @@ class RUN():
             mask_mode_Ca = np.nonzero(mask_mode_a & mask_mode_b & mask_mode_c)[0]
             mask_mode_CO3 = np.nonzero(mask_mode_aa & mask_mode_bb & mask_mode_c)[0]
             # size = mole_dic.get("CO3", 0) + mole_dic.get("Ca", 0) + 5
-            Ca_indices = mask_mode_Ca[np.random.choice(len(mask_mode_Ca), size=mole_dic.get("Ca", 0) + 2, replace=False)]
-            CO3_indices = mask_mode_CO3[np.random.choice(len(mask_mode_CO3), size=mole_dic.get("CO3", 0) + 2, replace=False)]
+            Ca_indices = mask_mode_Ca[np.random.choice(len(mask_mode_Ca), size=mole_dic.get("Ca", 0), replace=False)]
+            CO3_indices = mask_mode_CO3[np.random.choice(len(mask_mode_CO3), size=mole_dic.get("CO3", 0), replace=False)]
             setted_indices = np.concatenate([Ca_indices, CO3_indices])
             unsetted_indices = np.setdiff1d(arange, setted_indices)
             setted_mole = ["CO3", "Ca"]
@@ -1016,7 +1030,8 @@ class RUN():
                         if inserted:
                             not_selected = not_selected[not_selected != index]
                             break
-                    print(f"\r{mole} {_ + 1} / {num}", end="", flush=True)
+                    if self.c.verbose:
+                        print(f"\r{mole} {_ + 1} / {num}", end="", flush=True)
         print(f"\nNumber of atoms: {before_natom} -> {len(self.c.df)}")
 
         
@@ -1064,8 +1079,8 @@ def main():
         'infile', nargs="?",
         help="Input CIF file (if not provided, it will be selected automatically)")
     par.add_argument(
-        '--verbose', choices=[0, 1, 2], type=int, default=1,
-        help="set verbosity level by number")
+        '--verbose', action="store_false", default=True,
+        help="set verbosity level by bool")
     par.add_argument(
         '-o', '--outfile',
         help="Name of outfile")

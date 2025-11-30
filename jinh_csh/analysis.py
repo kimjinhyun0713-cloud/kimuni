@@ -100,7 +100,7 @@ class BOND():
                 setattr(self, "OH", not_in_caoh)
                 setattr(self, name_convert["Ca"], in_caoh)
 
-def cal_Qn(SiO4: np.ndarray, verbose=False):
+def cal_Qn(SiO4: np.ndarray, verbose=False, ratio=False):
     """
     Cal Qn from index of SiO4 
     SiO4 -> np.ndarray shape(-1, 5) [[Si, O1, O2, O3, O4], []...]
@@ -114,19 +114,22 @@ def cal_Qn(SiO4: np.ndarray, verbose=False):
         other_chains_O = index_O[mask]
         Qn.append(np.sum(np.isin(other_chains_O, index_O[i])))
     Qn = list2arr(Qn, dtype=int)
+    QnDic = {}
     if verbose:
         length = Qn.shape[0]
         for i in range(5):
             count = np.sum(Qn == i)
             if count != 0 and verbose:
-                print(f"[Structure] Q{str(i)}: {count/length:.3f}")
-    return Qn
+                val = count/length
+                QnDic[i] = val if ratio else count
+                print(f"[Structure] Q{str(i)}: {val:.3f}")
+    return QnDic
 
         
 def cal_CS(data: np.ndarray, layer=None, verbose=False):
     """
     cal Ca/Si from data
-    data -> np.ndarray shape(-1, 5) [[elem, O1, O2, O3, O4], []...]
+    data -> np.ndarray shape(-1, 4) [[elem, x, y, z], []...]
     """
     n_Si = np.sum(data[:, 0] == "Si")
     if layer is None:
@@ -141,3 +144,10 @@ def cal_CS(data: np.ndarray, layer=None, verbose=False):
             print(f"[Structure] C/S: {CS:.3f}")
     return CS
         
+def cal_MCL(Q1: int, Q2: int) -> float:
+    if Q1 == 0:
+        val = float("inf")
+    else:
+        val = 2 * (1 + Q2 / Q1)
+    print(f"[Structure] MCL: {val:.3f}")
+    return val

@@ -1,17 +1,18 @@
 info:
   base: T14_331_base.cif
-  out: T14_331_0.5B.cif
-  model: 
+  out: bt.09.h.cif
+  model:
     BT:
       surface:
         - [0.870,0.950]
         - [0.048,0.117]
       bulk:
-        - [0.374,0.452]
         - [0.540,0.625]
+        - [0.374,0.452]
 
     PT:
       surface:
+      
         - [0.793,0.875]
         - [0.125,0.206]
       bulk:
@@ -21,13 +22,9 @@ info:
 command:
   - func: defect_BT
     args:
-      scope: half
-      termination: False
-      
-#  - func: supercell
-#    args:
-#      supercell: [3, 3, 1]
-      
+      scope: all
+      termination: True
+      seed: 713
 
 
 

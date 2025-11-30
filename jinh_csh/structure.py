@@ -3,7 +3,7 @@ import pandas as pd
 import os, sys
 from jinh import df2xyz, type2list
 from jinh.editor import DATA
-from .analysis import BOND, cal_Qn, cal_CS
+from .analysis import BOND, cal_Qn, cal_CS, cal_MCL
 
 class STRUCTURE(DATA):
     
@@ -24,6 +24,7 @@ class STRUCTURE(DATA):
         for v in ["mole_all", "mole_need_check", "verbose"]:
             setattr(self, v, getattr(self.__class__, v))
         self.init_setting()
+        self.rm_list = list()
         
     def __repr__(self):
         string = " ".join(k for k in self.__dict__.keys())
@@ -61,6 +62,14 @@ class STRUCTURE(DATA):
                 setattr(self, m, getattr(self.bond, m))
 
                 
+    def set_model(self):
+        if not hasattr(self, "model"):
+            return
+        self.tetra = {"BT": {}, "PT": {}}
+        self.tetra["BT"] = {"surface": [], "bulk": []}
+        self.tetra["PT"] = {"surface": [], "bulk": []}
+
+        
     def validate_chain(self):
         if not self.is_csh:
             return
@@ -70,17 +79,12 @@ class STRUCTURE(DATA):
             broken_str = ' '.join(str(v) for v in broken)
             print(f"\nWarning: Some Silicate Chain broken: {broken_str}")
             sys.exit(1)
-        self.Qn = cal_Qn(self.SiO4, verbose=self.verbose)
-        self.CS = cal_CS(self.data, layer=self.layer_range, verbose=self.verbose)
-
+        self.Qn = cal_Qn(self.SiO4, verbose=True)
+        self.CS = cal_CS(self.data, layer=self.layer_range, verbose=True)
+        
         
     def validate_tetra(self):
-        if not hasattr(self, "model"):
-            return
         model = getattr(self, "model")
-        self.tetra = {"BT": {}, "PT": {}}
-        self.tetra["BT"] = {"surface": [], "bulk": []}
-        self.tetra["PT"] = {"surface": [], "bulk": []}
         BTcount = 0
         PTcount = 0
         for key1 in model.keys():
@@ -89,56 +93,66 @@ class STRUCTURE(DATA):
                 for s in ranged:
                     mask1 = self.data[self.elem_index["Si"], 3] > s[0]
                     mask2 = self.data[self.elem_index["Si"], 3] < s[1]
-                    mask = mask1 & mask2 
-                    self.tetra[key1][key2].append(self.elem_index["Si"][mask][0])
+                    mask = mask1 & mask2
+                    self.tetra[key1][key2].append(self.elem_index["Si"][mask])
                     if key1 == "BT":
                         BTcount += np.sum(mask)
                     else:
                         PTcount += np.sum(mask) 
         assert (BTcount + PTcount) == self.elem_index["Si"].shape[0], "Check model file"
-        self.vprint(f"[Structure] BT: {BTcount}, PT: {PTcount}")
-        
+        print(f"[Structure] BT: {BTcount}, PT: {PTcount}")
+        termQ2 = len(self.tetra["PT"]["bulk"][0]) + len(self.tetra["PT"]["bulk"][1])
+        termQ2 += len(self.tetra["BT"]["bulk"][0]) + len(self.tetra["BT"]["bulk"][1])
+        Q1 = self.Qn.get(1, 0)
+        Q2 = self.Qn.get(2, 0) - termQ2
+        self.MCL = cal_MCL(Q1, Q2)
         
     def terminate(self, target: int | list):
         target = type2list(target)
         for t in target:
             self.protonation(t)
 
-    def decorate_Ca(self, target: int | list):
+    def decorate_Ca(self, target: int | list, location: str):
         target = type2list(target)
+        if location == "top":
+            add = [0, 0, 1.7]
+        elif location == "bottom":
+            add = [0, 0, -1.7]
+        else:
+            ValueError("ERROR: set 'location'")
         for t in target:
             cartesian = self.data[t, 1:] @ self.matrix
-            fract = (cartesian + [0, 0, 1.7]) @ np.linalg.inv(self.matrix)
+            fract = (cartesian + add) @ np.linalg.inv(self.matrix)
             self.insert(fract, symbol="Ca", label="Ca")
             
-    def remove_BT(self, target: int | list, termination: bool):
+    def remove_BT(self, target: int | list, termination: bool, location: str):
         if not hasattr(self, "model"):
             raise ValueError("Missing keyword' model' in config")
         mask = np.isin(self.SiO4[:, 0], target)
-        target_list = type2list(target)
+        self.rm_list.append(target)
         target_T = self.SiO4[mask]
         candidate_O = np.unique(target_T[:, 1:])
         NBO = self.bond.find_NBO()
         target_O = candidate_O[np.isin(candidate_O, NBO)]
         if termination:
-            self.terminate(target_O)
+            term_O = candidate_O[~np.isin(candidate_O, NBO)]
+            self.terminate(term_O)
         else:
-            self.decorate_Ca(target)
+            self.decorate_Ca(target, location=location)
         target_OH = self.SiOH[np.isin(self.SiOH[:, 0], target_O)].ravel()
-        target_list = np.append(target_OH, target_list)
-        target_list = sorted(target_list, reverse=True)
-        for t in target_list:
-            self.delete(index=t)
-            
+        self.rm_list.append(target_OH)
             
     def set_info(self):
         df = pd.DataFrame()
-        df["Structure"] = [self.base]
+        df["Structure"] = [self.base.replace(".00", "")]
+        df["Natoms"] = len(self.df)
         for m in self.mole_all:
             if hasattr(self, m):
                 val = getattr(self, m)
                 num = val.shape[0]
-                df[m] = [int(num)]
+            else:
+                num = 0
+            df[m] = [int(num)]
         self.__class__.info.append(df)
 
         

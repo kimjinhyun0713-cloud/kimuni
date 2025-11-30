@@ -43,3 +43,16 @@ molCharge["CO2"] = 0
 molCharge["OH"] = -1
 molCharge["SiO4"] = -4
 
+
+mass = {}  # [mass charge]
+mass["Mg"] = 24.310
+mass["Ca"] = 40.080
+mass["Sr"] = 87.620
+mass["Ba"] = 137.330
+mass["C"] = 12.010
+mass["O"] = 16.000
+mass["Ow"] = 16.000
+mass["Hw"] = 1.0078
+mass["H"] = 1.0078
+mass["Si"] = 28.086
+mass["I"] = 126.904
