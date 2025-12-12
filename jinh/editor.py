@@ -389,7 +389,8 @@ class DATA():
                     print("improper Site", f"Index: {idx}")
                     break
                 new_fraction = (cartesian + add) @ np.linalg.inv(self.matrix)
-        print(f"Number of atoms: {before_natom} -> {len(self.df)}")
+        if self.verbose:
+            print(f"Number of atoms: {before_natom} -> {len(self.df)}")
         self.natom = len(self.df)
         
         
@@ -621,7 +622,7 @@ class RUN():
         if not self.clayff:
             return
         data = self.c.df[["type_symbol", "fract_x", "fract_y", "fract_z"]].to_numpy()
-        OH_bond = find_bond(data, self.c.matrix)
+        OH_bond = find_bond(data, self.c.matrix, rcut=1.15)
         OH = find_mole(OH_bond, nbond=1)
         H2O = find_mole(OH_bond, nbond=2)
         CO3 = find_mole(find_bond(data, self.c.matrix, rcut=1.4, elem1="C", elem2="O"), nbond=3, elem1="C", elem2="O")
@@ -643,7 +644,7 @@ class RUN():
             self.c.df.loc[oh, ["label"]] = "oh"
             self.c.df.loc[ho, ["label"]] = "ho"
         mask_Ca = self.c.df["type_symbol"] == "Ca"
-        layerCa = (self.c.df.loc[mask_Ca, ["fract_z"]] < 0.46) & (self.c.df.loc[mask_Ca, ["fract_z"]] > 0.14)
+        layerCa = (self.c.df.loc[mask_Ca, ["fract_z"]] < 0.54) & (self.c.df.loc[mask_Ca, ["fract_z"]] > 0.02)
         cah = layerCa[layerCa["fract_z"]].index
         Ca = layerCa[~layerCa["fract_z"]].index
         self.c.df.loc[cah, ["label"]] = "cah"
@@ -652,12 +653,13 @@ class RUN():
         clayff_label = ['Ca', 'cah', 'co', 'h*', 'ho', 'o*', 'ob', 'oc', 'st', "oh"]
         unique = np.unique(self.c.df["label"])
         isin = np.isin(unique, clayff_label)
+        assert isin.all(), f"Error: Unlabeled atoms exists, {unique[~isin]}, {np.nonzero(self.c.df['label'] == 'O')}"
         charge, charge_df = df2charge4clayff(self.c.df, return_charge=True)
         print(f"Clayff charge: {charge:.3f}")
         if charge != 0:
             print(charge_df)
         del charge_df
-        assert isin.all(), f"Error: Unlabeled atoms exists, {unique[~isin]}"
+
         
         
     def exec_sub(self):
@@ -892,15 +894,23 @@ class RUN():
         self.c.extendLattice(abc=abc, key=dic)
     
     def exec_make_interface(self, **kwargs): #ckpt_interface
-        d_density = 0.6
-        d_include_start = [True, False, False],
-        d_include_end = [False, True, False],
-        d_weight_z = 1.5
-        d_weight_y = 1.1
-        d_weight_x = 1.1
-        for key in ["density", "include_start", "include_end",
-                    "weight_z", "weight_y", "weight_x"]:
-            locals()[key] = kwargs.get("density", f"d_{key}")
+        density = 1.1
+        include_start = [True, False, True]
+        include_end = [False, True, True]
+        weight_z = 1.4
+        weight_y = 1.3
+        weight_x = 1.3
+
+        include_start = [True, False, True]
+        include_end = [False, True, True]
+        weight_z = 0.9
+        weight_y = 1.2
+        weight_x = 1.2
+        density = 1
+        
+        # for key in ["density", "include_start", "include_end",
+        #             "weight_z", "weight_y", "weight_x"]:
+        #     locals()[key] = kwargs.get("density", f"d_{key}")
         axis = "z"
         axisDic = {"x": 0, "y": 1, "z": 2}
         self.c.verbose = False

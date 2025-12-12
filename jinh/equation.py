@@ -1,7 +1,7 @@
 from .common import list2arr
 import numpy as np
 
-def eq_water_density(temp, version):
+def eq_water_density(temp: np.ndarray | list, version: int = 0) -> np.ndarray:
     """
     ref: Kell, George S. "Density, thermal expansivity, and
     compressibility of liquid water from 0. deg. to 150. deg..

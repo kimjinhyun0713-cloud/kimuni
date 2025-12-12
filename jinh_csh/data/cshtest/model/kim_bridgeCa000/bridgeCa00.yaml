@@ -1,14 +1,14 @@
 info:
-  base: T14_111_base.cif
-  out: T14_331_base.cif
-  model: 
+  base: T14_441_base.cif
+  out: kim_bridgeCa000
+  model:
     BT:
       surface:
         - [0.870,0.950]
-        - [0.048,0.117]
+        - [0.048,0.111]
       bulk:
-        - [0.374,0.452]
         - [0.540,0.625]
+        - [0.374,0.452]
 
     PT:
       surface:
@@ -19,10 +19,12 @@ info:
         - [0.293,0.375]
       
 command:
-  - func: supercell
+  - func: defect_BT
     args:
-      supercell: [3, 3, 1]
-      
+      scope: all
+      termination: False
+      seed: 109
+      keep_OH: False
 
 
 

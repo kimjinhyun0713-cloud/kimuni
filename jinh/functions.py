@@ -153,16 +153,18 @@ def cal_uniform(matrix, mole_sum, spacing=3.5, **kwargs):
             break
     print("Spacing: ", f"{spacing:.2f}")
     start = kwargs.get("include_start", [False, False, False])
-    s = [1 - int(s) for s in start]
+    start_ = [1.01, 1.01, 1.3]
+    s = [s_ - int(s) for s_, s in zip(start_, start)]
+    end_ = [0.01, -0.01, -.3]
     end = kwargs.get("include_end", [True, True, True])
-    e = [int(s) for s in end]
+    e = [s_ + int(s) for s_, s in zip(end_, end)]
     if (not any(s and e for s, e in zip(start, end))):
         print("Warning: Both start & end point are actiavted")
     # start = 0 if include_start else 1
     # end = 1 if include_end else 0
     grid = np.mgrid[s[0]:nx+e[0], s[1]:ny+e[1], s[2]:nz+e[2]].reshape(3, -1).T
     grid = grid / [nx, ny, nz]
-    grid = np.where(grid == 0, grid + 0.001, grid)
+#    grid = np.where(grid == 0, grid + 0.001, grid)
     return grid
 
 

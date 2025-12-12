@@ -1,9 +1,9 @@
 import numpy as np
 import pandas as pd
 import os, sys
-from jinh import df2xyz, type2list, df2charge
+from jinh import df2xyz, type2list
 from jinh.editor import DATA
-from .analysis import BOND, cal_Qn, cal_CS, cal_MCL
+from jinh_csh.analysis import BOND, cal_Qn, cal_CS, cal_MCL
 
 class STRUCTURE(DATA):
     
@@ -19,15 +19,12 @@ class STRUCTURE(DATA):
 #        df = df.set_index("Structure")
         print(df)
 
-    def __init__(self, infile, model_config=None):
+    def __init__(self, infile):
         super().__init__(infile)
-        if model_config is not None:
-            self.model = model_config
         for v in ["mole_all", "mole_need_check", "verbose"]:
             setattr(self, v, getattr(self.__class__, v))
-        self.update_data(updata_matrix=False)
+        self.init_setting()
         self.rm_list = list()
-
         
     def __repr__(self):
         string = " ".join(k for k in self.__dict__.keys())
@@ -35,25 +32,21 @@ class STRUCTURE(DATA):
 
     def vprint(self, string: str):
         if self.verbose:
-            print(string)
-            
-    def update_data(self, updata_matrix=True):
-        self.set_data(updata_matrix=updata_matrix)
-        self.set_bond()
-        self.validate_chain()
-        self.validate_tetra()
+            print(string)    
         
-    def set_data(self, updata_matrix=True):
+    def init_setting(self):
         self.data = df2xyz(self.df)
         self.elem = np.unique(self.data[:, 0])
         self.elem_index = {}
         self.is_csh = True if "Si" in self.elem else False
         for e in self.elem:
             self.elem_index[e] = np.nonzero(self.data[:, 0] == e)[0]
-        if updata_matrix:
-            super().update_matrix()
+
+    def update_matrix(self):
+        super().update_matrix()
         
-    def set_bond(self):
+        
+    def bond_info(self):
         self.bond = BOND(self.data, self.matrix)
         self.bond.verbose = self.verbose
         for m in self.mole_need_check:
@@ -67,12 +60,17 @@ class STRUCTURE(DATA):
         for m in self.mole_all:
             if hasattr(self.bond, m):
                 setattr(self, m, getattr(self.bond, m))
+
+                
+    def set_model(self):
+        if not hasattr(self, "model"):
+            return
+        self.tetra = {"BT": {}, "PT": {}}
+        self.tetra["BT"] = {"surface": [], "bulk": []}
+        self.tetra["PT"] = {"surface": [], "bulk": []}
+
         
     def validate_chain(self):
-        """
-        Check whether the silicate chain is broken, and
-        calculate QN, CS
-        """
         if not self.is_csh:
             return
         isin_tetra = np.isin(self.elem_index["Si"], self.SiO4[:, 0])
@@ -86,17 +84,6 @@ class STRUCTURE(DATA):
         
         
     def validate_tetra(self):
-        """
-        Initialize self.tetra,
-        calculate MCL
-
-        required: config which type of 'yaml' (set self.model) 
-        """
-        if not hasattr(self, "model"):
-            return
-        self.tetra = {"BT": {}, "PT": {}}
-        self.tetra["BT"] = {"surface": [], "bulk": []}
-        self.tetra["PT"] = {"surface": [], "bulk": []}
         model = getattr(self, "model")
         BTcount = 0
         PTcount = 0
@@ -128,33 +115,17 @@ class STRUCTURE(DATA):
     def decorate_Ca(self, target: int | list, location: str):
         target = type2list(target)
         if location == "top":
-            add = [0, 0, 1]
+            add = [0, 0, 0.8]
         elif location == "bottom":
-            add = [0, 0, -1]
+            add = [0, 0, -0.8]
         else:
-            raise ValueError("ERROR: set 'location'")
+            ValueError("ERROR: set 'location'")
         for t in target:
             cartesian = self.data[t, 1:] @ self.matrix
             fract = (cartesian + add) @ np.linalg.inv(self.matrix)
             self.insert(fract, symbol="Ca", label="Ca")
             
-    def remove_BT(self,
-                  target: int | list,
-                  termination: bool = True,
-                  location: str = "top",
-                  keep_OH:  bool = False):
-        """
-        Remove BT from the specified target. Optionally retain OH groups.
-        Parameters
-        target : int or list
-        Index or list of indices specifying the target sites.
-        termination : bool
-        Whether to apply termination after removal or add Ca.
-        location : str
-        Location identifier for the removal operation.
-        keep_OH : bool, optional
-        If True, OH groups are retained; if False (default), they are removed.
-        """
+    def remove_BT(self, target: int | list, termination: bool , location: str):
         if not hasattr(self, "model"):
             raise ValueError("Missing keyword' model' in config")
         mask = np.isin(self.SiO4[:, 0], target)
@@ -168,11 +139,10 @@ class STRUCTURE(DATA):
             self.terminate(term_O)
         else:
             self.decorate_Ca(target, location=location)
-        if keep_OH:
-            maska = self.data[target_O, 3] > self.model["BT"]["surface"][0][1]
-            maskb = self.data[target_O, 3] < self.model["BT"]["surface"][1][1]
-            maskab = maska | maskb
-            target_O = target_O[maskab]
+        maska = self.data[target_O, 3] > self.model["BT"]["surface"][0][1]
+        maskb = self.data[target_O, 3] < self.model["BT"]["surface"][1][1]
+        maskab = maska | maskb
+        target_O = target_O[maskab]
         target_OH = self.SiOH[np.isin(self.SiOH[:, 0], target_O)].ravel()
         self.rm_list.append(target_OH)
             
@@ -180,7 +150,6 @@ class STRUCTURE(DATA):
         df = pd.DataFrame()
         df["Structure"] = [self.base.replace(".00", "")]
         df["Natoms"] = len(self.df)
-        df["Charge"] = df2charge(self.df)
         for m in self.mole_all:
             if hasattr(self, m):
                 val = getattr(self, m)
@@ -189,16 +158,6 @@ class STRUCTURE(DATA):
                 num = 0
             df[m] = [int(num)]
         self.__class__.info.append(df)
-
-
-    def remove(self):
-        if len(self.rm_list) != 0:
-            arr = np.hstack(self.rm_list)
-            target_list = sorted(arr, reverse=True)
-            for t in target_list:
-                self.delete(index=t)
-            self.rm_list = []
-            
 
         
 def main():
@@ -217,7 +176,7 @@ def main():
         infile = list(Path(".").glob("*cif"))
     for f in infile:
         csh = STRUCTURE(f)
-        csh.set_bond()
+        csh.bond_info()
         csh.validate_chain()
         csh.set_info()
     STRUCTURE.out2info()

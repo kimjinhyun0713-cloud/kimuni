@@ -1,18 +1,17 @@
 info:
-  base: T14_331_base.cif
-  out: T14_331_0.5B.H.cif
+  base: T14_441_base.cif
+  out: kim_bridgeCa01
   model:
     BT:
       surface:
         - [0.870,0.950]
-        - [0.048,0.117]
+        - [0.048,0.111]
       bulk:
         - [0.540,0.625]
         - [0.374,0.452]
 
     PT:
       surface:
-      
         - [0.793,0.875]
         - [0.125,0.206]
       bulk:
@@ -22,9 +21,10 @@ info:
 command:
   - func: defect_BT
     args:
-      scope: half
-      termination: True
-      seed: 713
+      scope: 7
+      termination: False
+      seed: 109
+      keep_OH: True
 
 
 
