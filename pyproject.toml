@@ -1,3 +1,16 @@
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "kimuni"
+version = "0.1.0"
+description = "description"
+authors = [{ name = "KIM JINHYUN" }]
+dependencies = [
+    "numpy",
+    "scipy",
+    "pyyaml",
+    "pandas",
+    "matplotlib"
+]

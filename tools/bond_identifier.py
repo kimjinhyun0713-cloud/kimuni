@@ -10,7 +10,6 @@ import itertools
 import re
 import pickle
 from cshmd.load import lmp2Dic
-from cshmd.functions import calLattice
 from cshmd.common import overwritePrint, checkTime
 from cshmd.util import lmp_head_unwrapped
 
