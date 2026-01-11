@@ -630,6 +630,8 @@ def main():
     if args.outfile:
         base = args.outfile.replace(".cif", "")
         Modifier.outfile = base + ".cif"
+    else:
+        Modifier.outfile = "modified" + infile
         
     Modifier.order = ["search", "make_interface", "assemble", "random_coord"]
     Modifier.order += ['sub', 'insert', 'protonation', 'auto_protonation',
