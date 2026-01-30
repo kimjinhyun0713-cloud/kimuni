@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kimuni"
-version = "0.2.1"
+version = "0.2.2"
 description = "description"
 authors = [{ name = "KIM JINHYUN" }]
 dependencies = [
