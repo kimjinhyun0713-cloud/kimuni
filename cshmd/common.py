@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from pathlib import Path
-import sys, os
+import sys
 import subprocess as sp
 import time
 

@@ -12,9 +12,12 @@ class JOB():
     
     @classmethod
     def is_pandas(cls, yes):
+        print()
         if yes:
             cls.table = pd.DataFrame()
+            print("[INFO] Pandas is utilized")
         else:
+            print("[INFO] Numpy is utilized")
             cls.lst = []
 
     @classmethod
@@ -24,8 +27,9 @@ class JOB():
             return
         print()
         if hasattr(cls, "table"):
-            print(cls.table.T)
-            cls.steps = cls.table.T["step"].sum()
+            cls.table = cls.table.T.set_index("Path")
+            print(cls.table)
+            cls.steps = cls.table["step"].sum()
         else:
             fmt1 = "{:<30s}"
             fmt2 = "{:>10.3f}"
@@ -139,11 +143,15 @@ class JOB():
         range_ = self.__class__.range_
         if range_ is not None:
             self.mean = self.df[int(range_[0]):int(range_[1])].mean()
+            self.mean["step"] = int(range_[1]) - int(range_[0])
         else:
             self.mean = self.df.mean()
             self.mean["step"] = len(self.df)
-        self.__class__.table =  pd.concat([self.__class__.table, np.round(self.mean, decimals=3)], axis=1)
-            
+        self.df = np.round(self.mean, decimals=3)
+        self.df["Path"] = str(self.path)[:30]
+        self.__class__.table = pd.concat([self.__class__.table, self.df], axis=1)
+
+        
     def setArr(self):
         lst = []
         for col in self.__class__.col[:-1]:
@@ -160,31 +168,35 @@ class JOB():
         else:
             self.mean = np.mean(self.arr, axis=0)
         self.mean = np.append(self.mean, step)
-        self.__class__.lst.append([str(self.path),  self.mean])
+        self.__class__.lst.append([str(self.path)[:30],  self.mean])
+        
         
 if __name__ == "__main__":
     import argparse
-    par = argparse.ArgumentParser(description="require 'outcar' or 'oszicar'", prog="Vasp Check")
+    par = argparse.ArgumentParser(description="require ['*outcar' or 'OUTCAR'], ['*oszicar' or 'OSZICAR']", prog="Vasp Check")
     par.add_argument('paths', nargs="*",
                      help="Path to the directory containing OUTCAR or OSZICAR")
     par.add_argument('-v', '--verbose', default=False, action="store_true",
-                     help="if 'True' print length of Data and infomration")
+                     help="print which file is setted")
     par.add_argument('-r', '--recursive', default=False, action="store_true",
-                     help="Glob recursive")
+                     help="glob recursively")
     par.add_argument('--range',  nargs=2, type=int, default=[0, 0], 
                      help="Range of steps which you use in this program")
-    
+    par.add_argument('--numpy',  default=False, action="store_true",
+                     help=" Numpy in Calculation")
     args = par.parse_args()
-    try:
-        import pandas as pd
-        JOB.is_pandas(True)
-    except ModuleNotFoundError:
+    if not args.numpy:
+        try:
+            import pandas as pd
+            JOB.is_pandas(True)
+        except ModuleNotFoundError:
+            JOB.is_pandas(False)
+            print("Pandas is NOT installed")
+    else:
         JOB.is_pandas(False)
-        print("Pandas is NOT installed")
     if len(args.paths) == 0:
         method = "rglob" if args.recursive else "glob"
         paths = getattr(Path("."), method)("*/")
-        # paths = Path(".").glob("*/")
     else:
         paths = [Path(p) for p in args.paths]
     JOB.verbose = args.verbose

@@ -1,8 +1,0 @@
-LAMMPS (20 Sep 2021)
-  using 1 OpenMP thread(s) per MPI task
-package omp 0
-using multi-threaded neighbor list subroutines
-package omp 1
-using multi-threaded neighbor list subroutines
-
-log w.bt.06.h.log

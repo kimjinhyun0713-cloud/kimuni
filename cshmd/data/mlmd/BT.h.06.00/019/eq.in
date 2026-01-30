@@ -1,4 +1,0 @@
-variable        base string BT.h.06.00
-variable        seed string 13549
-variable        elem string 'Ca C H H O O O O Si'
-include         ../../mlmd_eq.mod

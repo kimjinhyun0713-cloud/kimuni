@@ -20,3 +20,6 @@ def eq_water_density(temp: np.ndarray | list, version: int = 0) -> np.ndarray:
         raise ValueError("Not any version of equation yet")
     return eq
        
+def pH(num_OH: int, num_H2O: int):
+    C = num_OH / num_H2O
+    return (14 + np.log10(C / 18 * 1000))

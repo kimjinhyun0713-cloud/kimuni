@@ -1,12 +1,11 @@
 import numpy as np
 import pandas as pd
 import os
-import subprocess as sp
 from scipy.spatial import cKDTree
-from .analysis import find_mole, unwrap_mole, df2charge
+from .analysis import df2charge
 from .functions import setMatrix
 from .load import poscar2Dic, cif2data
-from .util import cif_head, cif_tail, molDic 
+from .util import cif_head, cif_tail, molDic
 from .common import df2xyz, type2list
 from .analysis import BOND, cal_Qn, cal_CS, cal_MCL
 
@@ -38,6 +37,7 @@ class DATA():
             self.columns = self.df.columns
             self.matrix, self.V = setMatrix(self.lattice, self.angle)
             self.ftype = "cif"
+        self.tmpl_df = self.df.loc[0, :].copy()
         self.natom, self.natom_init = len(self.df), len(self.df)
 
         
@@ -91,9 +91,8 @@ class DATA():
             print(f"{len(isolated_points)} coordinations for insert element, rcut={rcut}")
             for point in isolated_points:
                 print("-".join(str(round(s, 3)) for s in point))
-                
 
-                    
+                
     def extendLattice(self, abc=None, **kwargs):#ckpt_extend
         """
         extend lattice constant
@@ -125,7 +124,7 @@ class DATA():
         print(f"Extend lattice {stdout1} -> {stdout2} {stdout_extra}")
 
 
-    def check_neigbor(self, x, y, z, rcut=3, matrix=None):#ckpt_neighbor
+    def check_neigbor(self, x, y, z, rcut=2.5):#ckpt_neighbor
         """
         check neighbor stat and return infomration of nearest atoms
         
@@ -286,7 +285,7 @@ class DATA():
                 
         self.natom = len(self.df)
                 
-    def insert(self, xyz=(0.5, 0.5, 0.5), label=None, symbol=None, columns=None, matrix=None):#ckpt_insert
+    def insert(self, xyz=(0.5, 0.5, 0.5), symbol=None, label=None):#ckpt_insert
         """
         insert atoms or molecule
 
@@ -298,73 +297,42 @@ class DATA():
         return
         ;; update pd.Dataframe inplace
         """
-        def updateMole(molecule=None):
-            output = ""
-            check = self.check_neigbor(x, y, z, rcut=2.5, matrix=matrix) if matrix is not None else self.check_neigbor(x, y, z, rcut=2.5)
-            if check.size != 0:
-                if self.verbose:
-                    output += f"Warning! ({x:.3f}, {y:.3f}, {z:.3f}) label: {label} symbol: {symbol}\n"
-                    output += "Has some near neighbor atoms\n"
-                for arr in check:
-                    if self.verbose:
-                        output += "{} id: {} {:.2f}\n".format(*arr)
-                        if arr[2] < 1.5:
-                        # print(x, y, z)
-                        # print(check)
-                            output += "Update failed\n"
-                        # return False, output
-            if molecule is None:
-                template_df['label'] = label
-                template_df['type_symbol'] = symbol
-                template_df['fract_x'] = x
-                template_df['fract_y'] = y
-                template_df['fract_z'] = z
-            else:
-                template_df.loc[molecule, 'label'] = label
-                template_df.loc[molecule, 'type_symbol'] = symbol
-                template_df.loc[molecule, 'fract_x'] = x
-                template_df.loc[molecule, 'fract_y'] = y
-                template_df.loc[molecule, 'fract_z'] = z
-            if self.verbose:
-                output += f"Updated new molecule: ({x:.3f}, {y:.3f}, {z:.3f}) label: {label} symbol: {symbol}"
-            return True, output
         x, y, z = xyz
-        columns = self.columns if columns is None else columns
-        output_ = ""
         if symbol is None:
-            raise Exception("No elem")
+            raise Exception("[Error] No symbol")
+        update_param_list, update_df_list = [], []
         if symbol in self.molecule.keys():
-            mole_num = self.molecule[symbol].shape[0]
-            template_df = self.df.loc[0:mole_num - 1, :].copy()
-            output_ += f"Add {symbol}"
             cartesian = self.molecule[symbol][:, 1:4]
             fraction = (cartesian @ np.linalg.inv(self.matrix)).astype(float)
-            elems = self.molecule[symbol][:, 0]
+            symbols = self.molecule[symbol][:, 0]
             labels = self.molecule[symbol][:, 4]
-            range_ = range(mole_num)
-            for e, add_xyz, l, i in zip(elems, fraction, labels, range_):
-                label, symbol = l, e
+            for symbol, add_xyz, label in zip(symbols, fraction, labels):
                 x, y, z = xyz + add_xyz
-                updated, output = updateMole(molecule=i)
-                output_ += output
-                if not updated:
-                    return False
+                update_param_list.append([label, symbol, x, y, z])
         else:
-            template_df = self.df.loc[0, :].copy()
-            label = label.replace("@", "*") if label is not None else symbol
-            updated, output = updateMole()
-            output_ += output
+            if label is None:
+                label = symbol.replace("@", "*")
+            update_param_list.append([label, symbol, x, y, z])
+        columns = ["label", "type_symbol", "fract_x", "fract_y", "fract_z"]
+        for param in update_param_list:
+            tmpl_df = self.tmpl_df.copy()
+            msg = "[Structure] Add mole, "
+            msg += " ".join(
+                f"{p:.3f}" if isinstance(p, float) else str(p)
+                for p in param
+            )
+            for col, val in zip(columns, param):
+                tmpl_df[col] = val
+            update_df_list.append(tmpl_df)
+        self.natom = len(self.df)
+        new_df = pd.DataFrame(update_df_list)
+        bf_len = len(self.df)
+        self.df = pd.concat([self.df, new_df], ignore_index=True)
+        af_len = len(self.df)
         if self.verbose:
-            print(output_)
-        if updated:
-            self.natom = len(self.df)
-            try:
-                self.df = pd.concat([self.df, template_df.to_frame().T], ignore_index=True)
-            except AttributeError:
-                self.df = pd.concat([self.df, template_df], ignore_index=True)
-            return True
-        else:
-            return False
+            print(msg)
+            print(f"[Structure] Number of atoms: {bf_len} -> {af_len} ")
+        self.natom = len(self.df)
  
     def protonation(self, idx: int):
         before_natom = len(self.df)
@@ -391,7 +359,7 @@ class DATA():
                     break
                 new_fraction = (cartesian + add) @ np.linalg.inv(self.matrix)
         if self.verbose:
-            print(f"Number of atoms: {before_natom} -> {len(self.df)}")
+            print(f"[Structure] Number of atoms: {before_natom} -> {len(self.df)}")
         self.natom = len(self.df)
         
         
@@ -407,8 +375,7 @@ class DATA():
         ;; update pd.Dataframe inplace
         """
         if not any((before, after, kwargs.values())):
-            raise KeyError("Wrong argument")
-        
+            raise KeyError("Wrong argument")        
         if isinstance(before, tuple):
             before = list(before)
         condition = kwargs.get("condition", None)
@@ -516,9 +483,10 @@ class DATA():
         miss_atom = self.natom * lx * ly * lz - af_len
         assert_str = f"{miss_atom} Atom Missing while creating Supercell"
         assert miss_atom == 0, assert_str
-        print(f"Number of atoms: {self.natom} -> {af_len}")
+        if self.verbose:
+            print(f"[Structure] Number of atoms: {self.natom} -> {af_len}")
         self.natom = af_len
-        print(f"Supercell created {lx}*{ly}*{lz}")
+        print(f"[Structure] Supercell created {lx} * {ly} * {lz}")
         
         
     def writeCif(self, template=None):
@@ -557,7 +525,7 @@ class DATA():
                 
         with open(_outfile, "w") as o:
             o.write(template)
-            print(f"{_outfile} was created")
+            print(f"[INFO] {_outfile} was created")
 
 
 
@@ -582,7 +550,6 @@ class STRUCTURE(DATA):
             setattr(self, v, getattr(self.__class__, v))
         self.update_data(updata_matrix=False)
         self.rm_list = list()
-
         
     def __str__(self):
         string = " ".join(k for k in self.__dict__.keys())
@@ -679,24 +646,40 @@ class STRUCTURE(DATA):
         for t in target:
             self.protonation(t)
 
-    def decorate_Ca(self, target: int | list, location: str):
+            
+    def add_Ca(self, target: int | list, location: str, add_param: list = [0, 0, 1]):
         target = type2list(target)
-        if location == "top":
-            add = [0, 0, 1]
-        elif location == "bottom":
-            add = [0, 0, -1]
-        else:
-            raise ValueError("ERROR: set 'location'")
+        if location == "bottom":
+            add_param = [-a for a in add_param]
         for t in target:
             cartesian = self.data[t, 1:] @ self.matrix
-            fract = (cartesian + add) @ np.linalg.inv(self.matrix)
+            fract = (cartesian + add_param) @ np.linalg.inv(self.matrix)
             self.insert(fract, symbol="Ca", label="Ca")
+
+    def deprotonate_BT(self, target: int | list, scope: str, location: str):
+        target = type2list(target)
+        mask = np.isin(self.SiO4[:, 0], target)
+        target_T = self.SiO4[mask]
+        NBO = self.bond.find_NBO()
+        for T in target_T:
+            NBO_in_target = T[1:][np.isin(T[1:], NBO)]
+            if location == "all":
+                target_Pr = NBO_in_target
+            else:
+                func = np.argmax if location == "top" else np.argmin
+                arg = func(self.data[NBO_in_target][:, 3])
+                target_Pr = NBO_in_target[arg]
+            mask_O = np.isin(self.SiOH[:, 0], target_Pr)
+            proton = self.SiOH[mask_O][:, 1]
+            self.rm_list.append(proton)
             
     def remove_BT(self,
                   target: int | list,
-                  termination: bool = True,
+                  termination: bool | str = True,
+                  add_Ca: bool = False,
                   location: str = "top",
-                  keep_OH:  bool = False):
+                  keep_OH:  bool = False
+                  ):
         """
         Remove BT from the specified target. Optionally retain OH groups.
         Parameters
@@ -711,17 +694,30 @@ class STRUCTURE(DATA):
         """
         if not hasattr(self, "model"):
             raise ValueError("Missing keyword' model' in config")
+        target = type2list(target)
         mask = np.isin(self.SiO4[:, 0], target)
         self.rm_list.append(target)
         target_T = self.SiO4[mask]
-        candidate_O = np.unique(target_T[:, 1:])
         NBO = self.bond.find_NBO()
-        target_O = candidate_O[np.isin(candidate_O, NBO)]
-        if termination:
-            term_O = candidate_O[~np.isin(candidate_O, NBO)]
+        target_O_list = []
+        term_O_list = []
+        for T in target_T:
+            T_of_O = T[1:]
+            NBO_in_target = T_of_O[np.isin(T_of_O, NBO)]
+            target_O_list.append(NBO_in_target)
+            if termination == "half":
+                NBO_in_term = T_of_O[~np.isin(T_of_O, NBO)][0]
+            elif termination:
+                NBO_in_term = T_of_O[~np.isin(T_of_O, NBO)]
+            else:
+                NBO_in_term = []
+            term_O_list.append(NBO_in_term)
+        target_O = np.hstack(target_O_list)
+        term_O = np.hstack(term_O_list)
+        if term_O.size != 0:
             self.terminate(term_O)
-        else:
-            self.decorate_Ca(target, location=location)
+        if add_Ca:
+            self.add_Ca(target, location=location, add_param=[0, 0, 1.5])
         if keep_OH:
             maska = self.data[target_O, 3] > self.model["BT"]["surface"][0][1]
             maskb = self.data[target_O, 3] < self.model["BT"]["surface"][1][1]
@@ -747,151 +743,13 @@ class STRUCTURE(DATA):
         self.__class__.info.append(df)
 
 
-    def remove(self):
+    def check_rm_list(self):
         if len(self.rm_list) != 0:
             arr = np.hstack(self.rm_list)
             target_list = sorted(arr, reverse=True)
+            print(f"[Structure] Delete {len(target_list)} atoms")
             for t in target_list:
                 self.delete(index=t)
             self.rm_list = []
 
-            
-def main():
-    import argparse
-    import glob
-    description = """
-    Modify a CIF or POSCAR
-    """.strip()
-    
-    par = argparse.ArgumentParser(description=description, prog="CIF editor")
-    par.add_argument(
-        'infile', nargs="?",
-        help="Input CIF file (if not provided, it will be selected automatically)")
-    par.add_argument(
-        '--verbose', action="store_false", default=False,
-        help="set verbosity level by bool")
-    par.add_argument(
-        '-o', '--outfile',
-        help="Name of outfile")
-    par.add_argument(
-        '-r', '--run', default=True, action="store_false",
-        help="Open after created CIF file")
-    par.add_argument(
-        '-i', '--insert', nargs="+",
-        help="Insert atoms or molecule(H2O, CO3...) : <coord-coord-coord-symbol> or <coord-coord-coord-symbol-label>\n"
-        "e.g. 0.7-0.5-0.4-I 0.2-0.1-0.6-O-ob => ")
-    par.add_argument(
-        '-pr', '--protonation', nargs="+", type=int,
-        help="Perform protonation: <indices>...\n"
-        "e.g. 2 13 20 30")
-    par.add_argument(
-        '-apr', '--auto_protonation', default=False, action="store_true",
-        help="Perform protonation automatically (default: False)")
-    par.add_argument(
-        '-c', '--cut', nargs=3,
-        help="Delete atoms over the range: (if --shrink, shell is shrinked) <coord-coord> <coord-coord> <coord-coord>\n"
-        "e.g. 0.1-0.5 0.6-0.9 0.1-0.3")
-    par.add_argument(
-        '-ca', '--cut_axis', nargs="+",
-        help="Delete atoms along the axis. you can input multiple values: (if --shrink, shell is shrinked) <axis coord-coord> [axis coord-coord] \n"
-        "e.g. z 0.1-0.3 0.6-0.9 x 0.1-0.5")
-    par.add_argument(
-        '-ac', '--auto_cut_axis', 
-        help="Remove voids within rcut along the axis: <axis-cutoff>")
-    par.add_argument(
-        '-e', '--extend_lattice', nargs=3, default=[0, 0, 0], type=float,
-        help="Extend lattice constants: <val> <val> <val>\n"
-        "e.g. 6.5 5 0")
-    par.add_argument(
-        '-ev', '--extend_vaccum', nargs="+", default=None,
-        help="Extend one of the lattice constants along a chosen axis; you can designate the coordinate along the axis where the extension is applied.\n"
-        "<axis-coord-val> [axis-coord-val]\n"
-        "z-0.5-5 x-0.1-10")
-    par.add_argument(
-        '-as', '--assemble', nargs=2,
-        help="Assemble another CIF file, when lattice of axis-a axis-b is same <hoge.cif> <axis>\n"
-        "e.g. hoge.pb x")
-    par.add_argument(
-        '-mi', '--make_interface', nargs="*", default=None,
-        help="Create an interface along the c-axis. You can choose the element or molecule (e.g., w=H2O, c=CO3) and specify the number of each.: <(mole or element)-int> [(mole or element)-int]\n"
-        "e.g. w-100 c-1 Ca-2 I-3")
-    par.add_argument(
-        '-d', '--delete', nargs="+",
-        help="Remove atoms corresponding to the given indices. You can use slice expressions such as 125-129\n"
-        "e.g. 1-12 20 31")
-    par.add_argument(
-        '-s', '--supercell', nargs=3, default=[1, 1, 1],
-        help="Make supercell  along three scale factors (copy the system): <int int int>\n"
-        "e.g. 2 3 1")
-    par.add_argument(
-        '-df', '--deformation', nargs="+", default=[1], type=float,
-        help="Deform the system along three scale factors: <float float float> or <float> (<1.1> equivalent to <1.1 1.1 1.1>)\n"
-        "e.g. 1.2 1.2 1.2 or 1.1")
-    par.add_argument(
-        '-a', '--adjust', nargs="+",
-        help="Adjust the positions of atom with specific index atom: <coord-coord-coord-index\n"
-        "e.g. @0.1-@0.1-0-12, '@'means minus")
-    par.add_argument(
-        '-b', '--sub', nargs="+",
-        help="Substitute the atom with a specific index by another element: <index-element> or <index-element-label>\n"
-        "e.g. 378-I 2312-O-ob")
-    par.add_argument(
-        '-sc', '--sub_column', nargs="+",
-        help="Substitute the word in specific column of pd.Dataframe by another word: <str-str-column>\n"
-        "e.g. Ca-Cah-label")
-    par.add_argument(
-        '-rc', '--random_coord', nargs="*",
-        help="Print random coordinates that are at least 2.5 angstrom away from other atoms within the given range: <axis-coord-coord> [axis-coord-coord]\n"
-        "e.g. z-0.4-0.6 x-0.1-0.6")
-    par.add_argument(
-        '-ri', '--random_insert', nargs="+",
-        help="Insert random coordinates that are at least 2.5 angstrom away from other atoms within the given range: <mole-natoms>... [axis-coord-coord]... \n"
-        "e.g. z-0.4-0.6 w-5")
-    par.add_argument(
-        '--shrink', default=False, action="store_true",
-        help="(This argument is used only when the 'cut or cut_axis' is enabled)\n"
-        "The system is shrunk after performing 'cut' or 'cut_axis'.")
-    par.add_argument(
-        '--search', nargs="+",
-        help="Search for atoms that satisfy the specified condition (element type or location or index or label): <'e'-element or axis-coord-coord or index or l>...\n"
-        "e.g. e-Ca x-0.1-0.5 z-0.5-0.8, or 82 or l-oh")
-    par.add_argument(
-        '--clayff', default=False, action="store_true",
-        help="Make label in accordance with the ClayFF style")
-    par.add_argument(
-        '--spacing', default=3.5, type=float,
-        help="(This argument is used only when the 'make_interface' is enabled)\n"
-        "make grids that are at least 2.5 angstrom away from other atoms")
-    par.add_argument(
-        '--mode', default=0, type=int,
-        help="(This argument is used only when the 'make_interface' is enabled)\n"
-        "Set the condition for a specific element or the location of a molecule")
-    args = par.parse_args()
-
-    Modifier.verbose = args.verbose
-    Modifier.spacing = args.spacing
-    Modifier.shrink = args.shrink
-    if args.mode != 0:
-        setattr(Modifier, f"mode{args.mode}", True)
-
-    infile = args.infile if args.infile else glob.glob("*cif")[0]
-    if args.outfile:
-        base = args.outfile.replace(".cif", "")
-        Modifier.outfile = base + ".cif"
         
-    Modifier.order = ["search", "make_interface", "assemble", "random_coord"]
-    Modifier.order += ['sub', 'insert', 'protonation', 'auto_protonation', 'random_insert',
-                  'adjust', 'auto_cut_axis', 'extend_vaccum', 'extend_lattice',
-                  'delete', 'deformation', 'sub_column', 'cut', 'cut_axis', 'supercell']
-    Modifier.order += ['clayff']
-    for attr in Modifier.order:
-        setattr(Modifier, attr, getattr(args, attr))
-
-    Modifier(infile)
-    
-    if args.run:
-        sp.run(["open", Modifier.outfile])
-    
-if __name__  == "__main__":
-    main()
- 

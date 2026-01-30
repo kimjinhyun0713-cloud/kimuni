@@ -137,7 +137,7 @@ def cal_distance_with_block(pos1, pos2, matrix, block=200, cartesian=False):
     return table
 
 
-def cal_uniform(matrix, mole_sum, spacing=3.5, **kwargs):
+def cal_uniform(matrix=None, mole_sum=None, spacing=3.5, **kwargs):
     """
     makes grid from matrix, each grid seperated from the value of spacing
     in default, it do not include start-point and includes end-point
@@ -151,10 +151,13 @@ def cal_uniform(matrix, mole_sum, spacing=3.5, **kwargs):
     ;;;; include_end -> list(bool, bool, bool), if True, include zeropoint
     ;;;; weight_x,  weight_y, weight_z -> int,  multiply number of grid along axis
 
-    
     return
     np.ndarray(-1, 3)
     """
+    for val in (matrix, mole_sum):
+        if val is None:
+            print("Wrong value in 'cal_uniform'")
+            return False
     while True:
         ngrid = np.ceil(np.linalg.norm(matrix, axis=1) / spacing).astype(int)
         for i, axis in enumerate(["x", "y", "z"]):
@@ -163,7 +166,7 @@ def cal_uniform(matrix, mole_sum, spacing=3.5, **kwargs):
                 ngrid[i] *= weight
                 ngrid[i] = np.ceil(ngrid[i])
         nx, ny, nz = ngrid
-        if (nx) * (ny) * (nz ) < mole_sum:
+        if (nx) * (ny) * (nz) < mole_sum:
             spacing -= 0.2
         else:
             break
@@ -182,6 +185,30 @@ def cal_uniform(matrix, mole_sum, spacing=3.5, **kwargs):
     grid = grid / [nx, ny, nz]
 #    grid = np.where(grid == 0, grid + 0.001, grid)
     return grid
+
+def cal_uniform_by_space(matrix=None, key_enum=None, mole_sum=None, spacing_list=None, **kwargs):
+    for val in (matrix, key_enum, mole_sum):
+        if val is None:
+            print("Wrong value in 'cal_uniform_by_space'")
+            return False
+    spacing_list = [3.5, 3.5, 1.8] if (spacing_list is None) or (not isinstance(spacing_list, list)) else spacing_list
+    not_enum = [i for i in (0, 1, 2) if i != key_enum]
+    lattice = matrix
+    lattice = np.linalg.norm(matrix, axis=1)
+    fix_lattice = lattice[not_enum]
+    ngrid = list(np.ceil([fix_lattice[not_enum[i]] / spacing_list[not_enum[i]] for i in range(2)]).astype(int))
+    mol_per_layer = int(ngrid[0] * ngrid[1])
+    num_layer = np.ceil(mole_sum / mol_per_layer).astype(int)
+    print(f"[INFO] Number of molecules to add : {mole_sum}")
+    print(f"[INFO] Number of atoms per surface : {mol_per_layer}")
+    print(f"[INFO] Number of layer : {num_layer}")
+    ngrid.insert(key_enum, num_layer)
+    linspace = list(map(lambda x: np.linspace(0, 1, x + 1)[0:-1], ngrid))
+    shrink_ratio = spacing_list[key_enum] * num_layer / matrix[key_enum][key_enum]
+    matrix[key_enum, :] = matrix[key_enum, :] * shrink_ratio
+    mesh_grid = np.meshgrid(*linspace)
+    grid = np.vstack(mesh_grid).reshape(3, -1).T
+    return grid, matrix
 
 
 def extract_number(string, dtype=float):
