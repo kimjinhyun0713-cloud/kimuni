@@ -4,5 +4,7 @@ include README.md
 recursive-include tools *
 recursive-include misc *
 recursive-include kimuni *
+recursive-include kimuni/cshmd/data *
+recursive-include kimuni/tools *
 
 global-exclude __pycache__ *.py[cod] .DS_Store
