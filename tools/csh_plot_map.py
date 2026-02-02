@@ -9,7 +9,7 @@ class Run_map_plotter():
             Mapper(path)
         Plotter.cwd = Path(os.getcwd())
         print(f"[INFO] CWD: {Plotter.cwd}")
-        self.plot = Plotter(Mapper())
+        self.plot = Plotter(path, Mapper())
         if cutoff_size is not None:
             self.plot.cutoff_size = cutoff_size
 
@@ -22,12 +22,30 @@ class Run_map_plotter():
     def contour(self, **setup):
         self.plot.set_contour(**setup)
 
+    def cutoff(self, val):
+        self.plot.cutoff_size = val
+    
+
 def main():
-    globed_path = list(Path(".").rglob("map.npz"))
-    plotter = Run_map_plotter(globed_path)
+    import argparse
+    par = argparse.ArgumentParser(description="", prog="")
+    par.add_argument('infiles', nargs="*", help="# lammpstrj")
+    par.add_argument('-o', '--outfiles', help="Please set a outfile")
+    args = par.parse_args()
+    path = [Path(f) for f in args.infiles]
+    if len(path) == 0:
+        path = list(Path(".").rglob("*map.npz"))
+    if len(path) == 0:
+        print("[INFO] No trj file exists")
+        return False
+    plotter = Run_map_plotter(path)
     plotter(plot="adp", plot_Ca=True)
-    plotter(plot="contour", plot_Si=True)
-    # plotter(plot="contour", plot_Ca=True, colorbar=False)
+    plotter(plot="adp", plot_I=True)
+    plotter.cutoff(15)
+    plotter(plot="contour", plot_I=True, plot_Si=True)
+    plotter(plot="contour", plot_Ca=True, plot_Si=True)
+    plotter(plot="contour", plot_Ca=True, plot_I=True, plot_Si=False)
+    # plotter(plot="contour", plot_Ca=True, colorbar=True)
 
     return True
 

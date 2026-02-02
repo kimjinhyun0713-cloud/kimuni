@@ -10,9 +10,10 @@ class Map_Data(LAMMPSTRJ):
     def __init__(self, path: str, Index: UnitCell):
         super().__init__(path)
         self.path = path
+        self.path_base = self.path.name
         self.path_resolve = path.resolve()
         self.par_path = path.parent
-        self.map_path = self.par_path / "map.npz"
+        self.map_path = self.par_path / f"{self.path_base}_map.npz"
         self.BT_Si_upper = np.array(Index["BT_Si"]["upper"], dtype=int)
         self.BT_Si_lower = np.array(Index["BT_Si"]["lower"], dtype=int)
         self.PT_Si_upper = np.array(Index["PT_Si"]["upper"], dtype=int)
@@ -21,13 +22,20 @@ class Map_Data(LAMMPSTRJ):
         self.mapDic = {}
         self.stdout_map()
         
+    def _get_elem_index(self, elem: str):
+        matched = self.ldata[0, :, 0] == elem
+        return matched if np.any(matched) else None
+        
     def stdout_map(self):
         self.mapDic["Ca_xyz"] = self.ldata[:, self.bulk_Ca, 1:4]
+        index_I = self._get_elem_index("I")
+        if index_I is not None:
+            self.mapDic["I_xyz"] = self.ldata[:, index_I, 1:4]
         for key in ("PT_Si_upper", "PT_Si_lower", "BT_Si_upper", "BT_Si_lower"):
             indexs = getattr(self, key)
             if indexs.size != 0:
                 value = self.ldata[:, indexs, 1:3]
-                base = np.mean(self.ldata[:, indexs, 3])
+                base = np.average(self.ldata[:, indexs, 3])
                 self.mapDic[f"{key}_xy"] = value
                 self.mapDic[f"base_{key}"] = np.array(base, dtype=float)
                 print(f"[INFO]: Added '{key}' to map")
@@ -38,6 +46,7 @@ class Map_Data(LAMMPSTRJ):
         np.savez(self.map_path, **self.mapDic)
         print(f"'{self.map_path}' is created")
         print("Run 'csh_plot_map.py'")
+
         
 class Mapper():
     merged_Dic = {}
@@ -80,6 +89,8 @@ class Mapper():
                 Mapper.merged_Dic[key] = [value]
             else:
                 Mapper.merged_Dic[key].append(value)
+
+
                 
 class Plotter():
     cwd = None
@@ -90,16 +101,19 @@ class Plotter():
     
     @cutoff_size.setter
     def cutoff_size(self, val):
+        print(f"[INFO] CUTOFF setted to {val}")
         self._cutoff_size = val
     
-    def __init__(self, mapper):
+    def __init__(self, path, mapper):
+        self.fname = str(path).replace(".npz", "").replace(".lammpstrj_map", "")
         self.mapper = mapper
         self.where = "upper"
         self._cutoff_size = 6
         self.base = self.mapper.__class__.get_base_line()
-        Ca_xyz = self.mapper.get_map("Ca_xyz")
-        self.Ca_z = Ca_xyz[:, 2]
-        self.Ca_xy = Ca_xyz[:, 0:2]
+        for e in ("Ca", "I"):
+            value = self.mapper.get_map(f"{e}_xyz")
+            setattr(self, f"{e}_z", value[:, 2])
+            setattr(self, f"{e}_xy", value[:, 0:2])
         self.path_stdout = Plotter.cwd / "map.png"
         self.set_contour_colorbar = False
 
@@ -108,18 +122,19 @@ class Plotter():
         self.cutoff.append(np.max(self.base) + self.cutoff_size)
         self.cutoff.append(np.min(self.base) - self.cutoff_size)
         print(f"[INFO] CUTOFF of adp: {self.cutoff_size}")
-
-
+        
         
     def set_adp(self, **setup):
         self.fig, self.ax = plt.subplots()
         self.fig.patch.set_alpha(0)
         plt.tight_layout()
-        if setup.get("plot_Ca", True):
-            self._adp_Ca()
-
-    def _adp_Ca(self):
-        value = self.Ca_z
+        if setup.get("plot_Ca", False):
+            self._adp_elem("Ca")
+        if setup.get("plot_I", False):
+            self._adp_elem("I")
+            
+    def _adp_elem(self, elem):
+        value = getattr(self, f"{elem}_z")
         min_, max_ = np.min(value), np.max(value)
         bin_edges = np.arange(int(min_), np.ceil(max_) + 0.05, 0.05)
         hist, bin_edges = np.histogram(value, bins=bin_edges, density=True)
@@ -132,7 +147,7 @@ class Plotter():
         self.ax.plot(bin_centers, hist, label="Ca distribution")
         self.ax.legend()
         plt.show()
-        self.path_stdout = Plotter.cwd / "ca_adp.png"
+        self.path_stdout = Plotter.cwd / f"{self.fname}_{elem}_adp.png"
         self.fig.savefig(self.path_stdout)
         print(f"Adp plot: '{str(self.path_stdout).split('/')[-1]}' is created")
 
@@ -151,7 +166,9 @@ class Plotter():
         colorbar = setup.get("colorbar", False)
         self.set_contour_colorbar = colorbar
         if setup.get("plot_Ca", True):
-            self._contour_Ca()
+            self._contour_elem("Ca")
+        if setup.get("plot_I", True):
+            self._contour_elem("I")
         if setup.get("plot_Si", False):
             self._contour_Si()
         plt.show()
@@ -181,21 +198,25 @@ class Plotter():
             self.ax[i].set_xlabel("X")
             self.ax[i].set_ylabel("Y")
 
-        self.path_stdout = Plotter.cwd / "map_Si.png"
+        self.path_stdout = Plotter.cwd / f"{self.fname}_map_Si.png"
 
 
-    def _contour_Ca(self):
+    def _contour_elem(self, elem):
+        cdic = {"Ca": "turbo", "I": "brg"}
+        cmap = cdic[elem]
         upper_base = self.mapper.get_map("base_PT_Si_upper")
         lower_base = self.mapper.get_map("base_PT_Si_lower")
+        z = getattr(self, f"{elem}_z")
+        xy = getattr(self, f"{elem}_xy")
         mask_upper = np.where(
-            (self.Ca_z < self.cutoff[0]) & (self.Ca_z > upper_base),
+            (z < self.cutoff[0]) & (z > upper_base),
             True, False)
         mask_lower = np.where(
-            (self.Ca_z > self.cutoff[1]) & (self.Ca_z < lower_base), 
+            (z > self.cutoff[1]) & (z < lower_base), 
             True, False)
-        self.Ca_xy_upper = self.Ca_xy[mask_upper]
-        self.Ca_xy_lower = self.Ca_xy[mask_lower]
-        for i, value in enumerate([self.Ca_xy_upper, self.Ca_xy_lower]):
+        xy_upper = xy[mask_upper]
+        xy_lower = xy[mask_lower]
+        for i, value in enumerate([xy_upper, xy_lower]):
             X = value[:, 0]
             Y = value[:, 1]
             counts, xedges, yedges = np.histogram2d(X, Y, bins=150)
@@ -218,7 +239,7 @@ class Plotter():
             cp = self.ax[i].contourf(
                 Xg, Yg, Z,
                 levels=levels_custom,
-                cmap="turbo",
+                cmap=cmap,
                 norm=colors.LogNorm()
             )
             locator = ticker.LogLocator(base=base_number)
@@ -228,4 +249,4 @@ class Plotter():
                 cbar.formatter = ticker.LogFormatterMathtext(base=base_number)
                 cbar.update_ticks()
 
-        self.path_stdout = Plotter.cwd / "map_Ca.png"
+        self.path_stdout = Plotter.cwd / f"{self.fname}_map_{elem}.png"

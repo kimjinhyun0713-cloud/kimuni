@@ -365,6 +365,11 @@ class UnitCell():
             cwd = unit_name
         cwd = os.path.abspath(cwd)
         unit_list = []
+        for tk_key in ("b00.w40", "b00.w50", "b00.w60"):
+            if tk_key in cwd:
+                cls.config = tk_key
+                cls.unit_name = tk_key
+                return
         category = [cls.csh_category, cls.bulk_category]
         default_category = ["model", "w50"]
         for categories, default in zip(category, default_category):
@@ -378,11 +383,13 @@ class UnitCell():
             cls.config = "w40" if unit_list[0] != "bridgeCa000" else "w400"
         else:
             cls.config = "config00" if unit_list[0] != "bridgeCa000" else "config000"
-        print(f"[INFO] Set {cls.unit_name} as a unit cell")
-        print(f"[INFO] Set {cls.config} as a config")
+
     
     def __init__(self, unit_name=None, Si_key_upper_lower=False):
+        print()
         UnitCell._set_config_(unit_name)
+        print(f"[INFO] Set {UnitCell.unit_name} as a unit cell")
+        print(f"[INFO] Set {UnitCell.config} as a config")
         unit = resources.files("cshmd.data.unitcell") / f"{UnitCell.unit_name}.cif"
         o = resources.files("cshmd.data.unitcell") / f"{UnitCell.config}.yaml"
         self.set_data(cif2data(unit))
@@ -398,6 +405,12 @@ class UnitCell():
         self.get_Si_index()
         self.get_O_index()
         self.get_Ca_index()
+        for k, v in self.indexDic.items():
+            if isinstance(v, dict):
+                for k_, v_, in v.items():
+                    print(f"[INFO] {k} -> {k_}: {len(v_)}")
+            else:
+                print(f"[INFO] {k}: {len(v)}")
         
     def __getitem__(self, key):
         return self.indexDic[key]
