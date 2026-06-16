@@ -1,0 +1,17 @@
+info:
+  base: T14_111_base_extend_z45.cif
+      
+command:
+  - func: supercell
+    args:
+      supercell: [3, 3, 1]
+    
+  - func: defect_BT
+    args:
+      scope: all
+      termination: False
+      add: Ca
+
+  - func: terminate_NBO
+    args:
+      ratio: 0.5 

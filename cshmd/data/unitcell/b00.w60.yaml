@@ -1,9 +1,0 @@
-BT_Si:
-  null
-PT_Si:
-  - [0.42, 0.43]
-  - [0.11, 0.13]
-layer_Ca:
-  - [0.12, 0.43]
-bulk_Ca:
-  null

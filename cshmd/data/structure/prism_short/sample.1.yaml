@@ -1,0 +1,10 @@
+info:
+  base: T14_111_short.cif
+      
+command:
+  - func: supercell
+    supercell: [1, 2, 1]
+      
+  - func: add_BT
+    auto: False
+    add: Ca

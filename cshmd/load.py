@@ -4,29 +4,57 @@ import re
 import os
 from pathlib import Path
 from .functions import setMatrix, calLattice
-from .common import overwritePrint
+from .common import overwritePrint, get_logger
 from .common import list2arr
-from .util import lmp_head_unwrapped, lmp_head
+from .util import lmp_head
 
-class Dump():
+logger = get_logger(__name__)
+
+
+class Pkl:
+    def __init__(self, path):
+        self.parent = path.resolve().parent
+        self.name = str(path.with_suffix(""))
+        self.title_name = f"{str(self.parent).split('/')[-1]} - {self.name}"
+        self.df = pd.read_pickle(path)
+
+    @property
+    def value(self):
+        return self.df
+
+    @value.setter
+    def value(self, val):
+        self.df = val
+
+
+class Npy:
+    def __init__(self, path):
+        self.parent = path.resolve().parent
+        self.name = str(path.with_suffix(""))
+        self.title_name = f"{str(self.parent).split('/')[-1]} - {self.name}"
+        self.value = np.load(path, allow_pickle=True)
+        print(self.value.shape)
+
+
+class Dump:
     lmp_name = "dump.lammpstrj"
 
     @classmethod
     def set_dump_file(cls, name):
         cls.lmp_name = name
-        print(f"[INFO]: Set Dump file to '{name}'")
+        logger.info(f"[INFO]: Set Dump file to '{name}'")
 
     @classmethod
     def check_file_exists(cls, remove=False):
         p = Path(cls.lmp_name)
         exists = p.exists()
         if exists:
-            print(f"[INFO] Dump file {cls.lmp_name} exists")
+            logger.info(f"[INFO] Dump file {cls.lmp_name} exists")
             if remove:
-                print(f"[INFO] Delete {cls.lmp_name}")
+                logger.info(f"[INFO] Delete {cls.lmp_name}")
                 p.unlink()
         return exists
-    
+
     def __init__(self, mode="lmp", natoms=None, elem=None):
         self.natoms = natoms
         self.mode = mode
@@ -34,7 +62,7 @@ class Dump():
         self.cur_step = 1
         if self.mode == "lmp":
             self._lmp_setting_()
-            
+
     def _lmp_setting_(self):
         self.box_fmt = "{:.6e} {:.6e} {:.6e}\n"
         self.tail_fmt = "{:<5} {:<2} {:<3} {:.6f} {:.6f} {:.6f}\n"
@@ -47,10 +75,14 @@ class Dump():
         a_vec, b_vec, c_vec = matrix
         xy, xz, yz = b_vec[0], c_vec[0], c_vec[1]
         box_string = ""
-        box_string += self.box_fmt.format(min(0, xy, xz, xy + xz), matrix[0, 0] + max(0, xy, xz, xy + xz), xy)
+        box_string += self.box_fmt.format(
+            min(0, xy, xz, xy + xz), matrix[0, 0] + max(0, xy, xz, xy + xz), xy
+        )
         box_string += self.box_fmt.format(min(0, yz), matrix[1, 1] + max(0, yz), xz)
         box_string += self.box_fmt.format(0, matrix[2, 2], yz)
-        stdout = lmp_head.format((self.cur_step), self.natoms, box_string.strip()) + "\n"
+        stdout = (
+            lmp_head.format((self.cur_step), self.natoms, box_string.strip()) + "\n"
+        )
         index = 0
         for d in data:
             id_ = int(np.nonzero(self.elem == d[0])[0]) + 1
@@ -59,12 +91,14 @@ class Dump():
         with open(Dump.lmp_name, "a") as o:
             o.write(stdout)
 
+
 def load_yaml(infile):
     import yaml
+
     with open(infile) as o:
         data = yaml.load(o, Loader=yaml.FullLoader)
     return data
-    
+
 
 def poscar2Dic(infile):
     with open(infile) as o:
@@ -81,9 +115,9 @@ def poscar2Dic(infile):
         dic["lattice"] = abc
         a, b, c = abc
         angle = []
-        angle.append(np.arccos(matrix[1, :] @ matrix[2, :] / (b*c)) * 180/np.pi)
-        angle.append(np.arccos(matrix[0, :] @ matrix[2, :] / (a*c)) * 180/np.pi)
-        angle.append(np.arccos(matrix[0, :] @ matrix[1, :] / (a*b)) * 180/np.pi)
+        angle.append(np.arccos(matrix[1, :] @ matrix[2, :] / (b * c)) * 180 / np.pi)
+        angle.append(np.arccos(matrix[0, :] @ matrix[2, :] / (a * c)) * 180 / np.pi)
+        angle.append(np.arccos(matrix[0, :] @ matrix[1, :] / (a * b)) * 180 / np.pi)
         dic["angle"] = angle
         elem = o.readline().split()
         dic["elem"] = elem
@@ -101,7 +135,90 @@ def poscar2Dic(infile):
         dic["data"] = np.vstack(data)
         return dic
 
-        
+
+class LammpsStep:
+    def __init__(
+        self,
+        lammpstrj_path: str,
+        target_frames: list | None = None,
+        to_fract: bool = False,
+        every=None,
+        start=None,
+    ):
+        self.path = Path(lammpstrj_path).resolve()
+        self.base = self.path.parent
+        self.name = str(self.path).split("/")[-1].replace(".lammpstrj", "")
+        self.yielder = self.iter_lammpstrj(
+            lammpstrj_path, target_frames, to_fract, every, start
+        )
+
+    def __iter__(self):
+        return self.yielder
+
+    def iter_lammpstrj(
+        self, path, target_frames=None, to_fract=False, every=None, start=None
+    ):
+        def is_target(i):
+            if i == 0:
+                return True
+            if target_frames is not None:
+                if i in target_frames:
+                    return True
+            if i < start:
+                return False
+            return (i - start) % every == 0
+
+        frame_index = 0
+        target_frames = set(target_frames) if target_frames else None
+        with open(path) as f:
+            timestep = None
+            while True:
+                line = f.readline()
+                if not line:
+                    break
+                if line.startswith("ITEM: TIMESTEP"):
+                    timestep = int(f.readline())
+                    if not is_target(frame_index):
+                        while not f.readline().startswith("ITEM: ATOMS"):
+                            pass
+                        # natoms = int(f.readline())  # dummy read
+                        for _ in range(natoms):
+                            f.readline()
+                        frame_index += 1
+                        continue
+                elif line.startswith("ITEM: NUMBER OF ATOMS"):
+                    natoms = int(f.readline())
+                elif line.startswith("ITEM: BOX BOUNDS"):
+                    lattice = np.fromfile(f, count=9, sep=" ").reshape(3, 3)
+                    lattice, angle, zeropoint = calLattice(lattice)
+                    matrix, _ = setMatrix(lattice, angle)
+                    inv_matrix = np.linalg.inv(matrix)
+                elif line.startswith("ITEM: ATOMS"):
+                    cols = line.split()[2:]
+                    idx = {c: i for i, c in enumerate(cols)}
+                    raw = np.loadtxt(
+                        (f.readline() for _ in range(natoms)), dtype=object
+                    )
+                    xyz = raw[:, [idx["x"], idx["y"], idx["z"]]].astype(float)
+                    xyz -= zeropoint
+                    if to_fract:
+                        xyz = xyz @ inv_matrix
+                    data = np.hstack([raw[:, idx["element"]].reshape(-1, 1), xyz])
+                    logger.info(f"Frame number: {frame_index}")
+                    yield {
+                        "timestep": timestep,
+                        "frame_index": frame_index,
+                        "natoms": natoms,
+                        "data": data,
+                        "lattice": lattice,
+                        "angle": angle,
+                        # "columns": cols,
+                        "data": data,
+                        "matrix": matrix,
+                    }
+                    frame_index += 1
+
+
 def lmp2Dic(lammpstrj, to_fract=False):
     """
     convert lammpstrj to dictionary of which havs or local values
@@ -118,17 +235,22 @@ def lmp2Dic(lammpstrj, to_fract=False):
         ncol = len(readlines[8].split()) - 2
         nlines = natoms + 9
         nstep = len(readlines) / nlines
-        assert nstep == int(nstep), f"Please check the file is completely written nstep={nstep}"
+        assert nstep == int(nstep), (
+            f"Please check the file is completely written nstep={nstep}"
+        )
         nstep = int(nstep)
         ldata = np.zeros((nstep, natoms, 4), dtype=object)
         lattice = np.zeros((nstep, 3), dtype=float)
         angle = np.zeros((nstep, 3), dtype=float)
-        print(f"[INFO] Loading {lammpstrj}")
+        logger.info(f"Loading {lammpstrj}")
         for s in range(nstep):
             skip = s * nlines
-            lattice_ = np.array(list(map(lambda l: l.split(), readlines[skip + 5:skip + 8])), dtype=float)
+            lattice_ = np.array(
+                list(map(lambda l: l.split(), readlines[skip + 5 : skip + 8])),
+                dtype=float,
+            )
             lattice[s, :], angle[s, :], zeropoint = calLattice(lattice_)
-            data_ = readlines[skip + 9:skip + nlines]
+            data_ = readlines[skip + 9 : skip + nlines]
             data_ = " ".join(data_).strip().split()
             data_ = np.array(data_, dtype=object).reshape(-1, ncol)
             data_[:, 3:6] = data_[:, 3:6].astype(float)
@@ -146,13 +268,23 @@ def lmp2Dic(lammpstrj, to_fract=False):
                 matrix_, _ = setMatrix(lattice[i, :], angle[i, :])
                 matrix_list.append(matrix_)
                 ldata[i, :, 1:4] = ldata[i, :, 1:4] @ np.linalg.inv(matrix_)
-            matrix = np.vstack(matrix_list).reshape(-1, 3, 3)
+            lmatrix = np.vstack(matrix_list).reshape(-1, 3, 3)
             del matrix_list
-        keyword = ["nlines", "ldata", "natoms", "nstep", "lattice",
-                   "angle", "elem", "ldata", "matrix", "ncol"]
+        keyword = [
+            "nlines",
+            "ldata",
+            "natoms",
+            "nstep",
+            "lattice",
+            "angle",
+            "elem",
+            "ldata",
+            "lmatrix",
+            "ncol",
+        ]
         dic = {k: v for k, v in locals().items() if k in keyword}
         return dic
-            
+
 
 def excel2data(infile):
     """
@@ -183,11 +315,11 @@ def cif2data(infile, cartesian=False):
     """
     convert cif data to pd.DateFrame includes whole columns in cif.
     For example symbol, occupancy
-    
+
     args
     ;; infile -> str, infile
     ;;; cartesian  -> bool, convert fractional coordinations to cartesian(default: False)
-    
+
     returns
     lattice -> list
     angle -> list
@@ -196,7 +328,7 @@ def cif2data(infile, cartesian=False):
     with open(infile) as o:
         assert os.path.splitext(infile)[-1] == ".cif", "Make sure to put 'CIF'"
         read = o.read()
-        lattice_ptn  = r"_cell_length_[abc]+ +([0-9\.]+)"
+        lattice_ptn = r"_cell_length_[abc]+ +([0-9\.]+)"
         angle_ptn = r"_cell_angle_[a-zA-Z]+ +([0-9\.]+)"
         lattice = [float(v) for v in re.findall(lattice_ptn, read)]
         angle = [float(v) for v in re.findall(angle_ptn, read)]
@@ -204,49 +336,52 @@ def cif2data(infile, cartesian=False):
         col = re.findall(ptn_col, read)
         col = [c.strip() for c in col]
         data = read.split(col[-1])[-1]
-        data = np.array([s.split() for s in data.strip().split("\n")], dtype=object).reshape(-1, len(col))
+        data = np.array(
+            [s.split() for s in data.strip().split("\n")], dtype=object
+        ).reshape(-1, len(col))
         data = pd.DataFrame(data, columns=col)
         data["fract_x"] = data["fract_x"].astype(float)
         data["fract_y"] = data["fract_y"].astype(float)
         data["fract_z"] = data["fract_z"].astype(float)
         if cartesian:
             matrix, _ = setMatrix(lattice, angle)
-            data[["fract_x", "fract_y", "fract_z"]] = data[["fract_x", "fract_y", "fract_z"]] @ matrix
+            data[["fract_x", "fract_y", "fract_z"]] = (
+                data[["fract_x", "fract_y", "fract_z"]] @ matrix
+            )
         return lattice, angle, data
 
-    
-class LAMMPSTRJ():
+
+class LAMMPSTRJ:
     """
     attribute:
-    "elem", "nstep", "natoms", "ldata", "lattice", "angle"
+    "elem", "nstep", "natoms", "ldata", "lattice", "angle" "matrix"
     """
-    
-    infile = None
-    show_init = False
-    output = False
-    fmt = lmp_head_unwrapped
-    mole_num = {"C": 1, "Ca": 2, "H": 3, "O": 4, "Si": 5, "I": 6}
-    
-    def __init__(self, infile=None):
-        self.lammpstrj = infile if infile is not None else self.__class__.infile
-        assert os.path.splitext(self.lammpstrj)[-1] == ".lammpstrj", "Make sure to put lammpstrj"
-        self.dname = os.path.dirname(os.path.abspath(self.lammpstrj))
-        self.loadLammptsrj()
 
+    lmp_dict_col = ("elem", "nstep", "natoms", "ldata", "lattice", "angle", "lmatrix")
 
-    def __str__(self):
-        string = "\n"
-        string += f"Number of atoms: {self.natoms}"
-        string += f"\nNumber of steps: {self.nstep}"
-        return string
-    
-    def loadLammptsrj(self):
-        dataDic = lmp2Dic(self.lammpstrj)
-        for key in ["elem", "nstep", "natoms", "ldata", "lattice", "angle"]:
+    def __init__(self, infile=None, col=None, to_fract=False):
+        if infile is None:
+            logger.warning("No trj")
+        assert os.path.splitext(infile)[-1] == ".lammpstrj", (
+            "Make sure to put lammpstrj"
+        )
+        dataDic = lmp2Dic(infile, to_fract=to_fract)
+        self.lmp_dict_col = self.__class__.lmp_dict_col if col is None else col
+        for key in self.lmp_dict_col:
             setattr(self, key, dataDic[key])
         if dataDic["ncol"] == 6:
             self.mol_lmp = False
         elif dataDic["ncol"] == 7:
             self.mol_lmp = True
         else:
-            raise ValueError("Sorry for did not considering of the system which dump values bigger than '7'")
+            raise ValueError(
+                "Sorry for did not considering of the system which dump values bigger than '7'"
+            )
+
+    def __str__(self):
+        string = "\n"
+        if hasattr(self, "natoms"):
+            string += f"Number of atoms: {self.natoms}"
+        if hasattr(self, "nstep"):
+            string += f"\nNumber of steps: {self.nstep}"
+        return string

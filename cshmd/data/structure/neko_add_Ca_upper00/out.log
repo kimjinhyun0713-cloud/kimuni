@@ -1,0 +1,439 @@
+02/24 12:11 [INFO](update_manager) cshmd.builder: [Structure] Number of atoms: 90 -> 3240
+02/24 12:11 [INFO](add_ca_BT) cshmd.builder: [Structure] 'Add Ca above all Bridging Tetra'
+02/24 12:11 [INFO](update_manager) cshmd.builder: [Structure] Number of atoms: 3240 -> 3312
+02/24 12:11 [INFO](out_model) cshmd.builder: [INFO] Total Charge: 144
+02/24 12:15 [INFO] cshmd.structure (__init__) : [INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+02/24 12:15 [INFO] cshmd.structure (validate_tetra) : [Structure] BT: 4, PT: 8
+02/24 12:15 [INFO] cshmd.structure (makeSupercell) : [Structure] Supercell created 6 * 6 * 1
+02/24 12:15 [INFO] cshmd.structure (validate_tetra) : [Structure] BT: 144, PT: 288
+02/24 12:15 [INFO] cshmd.builder (update_manager) : [Structure] Number of atoms: 90 -> 3240
+02/24 12:15 [INFO] cshmd.builder (add_ca_BT) : [Structure] 'Add Ca above all Bridging Tetra'
+02/24 12:15 [INFO] cshmd.structure (validate_tetra) : [Structure] BT: 144, PT: 288
+02/24 12:15 [INFO] cshmd.builder (update_manager) : [Structure] Number of atoms: 3240 -> 3312
+02/24 12:15 [INFO] cshmd.structure (writeCif) : [INFO] LiH2.cif was created
+02/24 12:15 [INFO] cshmd.builder (out_model) : [INFO] Total Charge: 144
+02/24 12:25 [INFO] cshmd.structure (__init__)                                    : [INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+02/24 12:25 [INFO] cshmd.structure (validate_tetra)                              : [Structure] BT: 4, PT: 8
+02/24 12:25 [INFO] cshmd.structure (makeSupercell)                               : [Structure] Supercell created 6 * 6 * 1
+02/24 12:25 [INFO] cshmd.structure (validate_tetra)                              : [Structure] BT: 144, PT: 288
+02/24 12:25 [INFO] cshmd.builder (update_manager)                                : [Structure] Number of atoms: 90 -> 3240
+02/24 12:25 [INFO] cshmd.builder (add_ca_BT)                                     : [Structure] 'Add Ca above all Bridging Tetra'
+02/24 12:25 [INFO] cshmd.structure (validate_tetra)                              : [Structure] BT: 144, PT: 288
+02/24 12:25 [INFO] cshmd.builder (update_manager)                                : [Structure] Number of atoms: 3240 -> 3312
+02/24 12:25 [INFO] cshmd.structure (writeCif)                                    : [INFO] LiH2.cif was created
+02/24 12:25 [INFO] cshmd.builder (out_model)                                     : [INFO] Total Charge: 144
+02/24 12:25 [INFO] cshmd.structure (__init__)                : [INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+02/24 12:25 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 4, PT: 8
+02/24 12:25 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 6 * 6 * 1
+02/24 12:25 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:25 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 90 -> 3240
+02/24 12:25 [INFO] cshmd.builder (add_ca_BT)                 : [Structure] 'Add Ca above all Bridging Tetra'
+02/24 12:25 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:25 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 3240 -> 3312
+02/24 12:25 [INFO] cshmd.structure (writeCif)                : [INFO] LiH2.cif was created
+02/24 12:25 [INFO] cshmd.builder (out_model)                 : [INFO] Total Charge: 144
+02/24 12:25 [INFO] cshmd.structure (__init__)      : [INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+02/24 12:25 [INFO] cshmd.structure (validate_tetra) : [Structure] BT: 4, PT: 8
+02/24 12:25 [INFO] cshmd.structure (makeSupercell) : [Structure] Supercell created 6 * 6 * 1
+02/24 12:25 [INFO] cshmd.structure (validate_tetra) : [Structure] BT: 144, PT: 288
+02/24 12:25 [INFO] cshmd.builder (update_manager)  : [Structure] Number of atoms: 90 -> 3240
+02/24 12:25 [INFO] cshmd.builder (add_ca_BT)       : [Structure] 'Add Ca above all Bridging Tetra'
+02/24 12:25 [INFO] cshmd.structure (validate_tetra) : [Structure] BT: 144, PT: 288
+02/24 12:25 [INFO] cshmd.builder (update_manager)  : [Structure] Number of atoms: 3240 -> 3312
+02/24 12:25 [INFO] cshmd.structure (writeCif)      : [INFO] LiH2.cif was created
+02/24 12:25 [INFO] cshmd.builder (out_model)       : [INFO] Total Charge: 144
+02/24 12:26 [INFO] cshmd.structure (__init__)                : [INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+02/24 12:26 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 4, PT: 8
+02/24 12:26 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 6 * 6 * 1
+02/24 12:26 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:26 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 90 -> 3240
+02/24 12:26 [INFO] cshmd.builder (add_ca_BT)                 : [Structure] 'Add Ca above all Bridging Tetra'
+02/24 12:26 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:26 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 3240 -> 3312
+02/24 12:26 [INFO] cshmd.structure (writeCif)                : [INFO] LiH2.cif was created
+02/24 12:26 [INFO] cshmd.builder (out_model)                 : [INFO] Total Charge: 144
+02/24 12:36 [INFO] cshmd.structure (__init__)                : [INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+02/24 12:36 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 4, PT: 8
+02/24 12:36 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 6 * 6 * 1
+02/24 12:36 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:36 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 90 -> 3240
+02/24 12:36 [INFO] cshmd.builder (add_ca_BT)                 : [Structure] 'Add Ca above all Bridging Tetra'
+02/24 12:36 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:36 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 3240 -> 3312
+02/24 12:36 [INFO] cshmd.structure (writeCif)                : [INFO] LiH2.cif was created
+02/24 12:36 [INFO] cshmd.builder (out_model)                 : [INFO] Total Charge: 144
+02/24 12:39 [INFO] cshmd.structure (__init__)                : [INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+02/24 12:39 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 4, PT: 8
+02/24 12:39 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 6 * 6 * 1
+02/24 12:39 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:39 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 90 -> 3240
+02/24 12:39 [INFO] cshmd.builder (add_ca_BT)                 : [Structure] 'Add Ca above all Bridging Tetra'
+02/24 12:39 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:39 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 3240 -> 3312
+02/24 12:39 [INFO] cshmd.structure (writeCif)                : [INFO] LiH2.cif was created
+02/24 12:39 [INFO] cshmd.builder (out_model)                 : [INFO] Total Charge: 144
+02/24 12:43 [INFO] cshmd.structure (__init__)                : [INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+02/24 12:43 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 4, PT: 8
+02/24 12:43 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 6 * 6 * 1
+02/24 12:43 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:43 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 90 -> 3240
+02/24 12:43 [INFO] cshmd.builder (add_ca_BT)                 : [Structure] 'Add Ca above all Bridging Tetra'
+02/24 12:43 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:43 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 3240 -> 3312
+02/24 12:43 [INFO] cshmd.structure (writeCif)                : [INFO] LiH2.cif was created
+02/24 12:43 [INFO] cshmd.builder (out_model)                 : [INFO] Total Charge: 144
+02/24 12:43 [INFO] cshmd.structure (__init__)                : [INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+02/24 12:43 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.001 seconds
+02/24 12:43 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+02/24 12:43 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+02/24 12:43 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:43 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:43 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 4, PT: 8
+02/24 12:43 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 6 * 6 * 1
+02/24 12:43 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.160 seconds
+02/24 12:43 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.345 seconds
+02/24 12:43 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.187 seconds
+02/24 12:43 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:43 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:43 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:43 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 90 -> 3240
+02/24 12:43 [INFO] cshmd.builder (add_ca_BT)                 : [Structure] 'Add Ca above all Bridging Tetra'
+02/24 12:43 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.138 seconds
+02/24 12:43 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.352 seconds
+02/24 12:43 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.251 seconds
+02/24 12:43 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:43 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:43 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:43 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 3240 -> 3312
+02/24 12:43 [INFO] cshmd.structure (writeCif)                : [INFO] LiH2.cif was created
+02/24 12:43 [INFO] cshmd.builder (out_model)                 : [INFO] Total Charge: 144
+02/24 12:46 [INFO] cshmd.structure (__init__)                : [INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+02/24 12:46 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.001 seconds
+02/24 12:46 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+02/24 12:46 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+02/24 12:46 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:46 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:46 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 4, PT: 8
+02/24 12:46 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 6 * 6 * 1
+02/24 12:46 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.123 seconds
+02/24 12:46 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.389 seconds
+02/24 12:46 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.216 seconds
+02/24 12:46 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:46 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:46 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:46 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 90 -> 3240
+02/24 12:46 [INFO] cshmd.builder (add_ca_BT)                 : [Structure] 'Add Ca above all Bridging Tetra'
+02/24 12:46 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.188 seconds
+02/24 12:46 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.390 seconds
+02/24 12:46 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.143 seconds
+02/24 12:46 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:46 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:46 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:46 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 3240 -> 3312
+02/24 12:46 [INFO] cshmd.structure (writeCif)                : [INFO] LiH2.cif was created
+02/24 12:46 [INFO] cshmd.builder (out_model)                 : [INFO] Total Charge: 144
+02/24 12:48 [INFO] cshmd.structure (__init__)                : [INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+02/24 12:48 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.012 seconds
+02/24 12:48 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.001 seconds
+02/24 12:48 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+02/24 12:48 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:48 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:48 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 4, PT: 8
+02/24 12:48 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 6 * 6 * 1
+02/24 12:48 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.249 seconds
+02/24 12:48 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.479 seconds
+02/24 12:48 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.295 seconds
+02/24 12:48 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:48 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:48 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:48 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 90 -> 3240
+02/24 12:48 [INFO] cshmd.builder (add_ca_BT)                 : [Structure] 'Add Ca above all Bridging Tetra'
+02/24 12:48 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.272 seconds
+02/24 12:48 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.461 seconds
+02/24 12:48 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.232 seconds
+02/24 12:48 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:48 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:48 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:48 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 3240 -> 3312
+02/24 12:48 [INFO] cshmd.structure (writeCif)                : [INFO] LiH2.cif was created
+02/24 12:48 [INFO] cshmd.builder (out_model)                 : [INFO] Total Charge: 144
+02/24 12:51 [INFO] cshmd.structure (__init__)                : [INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+02/24 12:51 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+02/24 12:51 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Si - O 
+02/24 12:51 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.001 seconds
+02/24 12:51 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond O - H 
+02/24 12:51 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+02/24 12:51 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Ca - O 
+02/24 12:51 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+02/24 12:51 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond C - O 
+02/24 12:51 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Si - O 
+02/24 12:51 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole Si - O 
+02/24 12:51 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond O - H 
+02/24 12:51 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:51 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole Si - O 
+02/24 12:51 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:51 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond C - O 
+02/24 12:51 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole C - O 
+02/24 12:51 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:51 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:51 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+02/24 12:51 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+02/24 12:51 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 4, PT: 8
+02/24 12:51 [INFO] cshmd.analysis (MCL)                      : [Structure] MCL: inf
+02/24 12:51 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 6 * 6 * 1
+02/24 12:51 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+02/24 12:51 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Ca - O 
+02/24 12:51 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.152 seconds
+02/24 12:51 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond O - H 
+02/24 12:51 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.358 seconds
+02/24 12:51 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:51 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Si - O 
+02/24 12:51 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.248 seconds
+02/24 12:51 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole Si - O 
+02/24 12:51 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:51 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond C - O 
+02/24 12:51 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole C - O 
+02/24 12:51 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:51 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:51 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+02/24 12:51 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+02/24 12:51 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:51 [INFO] cshmd.analysis (MCL)                      : [Structure] MCL: inf
+02/24 12:51 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 90 -> 3240
+02/24 12:51 [INFO] cshmd.builder (add_ca_BT)                 : [Structure] 'Add Ca above all Bridging Tetra'
+02/24 12:51 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+02/24 12:51 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Ca - O 
+02/24 12:51 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.195 seconds
+02/24 12:51 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond O - H 
+02/24 12:51 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.354 seconds
+02/24 12:51 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:51 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Si - O 
+02/24 12:51 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.147 seconds
+02/24 12:51 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole Si - O 
+02/24 12:51 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:51 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond C - O 
+02/24 12:51 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole C - O 
+02/24 12:51 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:51 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:51 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+02/24 12:51 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+02/24 12:51 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:51 [INFO] cshmd.analysis (MCL)                      : [Structure] MCL: inf
+02/24 12:51 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 3240 -> 3312
+02/24 12:51 [INFO] cshmd.structure (writeCif)                : [INFO] LiH2.cif was created
+02/24 12:51 [INFO] cshmd.builder (out_model)                 : [INFO] Total Charge: 144
+02/24 12:56 [INFO] /Users/kimuni/bin/csh_builder (main)      : ----------------------------------------------------------------------
+02/24 12:56 [INFO] cshmd.structure (__init__)                : [INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+02/24 12:56 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+02/24 12:56 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Si - O 
+02/24 12:56 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.001 seconds
+02/24 12:56 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond O - H 
+02/24 12:56 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+02/24 12:56 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Ca - O 
+02/24 12:56 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+02/24 12:56 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond C - O 
+02/24 12:56 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Si - O 
+02/24 12:56 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole Si - O 
+02/24 12:56 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond O - H 
+02/24 12:56 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:56 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole Si - O 
+02/24 12:56 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:56 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond C - O 
+02/24 12:56 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole C - O 
+02/24 12:56 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:56 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:56 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+02/24 12:56 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+02/24 12:56 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 4, PT: 8
+02/24 12:56 [INFO] cshmd.analysis (MCL)                      : [Structure] MCL: inf
+02/24 12:56 [INFO] /Users/kimuni/bin/csh_builder (main)      : 
+[Structure] Reading command 'supercell'...
+02/24 12:56 [INFO] /Users/kimuni/bin/csh_builder (main)      : [Structure] with arguments 'supercell: [6, 6, 1]'...
+02/24 12:56 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 6 * 6 * 1
+02/24 12:56 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+02/24 12:56 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Ca - O 
+02/24 12:56 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.609 seconds
+02/24 12:56 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond O - H 
+02/24 12:56 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.626 seconds
+02/24 12:56 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:56 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Si - O 
+02/24 12:56 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.267 seconds
+02/24 12:56 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole Si - O 
+02/24 12:56 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:56 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond C - O 
+02/24 12:56 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole C - O 
+02/24 12:56 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:56 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:56 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+02/24 12:56 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+02/24 12:56 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:56 [INFO] cshmd.analysis (MCL)                      : [Structure] MCL: inf
+02/24 12:56 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 90 -> 3240
+02/24 12:56 [INFO] /Users/kimuni/bin/csh_builder (main)      : 
+[Structure] Reading command 'add_ca_BT'...
+02/24 12:56 [INFO] /Users/kimuni/bin/csh_builder (main)      : [Structure] with arguments 'auto: False'...
+02/24 12:56 [INFO] cshmd.builder (add_ca_BT)                 : [Structure] 'Add Ca above all Bridging Tetra'
+02/24 12:56 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+02/24 12:56 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Ca - O 
+02/24 12:56 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.251 seconds
+02/24 12:56 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond O - H 
+02/24 12:56 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.370 seconds
+02/24 12:56 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:56 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Si - O 
+02/24 12:56 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.249 seconds
+02/24 12:56 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole Si - O 
+02/24 12:56 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:56 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond C - O 
+02/24 12:56 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole C - O 
+02/24 12:56 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:56 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:56 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+02/24 12:56 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+02/24 12:56 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:56 [INFO] cshmd.analysis (MCL)                      : [Structure] MCL: inf
+02/24 12:56 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 3240 -> 3312
+02/24 12:56 [INFO] cshmd.structure (writeCif)                : [INFO] LiH2.cif was created
+02/24 12:56 [INFO] cshmd.builder (out_model)                 : [INFO] Total Charge: 144
+02/24 12:56 [INFO] /Users/kimuni/bin/csh_builder (main)      : ----------------------------------------------------------------------
+02/24 12:59 [INFO] /Users/kimuni/bin/csh_builder (main)      : ----------------------------------------------------------------------
+02/24 12:59 [INFO] cshmd.structure (__init__)                : [INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+02/24 12:59 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+02/24 12:59 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Si - O 
+02/24 12:59 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.017 seconds
+02/24 12:59 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond O - H 
+02/24 12:59 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.012 seconds
+02/24 12:59 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Ca - O 
+02/24 12:59 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+02/24 12:59 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond C - O 
+02/24 12:59 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Si - O 
+02/24 12:59 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole Si - O 
+02/24 12:59 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond O - H 
+02/24 12:59 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:59 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole Si - O 
+02/24 12:59 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:59 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond C - O 
+02/24 12:59 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole C - O 
+02/24 12:59 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:59 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:59 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+02/24 12:59 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+02/24 12:59 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 4, PT: 8
+02/24 12:59 [INFO] cshmd.analysis (MCL)                      : [Structure] MCL: inf
+02/24 12:59 [INFO] /Users/kimuni/bin/csh_builder (main)      : [Structure] Reading command 'supercell'...
+02/24 12:59 [INFO] /Users/kimuni/bin/csh_builder (main)      : [Structure] with arguments 'supercell: [6, 6, 1]'...
+02/24 12:59 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 6 * 6 * 1
+02/24 12:59 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+02/24 12:59 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Ca - O 
+02/24 12:59 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.620 seconds
+02/24 12:59 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond O - H 
+02/24 12:59 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.560 seconds
+02/24 12:59 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:59 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Si - O 
+02/24 12:59 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.320 seconds
+02/24 12:59 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole Si - O 
+02/24 12:59 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:59 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond C - O 
+02/24 12:59 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole C - O 
+02/24 12:59 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:59 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:59 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+02/24 12:59 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+02/24 12:59 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:59 [INFO] cshmd.analysis (MCL)                      : [Structure] MCL: inf
+02/24 12:59 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 90 -> 3240
+02/24 12:59 [INFO] /Users/kimuni/bin/csh_builder (main)      : [Structure] Reading command 'add_ca_BT'...
+02/24 12:59 [INFO] /Users/kimuni/bin/csh_builder (main)      : [Structure] with arguments 'auto: False'...
+02/24 12:59 [INFO] cshmd.builder (add_ca_BT)                 : [Structure] 'Add Ca above all Bridging Tetra'
+02/24 12:59 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+02/24 12:59 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Ca - O 
+02/24 12:59 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.222 seconds
+02/24 12:59 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond O - H 
+02/24 12:59 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.457 seconds
+02/24 12:59 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:59 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond Si - O 
+02/24 12:59 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.202 seconds
+02/24 12:59 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole Si - O 
+02/24 12:59 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole O - H 
+02/24 12:59 [DEBUG] cshmd.analysis (find_bond)               : [INFO] find_bond C - O 
+02/24 12:59 [DEBUG] cshmd.analysis (get_mole)                : [INFO] get_mole C - O 
+02/24 12:59 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 12:59 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 12:59 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+02/24 12:59 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+02/24 12:59 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 12:59 [INFO] cshmd.analysis (MCL)                      : [Structure] MCL: inf
+02/24 12:59 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 3240 -> 3312
+02/24 12:59 [INFO] cshmd.structure (writeCif)                : [INFO] LiH2.cif was created
+02/24 12:59 [INFO] cshmd.builder (out_model)                 : [INFO] Total Charge: 144
+02/24 12:59 [INFO] /Users/kimuni/bin/csh_builder (main)      : ----------------------------------------------------------------------
+02/24 13:03 [INFO] /Users/kimuni/bin/csh_builder (main)      : ----------------------------------------------------------------------
+02/24 13:03 [INFO] cshmd.structure (__init__)                : /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+02/24 13:03 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+02/24 13:03 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 
+02/24 13:03 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.001 seconds
+02/24 13:03 [DEBUG] cshmd.analysis (find_bond)               : find_bond O - H 
+02/24 13:03 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+02/24 13:03 [DEBUG] cshmd.analysis (find_bond)               : find_bond Ca - O 
+02/24 13:03 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+02/24 13:03 [DEBUG] cshmd.analysis (find_bond)               : find_bond C - O 
+02/24 13:03 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 
+02/24 13:03 [DEBUG] cshmd.analysis (get_mole)                : get_mole Si - O 
+02/24 13:03 [DEBUG] cshmd.analysis (find_bond)               : find_bond O - H 
+02/24 13:03 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H 
+02/24 13:03 [DEBUG] cshmd.analysis (get_mole)                : get_mole Si - O 
+02/24 13:03 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H 
+02/24 13:03 [DEBUG] cshmd.analysis (find_bond)               : find_bond C - O 
+02/24 13:03 [DEBUG] cshmd.analysis (get_mole)                : get_mole C - O 
+02/24 13:03 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 13:03 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 13:03 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+02/24 13:03 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+02/24 13:03 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 4, PT: 8
+02/24 13:03 [INFO] cshmd.analysis (MCL)                      : [Structure] MCL: inf
+02/24 13:03 [INFO] /Users/kimuni/bin/csh_builder (main)      : [Structure] Reading command 'supercell'...
+02/24 13:03 [INFO] /Users/kimuni/bin/csh_builder (main)      : [Structure] with arguments 'supercell: [6, 6, 1]'...
+02/24 13:03 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 6 * 6 * 1
+02/24 13:03 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+02/24 13:03 [DEBUG] cshmd.analysis (find_bond)               : find_bond Ca - O 
+02/24 13:03 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.433 seconds
+02/24 13:03 [DEBUG] cshmd.analysis (find_bond)               : find_bond O - H 
+02/24 13:03 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.506 seconds
+02/24 13:03 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H 
+02/24 13:03 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 
+02/24 13:03 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.235 seconds
+02/24 13:03 [DEBUG] cshmd.analysis (get_mole)                : get_mole Si - O 
+02/24 13:03 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H 
+02/24 13:03 [DEBUG] cshmd.analysis (find_bond)               : find_bond C - O 
+02/24 13:03 [DEBUG] cshmd.analysis (get_mole)                : get_mole C - O 
+02/24 13:03 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 13:03 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 13:03 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+02/24 13:03 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+02/24 13:03 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 13:03 [INFO] cshmd.analysis (MCL)                      : [Structure] MCL: inf
+02/24 13:03 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 90 -> 3240
+02/24 13:03 [INFO] /Users/kimuni/bin/csh_builder (main)      : [Structure] Reading command 'add_ca_BT'...
+02/24 13:03 [INFO] /Users/kimuni/bin/csh_builder (main)      : [Structure] with arguments 'auto: False'...
+02/24 13:03 [INFO] cshmd.builder (add_ca_BT)                 : [Structure] 'Add Ca above all Bridging Tetra'
+02/24 13:03 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+02/24 13:03 [DEBUG] cshmd.analysis (find_bond)               : find_bond Ca - O 
+02/24 13:03 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.312 seconds
+02/24 13:03 [DEBUG] cshmd.analysis (find_bond)               : find_bond O - H 
+02/24 13:03 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.377 seconds
+02/24 13:03 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H 
+02/24 13:03 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 
+02/24 13:03 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.201 seconds
+02/24 13:03 [DEBUG] cshmd.analysis (get_mole)                : get_mole Si - O 
+02/24 13:03 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H 
+02/24 13:03 [DEBUG] cshmd.analysis (find_bond)               : find_bond C - O 
+02/24 13:03 [DEBUG] cshmd.analysis (get_mole)                : get_mole C - O 
+02/24 13:03 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+02/24 13:03 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : [Info]: Searching 'OH' in 'SiO4
+02/24 13:03 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+02/24 13:03 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+02/24 13:03 [INFO] cshmd.structure (validate_tetra)          : [Structure] BT: 144, PT: 288
+02/24 13:03 [INFO] cshmd.analysis (MCL)                      : [Structure] MCL: inf
+02/24 13:03 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 3240 -> 3312
+02/24 13:03 [INFO] cshmd.structure (writeCif)                : LiH2.cif was created
+02/24 13:03 [INFO] cshmd.builder (out_model)                 : Total Charge: 144
+02/24 13:03 [INFO] /Users/kimuni/bin/csh_builder (main)      : ----------------------------------------------------------------------

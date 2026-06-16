@@ -1,0 +1,17 @@
+03/25 11:43 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+03/25 11:43 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 2.0
+
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 3.923076923076923
+
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 2 2 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 8 8 8 8 8 8 8 8 8 11
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 5.857142857142857
+
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 2 2 5 5 5 5 5 5 5 5 8 8 11 11 11 11 11 11 11 11 11 11
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 7.7272727272727275
+
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 5 5 8 8 8 8 8 8 8 8 8 11 11 14 14 14 14 14
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 9.666666666666666
+
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 5 8 11 11 11 11 11 11 11 11 11 11 14 17 23
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 11.8

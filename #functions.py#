@@ -1,0 +1,63 @@
+#!/usr/bin/env python
+import numpy as np
+
+def calLattice(arr):
+    if arr.shape[1] == 3:
+        xlo, xhi, xy = map(float, arr[0, :])
+        ylo, yhi, xz = map(float, arr[1, :])
+        zlo, zhi, yz = map(float, arr[2, :])
+    elif arr.shape[1] == 2:
+        xlo, xhi = map(float, arr[0, :])
+        ylo, yhi = map(float, arr[1, :])
+        zlo, zhi = map(float, arr[2, :])
+        xy, xz, yz, = 0, 0, 0
+    xhi -= np.max([0, xy, xz, xy+xz])
+    xlo -= np.min([0, xy, xz, xy+xz])
+    ylo -= np.min([0, yz])
+    yhi -= np.max([0, yz])
+    x_length = xhi - xlo
+    y_length = yhi - ylo
+    z_length = zhi - zlo
+    a_vec = np.array([x_length, 0, 0])
+    b_vec = np.array([xy, y_length, 0])
+    c_vec = np.array([xz, yz, z_length])
+    a = np.linalg.norm(a_vec)
+    b = np.linalg.norm(b_vec)
+    c = np.linalg.norm(c_vec)
+    alpha = np.degrees(np.arccos(np.dot(b_vec, c_vec) / (b * c)))
+    beta = np.degrees(np.arccos(np.dot(a_vec, c_vec) / (a * c)))
+    gamma = np.degrees(np.arccos(np.dot(a_vec, b_vec) / (a * b)))
+    lattice = [a, b, c]
+    angle = [alpha, beta, gamma]
+    zeropoint = [xlo, ylo, zlo]
+    return lattice, angle, zeropoint
+
+
+def setMatrix(lattice, angle):
+    """
+    It returns matrix suit for MD simulations
+    Be careful the matrix was tranposed shape like
+    [[a1, 0, 0], [b1, b2], [c1, c2, c3]].T
+    args
+        lattice -> list
+        angle -> list
+    returns
+        matrix, V
+    """
+    alpha, beta, gamma = np.radians(angle)
+    x, y, z = lattice
+    V = np.sqrt(1 - np.cos(alpha)**2 - np.cos(beta)**2 - np.cos(gamma)**2 +
+                2 * np.cos(alpha) * np.cos(beta) * np.cos(gamma))
+    matrix = np.array([
+        [x, y * np.cos(gamma), z * np.cos(beta)],
+        [0, y * np.sin(gamma), z * (np.cos(alpha) - np.cos(beta) * np.cos(gamma)) / np.sin(gamma)],
+        [0, 0, z * V / np.sin(gamma)]])
+    return matrix, V
+
+def cal_distance(pos1, pos2, matrix):
+    r = pos1[:, None, :] - pos2[None, :, :]
+    r = (r @ np.linalg.inv(matrix).T).astype(float)
+    r = (r - np.round(r)) @ matrix.T
+    r = np.sqrt(np.sum(r**2, axis=2))
+    distance = np.where(r <= 0.01, 2000, r)
+    return distance

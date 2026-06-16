@@ -1,0 +1,5 @@
+variable        base string L2OH2_w1100
+variable        seed string 17
+variable        elem string 'Ca Ca Ca Si Si O H O'
+variable        layer string '3 4 5'
+include         ../../eq.mod

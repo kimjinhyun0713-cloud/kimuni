@@ -41,10 +41,10 @@ def main():
     plotter = Run_map_plotter(path)
     plotter(plot="adp", plot_Ca=True)
     plotter(plot="adp", plot_I=True)
-    plotter.cutoff(15)
-    plotter(plot="contour", plot_I=True, plot_Si=True)
+    plotter.cutoff(40)
+    plotter(plot="contour", plot_I=True, plot_Si=False)
     plotter(plot="contour", plot_Ca=True, plot_Si=True)
-    plotter(plot="contour", plot_Ca=True, plot_I=True, plot_Si=False)
+    # plotter(plot="contour", plot_Ca=True, plot_I=True, plot_Si=False)
     # plotter(plot="contour", plot_Ca=True, colorbar=True)
 
     return True

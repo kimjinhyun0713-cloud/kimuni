@@ -1,0 +1,897 @@
+04/13 15:08 [DEBUG] cshmd.common (get_logger)                                    : $$$$$$$$$$$$$$  Logger 'cshmd.common........' initialized  $$$$$$$$$$$$$$
+04/13 15:08 [DEBUG] cshmd.functions (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.functions.....' initialized  $$$$$$$$$$$$$$
+04/13 15:08 [DEBUG] cshmd.load (get_logger)                                      : $$$$$$$$$$$$$$  Logger 'cshmd.load..........' initialized  $$$$$$$$$$$$$$
+04/13 15:08 [DEBUG] cshmd.analysis (get_logger)                                  : $$$$$$$$$$$$$$  Logger 'cshmd.analysis......' initialized  $$$$$$$$$$$$$$
+04/13 15:08 [DEBUG] cshmd.structure (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.structure.....' initialized  $$$$$$$$$$$$$$
+04/13 15:08 [DEBUG] cshmd.builder (get_logger)                                   : $$$$$$$$$$$$$$  Logger 'cshmd.builder.......' initialized  $$$$$$$$$$$$$$
+04/13 15:08 [DEBUG] cshmd.trj_analysis (get_logger)                              : $$$$$$$$$$$$$$  Logger 'cshmd.trj_analysis..' initialized  $$$$$$$$$$$$$$
+04/13 15:08 [DEBUG] csh_builder (get_logger)                                     : $$$$$$$$$$$$$$  Logger 'csh_builder.........' initialized  $$$$$$$$$$$$$$
+04/13 15:08 [INFO] csh_builder (main)                                            : ----------------------------------------------------------------------
+04/13 15:08 [INFO] csh_builder (main)                                            : 'L03.yaml' loaded
+04/13 15:08 [INFO] cshmd.structure (__init__)                                    : /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_term.cif was loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:08 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : C-S-H Model not setted
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 9, SiO4: 12, OH: 2, CO3: 0, H3O: 0, Ca_O: 60
+04/13 15:08 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : No CaOH in basic search. RETURN
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 1.000
+04/13 15:08 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 0.750
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 4, PT: 8
+04/13 15:08 [INFO] cshmd.analysis (MCL)                                          : [Structure] MCL: inf
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 3: 1
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 3.0
+04/13 15:08 [INFO] cshmd.structure (__init__)                                    : /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_term.cif was loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:08 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 9, SiO4: 12, OH: 2, CO3: 0, H3O: 0, Ca_O: 60
+04/13 15:08 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : No CaOH in basic search. RETURN
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 1.000
+04/13 15:08 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 0.750
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 4, PT: 8
+04/13 15:08 [INFO] cshmd.analysis (MCL)                                          : [Structure] MCL: inf
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 3: 1
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 3.0
+04/13 15:08 [INFO] csh_builder (main)                                            : [Structure] Reading command 'supercell'...
+04/13 15:08 [INFO] cshmd.structure (makeSupercell)                               : [Structure] Supercell created 8 * 8 * 1
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:08 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.729 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.387 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.264 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 576, SiO4: 768, OH: 128, CO3: 0, H3O: 0, Ca_O: 3840
+04/13 15:08 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : No CaOH in basic search. RETURN
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 1.000
+04/13 15:08 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 0.750
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 256, PT: 512
+04/13 15:08 [INFO] cshmd.analysis (MCL)                                          : [Structure] MCL: inf
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 24: 8
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 24.0
+04/13 15:08 [INFO] cshmd.builder (update_manager)                                : [Structure] Number of atoms: 86 -> 5504
+04/13 15:08 [INFO] csh_builder (main)                                            : [Structure] Reading command 'defect_BT'...
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Termination scope: False
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Exists 64 Bridging Tetra in 'up' side
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Exists 64 Bridging Tetra in 'down' side
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Termination scope: False
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Exists 64 Bridging Tetra in 'down' side
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca with 1 OH and with 2 H2O
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Exists 64 Bridging Tetra in 'up' side
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca with 1 OH and with 2 H2O
+04/13 15:08 [INFO] cshmd.structure (check_rm_list)                               : Delete 672 atoms in rm_list
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:08 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.751 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.303 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.331 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 768, SiO4: 576, OH: 128, CO3: 0, H3O: 0, Ca_O: 4368
+04/13 15:08 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : Searching 'OH' in 'CaOH
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q1: 0.667
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 0.333
+04/13 15:08 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 1.167
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 64, PT: 512
+04/13 15:08 [INFO] cshmd.analysis (MCL)                                          : [Structure] MCL: 1.500
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 2: 32 Length 5: 16
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 3.0
+04/13 15:08 [INFO] cshmd.builder (update_manager)                                : [Structure] Number of atoms: 5504 -> 5792
+04/13 15:08 [INFO] csh_builder (main)                                            : [Structure] Reading command 'terminate_NBO'...
+04/13 15:08 [INFO] cshmd.builder (terminate_NBO)                                 : Do not run terminate, ratio == 0
+04/13 15:08 [INFO] csh_builder (main)                                            : [Structure] Reading command 'add_BT'...
+04/13 15:08 [INFO] cshmd.builder (add_BT)                                        : [Structure] 'Add Ca above all Bridging Tetra'
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:08 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.740 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.247 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.344 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 768, SiO4: 576, OH: 128, CO3: 0, H3O: 0, Ca_O: 4416
+04/13 15:08 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : Searching 'OH' in 'CaOH
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q1: 0.667
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 0.333
+04/13 15:08 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 1.167
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 64, PT: 512
+04/13 15:08 [INFO] cshmd.analysis (MCL)                                          : [Structure] MCL: 1.500
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 2: 32 Length 5: 16
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 3.0
+04/13 15:08 [INFO] cshmd.builder (update_manager)                                : [Structure] Number of atoms: 5792 -> 5824
+04/13 15:08 [INFO] cshmd.structure (writeCif)                                    : L03.cif was created
+04/13 15:08 [INFO] cshmd.builder (out_model)                                     : Total Charge: 0
+04/13 15:08 [INFO] csh_builder (main)                                            : ----------------------------------------------------------------------
+04/13 15:08 [INFO] csh_builder (main)                                            : ----------------------------------------------------------------------
+04/13 15:08 [INFO] csh_builder (main)                                            : 'L025.yaml' loaded
+04/13 15:08 [INFO] cshmd.structure (__init__)                                    : /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_term.cif was loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:08 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 9, SiO4: 12, OH: 2, CO3: 0, H3O: 0, Ca_O: 60
+04/13 15:08 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : No CaOH in basic search. RETURN
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 1.000
+04/13 15:08 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 0.750
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 4, PT: 8
+04/13 15:08 [INFO] cshmd.analysis (MCL)                                          : [Structure] MCL: inf
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 3: 1
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 3.0
+04/13 15:08 [INFO] cshmd.structure (__init__)                                    : /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_term.cif was loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:08 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 9, SiO4: 12, OH: 2, CO3: 0, H3O: 0, Ca_O: 60
+04/13 15:08 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : No CaOH in basic search. RETURN
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 1.000
+04/13 15:08 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 0.750
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 4, PT: 8
+04/13 15:08 [INFO] cshmd.analysis (MCL)                                          : [Structure] MCL: inf
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 3: 1
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 3.0
+04/13 15:08 [INFO] csh_builder (main)                                            : [Structure] Reading command 'supercell'...
+04/13 15:08 [INFO] cshmd.structure (makeSupercell)                               : [Structure] Supercell created 8 * 8 * 1
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:08 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.558 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.340 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.256 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 576, SiO4: 768, OH: 128, CO3: 0, H3O: 0, Ca_O: 3840
+04/13 15:08 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : No CaOH in basic search. RETURN
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 1.000
+04/13 15:08 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 0.750
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 256, PT: 512
+04/13 15:08 [INFO] cshmd.analysis (MCL)                                          : [Structure] MCL: inf
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 24: 8
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 24.0
+04/13 15:08 [INFO] cshmd.builder (update_manager)                                : [Structure] Number of atoms: 86 -> 5504
+04/13 15:08 [INFO] csh_builder (main)                                            : [Structure] Reading command 'defect_BT'...
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Termination scope: False
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Exists 64 Bridging Tetra in 'up' side
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Exists 64 Bridging Tetra in 'down' side
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Termination scope: False
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Exists 64 Bridging Tetra in 'down' side
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca with 1 OH and with 2 H2O
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Exists 64 Bridging Tetra in 'up' side
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca with 1 OH and with 2 H2O
+04/13 15:08 [INFO] cshmd.structure (check_rm_list)                               : Delete 770 atoms in rm_list
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:08 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.766 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.247 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.354 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 796, SiO4: 548, OH: 128, CO3: 0, H3O: 0, Ca_O: 4445
+04/13 15:08 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : Searching 'OH' in 'CaOH
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q1: 0.803
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 0.197
+04/13 15:08 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 1.252
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 36, PT: 512
+04/13 15:08 [INFO] cshmd.analysis (MCL)                                          : [Structure] MCL: 1.245
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 2: 46 Length 5: 9
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 2.4909090909090907
+04/13 15:08 [INFO] cshmd.builder (update_manager)                                : [Structure] Number of atoms: 5504 -> 5834
+04/13 15:08 [INFO] csh_builder (main)                                            : [Structure] Reading command 'terminate_NBO'...
+04/13 15:08 [INFO] cshmd.builder (terminate_NBO)                                 : Do not run terminate, ratio == 0
+04/13 15:08 [INFO] csh_builder (main)                                            : [Structure] Reading command 'add_BT'...
+04/13 15:08 [INFO] cshmd.builder (add_BT)                                        : [Structure] 'Add Ca above all Bridging Tetra'
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:08 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.800 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.301 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.409 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 796, SiO4: 548, OH: 128, CO3: 0, H3O: 0, Ca_O: 4472
+04/13 15:08 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : Searching 'OH' in 'CaOH
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q1: 0.803
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 0.197
+04/13 15:08 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 1.252
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 36, PT: 512
+04/13 15:08 [INFO] cshmd.analysis (MCL)                                          : [Structure] MCL: 1.245
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 2: 46 Length 5: 9
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 2.4909090909090907
+04/13 15:08 [INFO] cshmd.builder (update_manager)                                : [Structure] Number of atoms: 5834 -> 5852
+04/13 15:08 [INFO] cshmd.structure (writeCif)                                    : L025.cif was created
+04/13 15:08 [INFO] cshmd.builder (out_model)                                     : Total Charge: 0
+04/13 15:08 [INFO] csh_builder (main)                                            : ----------------------------------------------------------------------
+04/13 15:08 [INFO] csh_builder (main)                                            : ----------------------------------------------------------------------
+04/13 15:08 [INFO] csh_builder (main)                                            : 'L035.yaml' loaded
+04/13 15:08 [INFO] cshmd.structure (__init__)                                    : /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_term.cif was loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:08 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 9, SiO4: 12, OH: 2, CO3: 0, H3O: 0, Ca_O: 60
+04/13 15:08 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : No CaOH in basic search. RETURN
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 1.000
+04/13 15:08 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 0.750
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 4, PT: 8
+04/13 15:08 [INFO] cshmd.analysis (MCL)                                          : [Structure] MCL: inf
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 3: 1
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 3.0
+04/13 15:08 [INFO] cshmd.structure (__init__)                                    : /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_term.cif was loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:08 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.000 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 9, SiO4: 12, OH: 2, CO3: 0, H3O: 0, Ca_O: 60
+04/13 15:08 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : No CaOH in basic search. RETURN
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 1.000
+04/13 15:08 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 0.750
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 4, PT: 8
+04/13 15:08 [INFO] cshmd.analysis (MCL)                                          : [Structure] MCL: inf
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 3: 1
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 3.0
+04/13 15:08 [INFO] csh_builder (main)                                            : [Structure] Reading command 'supercell'...
+04/13 15:08 [INFO] cshmd.structure (makeSupercell)                               : [Structure] Supercell created 8 * 8 * 1
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:08 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.568 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.393 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.255 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 576, SiO4: 768, OH: 128, CO3: 0, H3O: 0, Ca_O: 3840
+04/13 15:08 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : No CaOH in basic search. RETURN
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 1.000
+04/13 15:08 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 0.750
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 256, PT: 512
+04/13 15:08 [INFO] cshmd.analysis (MCL)                                          : [Structure] MCL: inf
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 24: 8
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 24.0
+04/13 15:08 [INFO] cshmd.builder (update_manager)                                : [Structure] Number of atoms: 86 -> 5504
+04/13 15:08 [INFO] csh_builder (main)                                            : [Structure] Reading command 'defect_BT'...
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Termination scope: False
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Exists 64 Bridging Tetra in 'up' side
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Exists 64 Bridging Tetra in 'down' side
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Termination scope: False
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Exists 64 Bridging Tetra in 'down' side
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca with 1 OH and with 2 H2O
+04/13 15:08 [INFO] cshmd.builder (defect_BT)                                     : [Structure] Exists 64 Bridging Tetra in 'up' side
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca with 1 OH and with 2 H2O
+04/13 15:08 [INFO] cshmd.structure (check_rm_list)                               : Delete 602 atoms in rm_list
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:08 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.827 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.354 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.350 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 748, SiO4: 596, OH: 128, CO3: 0, H3O: 0, Ca_O: 4313
+04/13 15:08 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : Searching 'OH' in 'CaOH
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q1: 0.577
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 0.423
+04/13 15:08 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 1.111
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 84, PT: 512
+04/13 15:08 [INFO] cshmd.analysis (MCL)                                          : [Structure] MCL: 1.733
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 2: 22 Length 5: 21
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 3.4651162790697674
+04/13 15:08 [INFO] cshmd.builder (update_manager)                                : [Structure] Number of atoms: 5504 -> 5762
+04/13 15:08 [INFO] csh_builder (main)                                            : [Structure] Reading command 'terminate_NBO'...
+04/13 15:08 [INFO] cshmd.builder (terminate_NBO)                                 : Do not run terminate, ratio == 0
+04/13 15:08 [INFO] csh_builder (main)                                            : [Structure] Reading command 'add_BT'...
+04/13 15:08 [INFO] cshmd.builder (add_BT)                                        : [Structure] 'Add Ca above all Bridging Tetra'
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca
+04/13 15:08 [INFO] cshmd.structure (add_Ca)                                      : [Structure] Add Ca
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:08 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:08 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.799 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.281 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.348 seconds
+04/13 15:08 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 748, SiO4: 596, OH: 128, CO3: 0, H3O: 0, Ca_O: 4376
+04/13 15:08 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:08 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:08 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : Searching 'OH' in 'CaOH
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q1: 0.577
+04/13 15:08 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 0.423
+04/13 15:08 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 1.111
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 84, PT: 512
+04/13 15:08 [INFO] cshmd.analysis (MCL)                                          : [Structure] MCL: 1.733
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 2: 22 Length 5: 21
+04/13 15:08 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 3.4651162790697674
+04/13 15:08 [INFO] cshmd.builder (update_manager)                                : [Structure] Number of atoms: 5762 -> 5804
+04/13 15:08 [INFO] cshmd.structure (writeCif)                                    : L035.cif was created
+04/13 15:08 [INFO] cshmd.builder (out_model)                                     : Total Charge: 0
+04/13 15:08 [INFO] csh_builder (main)                                            : ----------------------------------------------------------------------
+04/13 15:09 [DEBUG] cshmd.common (get_logger)                                    : $$$$$$$$$$$$$$  Logger 'cshmd.common........' initialized  $$$$$$$$$$$$$$
+04/13 15:09 [DEBUG] cshmd.functions (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.functions.....' initialized  $$$$$$$$$$$$$$
+04/13 15:09 [DEBUG] cshmd.load (get_logger)                                      : $$$$$$$$$$$$$$  Logger 'cshmd.load..........' initialized  $$$$$$$$$$$$$$
+04/13 15:09 [DEBUG] cshmd.analysis (get_logger)                                  : $$$$$$$$$$$$$$  Logger 'cshmd.analysis......' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cshmd.structure (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.structure.....' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cshmd.builder (get_logger)                                   : $$$$$$$$$$$$$$  Logger 'cshmd.builder.......' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cshmd.trj_analysis (get_logger)                              : $$$$$$$$$$$$$$  Logger 'cshmd.trj_analysis..' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cif_modifier (get_logger)                                    : $$$$$$$$$$$$$$  Logger 'cif_modifier........' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [INFO] cif_modifier (<module>)                                       : Logger loaded
+04/13 15:10 [INFO] cshmd.structure (__init__)                                    : L025.cif was loaded
+04/13 15:10 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:10 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:10 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:10 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:10 [DEBUG] cshmd.analysis (__init__)                                    : C-S-H Model not setted
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:10 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.766 seconds
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:10 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.279 seconds
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:10 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.352 seconds
+04/13 15:10 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 796, SiO4: 548, OH: 128, CO3: 0, H3O: 0, Ca_O: 4472
+04/13 15:10 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:10 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:10 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:10 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : Searching 'OH' in 'CaOH
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.15
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.4
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 1.8
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:10 [INFO] cshmd.functions (cal_uniform_by_space)                        : Number of molecules to add : 2678
+04/13 15:10 [INFO] cshmd.functions (cal_uniform_by_space)                        : Number of atoms per surface : 272
+04/13 15:10 [INFO] cshmd.functions (cal_uniform_by_space)                        : Number of layer : 10
+04/13 15:10 [INFO] cshmd.structure (extendLattice)                               : Extend lattice 53.882 59.402 28.788 -> 53.882 59.402 46.788 
+04/13 15:10 [INFO] cif_modifier (exec_make_interface)                            : Number of atoms: 5852 -> 13886
+04/13 15:10 [INFO] cshmd.structure (labeling_by_clayff)                          : Now get label according to 'Clayff' style
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:10 [INFO] cshmd.structure (labeling_by_clayff)                          : All atoms labeled by clayff
+04/13 15:10 [INFO] cshmd.structure (labeling_by_clayff)                          : Clayff charge: 0.000
+04/13 15:10 [INFO] cshmd.structure (writeCif)                                    : L025_w2750.cif was created
+04/13 15:10 [INFO] cif_modifier (__init__)                                       : Total charge: 0 -> 0
+04/13 15:10 [DEBUG] cshmd.common (get_logger)                                    : $$$$$$$$$$$$$$  Logger 'cshmd.common........' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cshmd.functions (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.functions.....' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cshmd.load (get_logger)                                      : $$$$$$$$$$$$$$  Logger 'cshmd.load..........' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cshmd.analysis (get_logger)                                  : $$$$$$$$$$$$$$  Logger 'cshmd.analysis......' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cshmd.structure (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.structure.....' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cshmd.builder (get_logger)                                   : $$$$$$$$$$$$$$  Logger 'cshmd.builder.......' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cshmd.trj_analysis (get_logger)                              : $$$$$$$$$$$$$$  Logger 'cshmd.trj_analysis..' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cif_modifier (get_logger)                                    : $$$$$$$$$$$$$$  Logger 'cif_modifier........' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [INFO] cif_modifier (<module>)                                       : Logger loaded
+04/13 15:10 [INFO] cshmd.structure (__init__)                                    : L03.cif was loaded
+04/13 15:10 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:10 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:10 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:10 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:10 [DEBUG] cshmd.analysis (__init__)                                    : C-S-H Model not setted
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:10 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.814 seconds
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:10 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.308 seconds
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:10 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.360 seconds
+04/13 15:10 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 768, SiO4: 576, OH: 128, CO3: 0, H3O: 0, Ca_O: 4416
+04/13 15:10 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:10 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:10 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:10 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : Searching 'OH' in 'CaOH
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.15
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.4
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 1.8
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:10 [INFO] cshmd.functions (cal_uniform_by_space)                        : Number of molecules to add : 2678
+04/13 15:10 [INFO] cshmd.functions (cal_uniform_by_space)                        : Number of atoms per surface : 272
+04/13 15:10 [INFO] cshmd.functions (cal_uniform_by_space)                        : Number of layer : 10
+04/13 15:10 [INFO] cshmd.structure (extendLattice)                               : Extend lattice 53.882 59.402 28.788 -> 53.882 59.402 46.788 
+04/13 15:10 [INFO] cif_modifier (exec_make_interface)                            : Number of atoms: 5824 -> 13858
+04/13 15:10 [INFO] cshmd.structure (labeling_by_clayff)                          : Now get label according to 'Clayff' style
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:10 [INFO] cshmd.structure (labeling_by_clayff)                          : All atoms labeled by clayff
+04/13 15:10 [INFO] cshmd.structure (labeling_by_clayff)                          : Clayff charge: 0.000
+04/13 15:10 [INFO] cshmd.structure (writeCif)                                    : L03_w2750.cif was created
+04/13 15:10 [INFO] cif_modifier (__init__)                                       : Total charge: 0 -> 0
+04/13 15:10 [DEBUG] cshmd.common (get_logger)                                    : $$$$$$$$$$$$$$  Logger 'cshmd.common........' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cshmd.functions (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.functions.....' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cshmd.load (get_logger)                                      : $$$$$$$$$$$$$$  Logger 'cshmd.load..........' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cshmd.analysis (get_logger)                                  : $$$$$$$$$$$$$$  Logger 'cshmd.analysis......' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cshmd.structure (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.structure.....' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cshmd.builder (get_logger)                                   : $$$$$$$$$$$$$$  Logger 'cshmd.builder.......' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cshmd.trj_analysis (get_logger)                              : $$$$$$$$$$$$$$  Logger 'cshmd.trj_analysis..' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [DEBUG] cif_modifier (get_logger)                                    : $$$$$$$$$$$$$$  Logger 'cif_modifier........' initialized  $$$$$$$$$$$$$$
+04/13 15:10 [INFO] cif_modifier (<module>)                                       : Logger loaded
+04/13 15:10 [INFO] cshmd.structure (__init__)                                    : L035.cif was loaded
+04/13 15:10 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:10 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:10 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:10 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:10 [DEBUG] cshmd.analysis (__init__)                                    : C-S-H Model not setted
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:10 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.715 seconds
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:10 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.298 seconds
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:10 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.340 seconds
+04/13 15:10 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 748, SiO4: 596, OH: 128, CO3: 0, H3O: 0, Ca_O: 4376
+04/13 15:10 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:10 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:10 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:10 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : Searching 'OH' in 'CaOH
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.15
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.4
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:10 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 1.8
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:10 [INFO] cshmd.functions (cal_uniform_by_space)                        : Number of molecules to add : 2678
+04/13 15:10 [INFO] cshmd.functions (cal_uniform_by_space)                        : Number of atoms per surface : 272
+04/13 15:10 [INFO] cshmd.functions (cal_uniform_by_space)                        : Number of layer : 10
+04/13 15:10 [INFO] cshmd.structure (extendLattice)                               : Extend lattice 53.882 59.402 28.788 -> 53.882 59.402 46.788 
+04/13 15:10 [INFO] cif_modifier (exec_make_interface)                            : Number of atoms: 5804 -> 13838
+04/13 15:10 [INFO] cshmd.structure (labeling_by_clayff)                          : Now get label according to 'Clayff' style
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:10 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:10 [INFO] cshmd.structure (labeling_by_clayff)                          : All atoms labeled by clayff
+04/13 15:10 [INFO] cshmd.structure (labeling_by_clayff)                          : Clayff charge: 0.000
+04/13 15:10 [INFO] cshmd.structure (writeCif)                                    : L035_w2750.cif was created
+04/13 15:10 [INFO] cif_modifier (__init__)                                       : Total charge: 0 -> 0
+04/13 15:23 [DEBUG] cshmd.common (get_logger)                                    : $$$$$$$$$$$$$$  Logger 'cshmd.common........' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.functions (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.functions.....' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.load (get_logger)                                      : $$$$$$$$$$$$$$  Logger 'cshmd.load..........' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.analysis (get_logger)                                  : $$$$$$$$$$$$$$  Logger 'cshmd.analysis......' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.structure (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.structure.....' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.builder (get_logger)                                   : $$$$$$$$$$$$$$  Logger 'cshmd.builder.......' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.trj_analysis (get_logger)                              : $$$$$$$$$$$$$$  Logger 'cshmd.trj_analysis..' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] csh_info (get_logger)                                        : $$$$$$$$$$$$$$  Logger 'csh_info............' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [INFO] csh_info (main)                                               : Cif: L025.cif
+04/13 15:23 [INFO] cshmd.structure (__init__)                                    : L025.cif was loaded
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:23 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:23 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:23 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : C-S-H Model not setted
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:23 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.808 seconds
+04/13 15:23 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:23 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.260 seconds
+04/13 15:23 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:23 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:23 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:23 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:23 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.369 seconds
+04/13 15:23 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 796, SiO4: 548, OH: 128, CO3: 0, H3O: 0, Ca_O: 4472
+04/13 15:23 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:23 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:23 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:23 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : Searching 'OH' in 'CaOH
+04/13 15:23 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q1: 0.803
+04/13 15:23 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 0.197
+04/13 15:23 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 1.252
+04/13 15:23 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 36, PT: 512
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:23 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 2: 46 Length 5: 9
+04/13 15:23 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 2.4909090909090907
+04/13 15:23 [DEBUG] cshmd.common (get_logger)                                    : $$$$$$$$$$$$$$  Logger 'cshmd.common........' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.functions (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.functions.....' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.load (get_logger)                                      : $$$$$$$$$$$$$$  Logger 'cshmd.load..........' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.analysis (get_logger)                                  : $$$$$$$$$$$$$$  Logger 'cshmd.analysis......' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.structure (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.structure.....' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.builder (get_logger)                                   : $$$$$$$$$$$$$$  Logger 'cshmd.builder.......' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.trj_analysis (get_logger)                              : $$$$$$$$$$$$$$  Logger 'cshmd.trj_analysis..' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] csh_info (get_logger)                                        : $$$$$$$$$$$$$$  Logger 'csh_info............' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [INFO] csh_info (main)                                               : Cif: L03.cif
+04/13 15:23 [INFO] cshmd.structure (__init__)                                    : L03.cif was loaded
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:23 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:23 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:23 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : C-S-H Model not setted
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:23 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.712 seconds
+04/13 15:23 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:23 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.257 seconds
+04/13 15:23 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:23 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:23 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:23 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:23 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.344 seconds
+04/13 15:23 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 768, SiO4: 576, OH: 128, CO3: 0, H3O: 0, Ca_O: 4416
+04/13 15:23 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:23 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:23 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:23 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : Searching 'OH' in 'CaOH
+04/13 15:23 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q1: 0.667
+04/13 15:23 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 0.333
+04/13 15:23 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 1.167
+04/13 15:23 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 64, PT: 512
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:23 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 2: 32 Length 5: 16
+04/13 15:23 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 3.0
+04/13 15:23 [DEBUG] cshmd.common (get_logger)                                    : $$$$$$$$$$$$$$  Logger 'cshmd.common........' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.functions (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.functions.....' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.load (get_logger)                                      : $$$$$$$$$$$$$$  Logger 'cshmd.load..........' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.analysis (get_logger)                                  : $$$$$$$$$$$$$$  Logger 'cshmd.analysis......' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.structure (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.structure.....' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.builder (get_logger)                                   : $$$$$$$$$$$$$$  Logger 'cshmd.builder.......' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] cshmd.trj_analysis (get_logger)                              : $$$$$$$$$$$$$$  Logger 'cshmd.trj_analysis..' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [DEBUG] csh_info (get_logger)                                        : $$$$$$$$$$$$$$  Logger 'csh_info............' initialized  $$$$$$$$$$$$$$
+04/13 15:23 [INFO] csh_info (main)                                               : Cif: L035.cif
+04/13 15:23 [INFO] cshmd.structure (__init__)                                    : L035.cif was loaded
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/13 15:23 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/13 15:23 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/13 15:23 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : C-S-H Model not setted
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/13 15:23 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.725 seconds
+04/13 15:23 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:23 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.289 seconds
+04/13 15:23 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/13 15:23 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/13 15:23 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/13 15:23 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:23 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.355 seconds
+04/13 15:23 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 748, SiO4: 596, OH: 128, CO3: 0, H3O: 0, Ca_O: 4376
+04/13 15:23 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/13 15:23 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/13 15:23 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/13 15:23 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/13 15:23 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : Searching 'OH' in 'CaOH
+04/13 15:23 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q1: 0.577
+04/13 15:23 [INFO] cshmd.analysis (Qn)                                           : [Structure] Q2: 0.423
+04/13 15:23 [INFO] cshmd.analysis (CS)                                           : [Structure] C/S: 1.111
+04/13 15:23 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] BT: 84, PT: 512
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:23 [DEBUG] cshmd.analysis (__init__)                                    : <class 'cshmd.analysis.Chain'> loaded
+04/13 15:23 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] CL : Length 2: 22 Length 5: 21
+04/13 15:23 [INFO] cshmd.analysis (validate_tetra)                               : [Structure] MCL : 3.4651162790697674

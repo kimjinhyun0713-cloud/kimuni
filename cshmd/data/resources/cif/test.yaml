@@ -1,0 +1,10 @@
+info:
+  base: T14-base-normal.cif
+      
+command:
+  - func: dprot_BT
+    where:
+      - surface
+      - bulk
+    site: lower
+    scope: all

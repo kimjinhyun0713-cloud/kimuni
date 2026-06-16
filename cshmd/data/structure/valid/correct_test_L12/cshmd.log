@@ -1,0 +1,57 @@
+04/21 19:55 [DEBUG] cshmd.common (get_logger)                                    : $$$$$$$$$$$$$$  Logger 'cshmd.common........' initialized  $$$$$$$$$$$$$$
+04/21 19:55 [DEBUG] cshmd.functions (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.functions.....' initialized  $$$$$$$$$$$$$$
+04/21 19:55 [DEBUG] cshmd.load (get_logger)                                      : $$$$$$$$$$$$$$  Logger 'cshmd.load..........' initialized  $$$$$$$$$$$$$$
+04/21 19:55 [DEBUG] cshmd.analysis (get_logger)                                  : $$$$$$$$$$$$$$  Logger 'cshmd.analysis......' initialized  $$$$$$$$$$$$$$
+04/21 19:55 [DEBUG] cshmd.equation (get_logger)                                  : $$$$$$$$$$$$$$  Logger 'cshmd.equation......' initialized  $$$$$$$$$$$$$$
+04/21 19:55 [DEBUG] cshmd.structure (get_logger)                                 : $$$$$$$$$$$$$$  Logger 'cshmd.structure.....' initialized  $$$$$$$$$$$$$$
+04/21 19:55 [DEBUG] cshmd.builder (get_logger)                                   : $$$$$$$$$$$$$$  Logger 'cshmd.builder.......' initialized  $$$$$$$$$$$$$$
+04/21 19:55 [DEBUG] cshmd.trj_analysis (get_logger)                              : $$$$$$$$$$$$$$  Logger 'cshmd.trj_analysis..' initialized  $$$$$$$$$$$$$$
+04/21 19:55 [DEBUG] cif_modifier (get_logger)                                    : $$$$$$$$$$$$$$  Logger 'cif_modifier........' initialized  $$$$$$$$$$$$$$
+04/21 19:55 [INFO] cif_modifier (<module>)                                       : Logger loaded
+04/21 19:55 [INFO] cshmd.structure (__init__)                                    : L120.test.cif was loaded
+04/21 19:55 [DEBUG] cshmd.analysis (__init__)                                    : [Structure] Now new data setted for get Bonds
+04/21 19:55 [DEBUG] cshmd.analysis (__del_bond__)                                : del -> Si_O O_H H_O Ca_O C_O BO NBO
+04/21 19:55 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> H2O SiO4 OH CO3 H3O
+04/21 19:55 [DEBUG] cshmd.analysis (__initialize_mole__)                         : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+04/21 19:55 [DEBUG] cshmd.analysis (__init__)                                    : C-S-H Model not setted
+04/21 19:55 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.2
+04/21 19:55 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.610 seconds
+04/21 19:55 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/21 19:55 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/21 19:55 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.425 seconds
+04/21 19:55 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/21 19:55 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/21 19:55 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.6
+04/21 19:55 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/21 19:55 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 3
+04/21 19:55 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/21 19:55 [DEBUG] cshmd.common (time_wrapper)                                  : [RUNTIME] get_distance_table in 0.344 seconds
+04/21 19:55 [DEBUG] cshmd.analysis (search_basic)                                : Basic search result -> H2O: 576, SiO4: 708, OH: 128, CO3: 0, H3O: 0, Ca_O: 3987
+04/21 19:55 [DEBUG] cshmd.analysis (full_search)                                 : Search layer details
+04/21 19:55 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Ca - O rcut -> 3.0
+04/21 19:55 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 2.2
+04/21 19:55 [DEBUG] cshmd.analysis (set_layer_boundary)                          : Set layer boundary -> 0.2361377918249991 - 0.7222344292749987
+04/21 19:55 [DEBUG] cshmd.analysis (__detail_search_oh_co3)                      : No CO3 in basic search
+04/21 19:55 [DEBUG] cshmd.analysis (__detail_search_oh_sioh)                     : Searching 'OH' in 'SiO4
+04/21 19:55 [DEBUG] cshmd.analysis (__detail_search_oh_caoh)                     : Searching 'OH' in 'CaOH
+04/21 19:55 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond O - H rcut -> 1.15
+04/21 19:55 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/21 19:55 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/21 19:55 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond C - O rcut -> 1.4
+04/21 19:55 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/21 19:55 [DEBUG] cshmd.analysis (find_bond)                                   : find_bond Si - O rcut -> 1.8
+04/21 19:55 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/21 19:55 [INFO] cshmd.functions (cal_uniform_by_space)                        : Number of molecules to add : 2678
+04/21 19:55 [INFO] cshmd.functions (cal_uniform_by_space)                        : Number of atoms per surface : 272
+04/21 19:55 [INFO] cshmd.functions (cal_uniform_by_space)                        : Number of layer : 10
+04/21 19:55 [INFO] cshmd.structure (extendLattice)                               : Extend lattice 53.882 59.402 28.788 -> 53.882 59.402 46.788 
+04/21 19:55 [INFO] cif_modifier (exec_make_interface)                            : Number of atoms: 5472 -> 13506
+04/21 19:55 [INFO] cshmd.structure (labeling_by_clayff)                          : Now get label according to 'Clayff' style
+04/21 19:55 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 1
+04/21 19:55 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole O - H -> nbonds: 2
+04/21 19:55 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole Si - O -> nbonds: 4
+04/21 19:55 [DEBUG] cshmd.analysis (get_mole)                                    : get_mole C - O -> nbonds: 3
+04/21 19:55 [INFO] cshmd.structure (labeling_by_clayff)                          : All atoms labeled by clayff
+04/21 19:55 [INFO] cshmd.structure (labeling_by_clayff)                          : Clayff charge: -0.000
+04/21 19:56 [INFO] cshmd.structure (writeCif)                                    : L120.test_w2750.cif was created
+04/21 19:56 [INFO] cif_modifier (__init__)                                       : Total charge: 0 -> 0

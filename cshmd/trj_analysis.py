@@ -1,26 +1,27 @@
 import numpy as np
 import pickle
 from typing import Dict, List, Optional, Union
-from .analysis import BOND, UnitCell
+from .analysis import Bond, UnitCell
 from .load import LAMMPSTRJ, Dump
 from .functions import setMatrix
-from .common import overwritePrint
+from .common import overwritePrint, get_logger
 from dataclasses import dataclass
+
+logger = get_logger(__name__)
 
 
 @dataclass
 class Absorption:
-    
     C: int
     elem: str
     edge: Optional[Dict[int, int]] = None
     _label: Optional[Dict[str, int]] = None
     _Hs: Optional[List[int]] = None
     _Os: Optional[List[int]] = None
-    
+
     def __getitem__(self, C):
         return self.edge[C]
-    
+
     def __setitem__(self, C, val):
         if self.edge is None:
             self.edge = {}
@@ -28,11 +29,11 @@ class Absorption:
 
     def initalize_label(self):
         self._label = {}
-        
+
     @property
     def label(self):
         return self._label
-    
+
     @label.setter
     def label(self, val: tuple):
         if self._label is None:
@@ -40,12 +41,12 @@ class Absorption:
         _label = val[0]
         _num = val[1]
         self._label[_label] = self._label.get(_label, 0) + _num
-            
-        
+
+
 class ANALYZER(LAMMPSTRJ):
     verbose = True
     crystal_centered = False
-    
+
     def __init__(self, infile: Optional[str], Index: Union[UnitCell, dict, None]):
         super().__init__(infile)
         self.infile = str(infile)
@@ -82,11 +83,11 @@ class ANALYZER(LAMMPSTRJ):
             self.ca_node.append(_node)
         self._index_of_co3_node_ = {node.C: node for node in self.co3_node}
         self._index_of_ca_node_ = {node.C: node for node in self.ca_node}
-        
+
     def _add_node_(self, _node):
         self.ca_node.append(_node)
         self._index_of_ca_node_ = {node.C: node for node in self.ca_node}
-    
+
     def trace_step(self):
         self._manage_statistics_()
         for step in range(self.nstep):
@@ -95,10 +96,10 @@ class ANALYZER(LAMMPSTRJ):
             self._update_step(step)
             self.__find_mole__()
             self._set_node_()
-            self.analyze_absorption()# in case of calculate layer absorption
+            self.analyze_absorption()  # in case of calculate layer absorption
             self.stdout_stats()
         self.stdout_statistics()
-        
+
     def center_step_(self):
         self._center_init_setting_()
         for step in range(self.nstep):
@@ -110,20 +111,19 @@ class ANALYZER(LAMMPSTRJ):
 
     def _center_init_setting_(self):
         self._update_step(0)
-        self.bond = BOND(self._data, self._matrix, cartesian=True)
+        self.bond = Bond(self._data, self._matrix, cartesian=True)
         self.bond.find("SiO4")
         SiO4 = np.unique(self.bond.SiO4).ravel()
         self.required_center_index = np.hstack([self.layer_Ca, SiO4])
         self.len_center_index = self.required_center_index.shape[0]
         self.dumper = Dump(natoms=self.natoms, elem=self.elem)
         if ANALYZER.crystal_centered:
-            stdout = "[INFO] Adjust coordination to locate C-S-H in middle of the system"
+            stdout = "Adjust coordination to locate C-S-H in middle of the system"
         else:
-            stdout = "[INFO] Adjust coordination to locate C-S-H in boundary of the system"
-        print(stdout)
+            stdout = "Adjust coordination to locate C-S-H in boundary of the system"
+        logger.info(stdout)
         Dump.set_dump_file(self.infile.replace(".lammpstrj", ".center.lammpstrj"))
         Dump.check_file_exists(remove=True)
-        
 
     def _centering_(self):
         overwritePrint(self.stdout)
@@ -135,8 +135,8 @@ class ANALYZER(LAMMPSTRJ):
         self.require_cur_fract = require_cur_fract.astype(float)
         cumsum_r = 0
         if hasattr(self, "require_pre_fract"):
-            r = (self.require_cur_fract - self.require_pre_fract)
-            r = (r - np.round(r))
+            r = self.require_cur_fract - self.require_pre_fract
+            r = r - np.round(r)
             avg_r = np.average(r, axis=0)
             cumsum_r += avg_r
             r_ = (all_cur_fract - cumsum_r).astype(float)
@@ -144,17 +144,17 @@ class ANALYZER(LAMMPSTRJ):
             view = r_ @ self._matrix
             self._data[:, 1:4] = view
         else:
-            self._data[:, 1:] = all_cur_fract  @ self._matrix
+            self._data[:, 1:] = all_cur_fract @ self._matrix
         self.dumper.dump(self._data, self._matrix)
         self.require_pre_fract = self.require_cur_fract.copy()
 
     def stdout_centering(self):
-        print(f"\n[INFO] '{Dump.lmp_name}' created")
-        print("Run 'csh_make_map.py'")
-        
+        logger.info(f"'{Dump.lmp_name}' created")
+        logger.info("Run 'csh_make_map.py'")
+
     def _manage_statistics_(self):
         self.managed_moles = ["OH", "H3O", "CO3"]
-        self.managed_moles += BOND.mole_hco3_family
+        self.managed_moles += Bond.mole_hco3_family
         self.statistics = {mole: 0 for mole in self.managed_moles}
         self.statistics["free_Ca"] = 0
         self.statistics["absorbed_Ca"] = 0
@@ -164,35 +164,33 @@ class ANALYZER(LAMMPSTRJ):
 
     def stdout_statistics(self):
         exclude = {"node_of_co3_n_connected_ca", "node_of_whole_ca"}
-        mole = {k: v / self.nstep
-                for k, v in self.statistics.items()
-                if k not in exclude}
+        mole = {
+            k: v / self.nstep for k, v in self.statistics.items() if k not in exclude
+        }
         ab = [self.statistics[e] for e in exclude]
         with open("dat.pkl", "wb") as f:
             pickle.dump(mole, f)
-            print("'dat.pkl' created")
+            logger.info("'dat.pkl' created")
         with open("ab_dat.pkl", "wb") as ff:
             pickle.dump(ab, ff)
-            print("'ab_dat.pkl' created")
-        print("Run 'csh_statistic.py'")
+            logger.info("'ab_dat.pkl' created")
+        logger.info("Run 'csh_statistic.py'")
 
     def _format_setting(self):
         self.stdout = f"[STEP {self.cur_step:4d}] "
         self.fmt_stat_name = "{:11s}|"
-        
-            
+
     def _update_step(self, step: int = 0):
         self._data = self.ldata[step]
         self._lattice = self.lattice[step]
         self._angle = self.angle[step]
         self._matrix, _ = setMatrix(self._lattice, self._angle)
 
-        
     def __find_mole__(self):
-        self.bond = BOND(self._data, self._matrix, cartesian=True)
-        self.bond.find_O_H(reverse=True, reverse_rcut=3.5)# calculate Hydrogen bonds
-        self.bond.find_Ca_O()# in case of calculate layer absorption
-        self.bond.find(*BOND.mole)
+        self.bond = Bond(self._data, self._matrix, cartesian=True)
+        self.bond.find_O_H(reverse=True, reverse_rcut=3.5)  # calculate Hydrogen bonds
+        self.bond.find_Ca_O()  # in case of calculate layer absorption
+        self.bond.find(*Bond.mole)
         self.bond.check_where_OH()
 
     def stdout_stats(self):
@@ -210,22 +208,21 @@ class ANALYZER(LAMMPSTRJ):
                     if val != 0:
                         self.statistics[mole] += val
                         stdout += fmt.format(mole, val)
-        print(stdout)
+        logger.info(stdout)
 
-        
     def _compute_ab_stat(self):
         stdout = self.stdout + self.fmt_stat_name.format("Layer stat")
         fmt_ca = "freeCa: {}/{}  "
         fmt_sioh = "SiOH: {}"
-        num_absorbed_ca = len(self.ca_node)# computed in '_set_node_'
-        num_whole_ca = len(self.bulk_Ca)# computed in '_set_node_'
-        num_sioh = len(self.bond.SiOH)# computed in '__find_mole__'
-        self.statistics["free_Ca"] += (num_whole_ca - num_absorbed_ca)
+        num_absorbed_ca = len(self.ca_node)  # computed in '_set_node_'
+        num_whole_ca = len(self.bulk_Ca)  # computed in '_set_node_'
+        num_sioh = len(self.bond.SiOH)  # computed in '__find_mole__'
+        self.statistics["free_Ca"] += num_whole_ca - num_absorbed_ca
         self.statistics["absorbed_Ca"] += num_absorbed_ca
         self.statistics["SiOH"] += num_sioh
         stdout += fmt_ca.format(num_absorbed_ca, num_whole_ca)
         stdout += fmt_sioh.format(num_sioh)
-        print(stdout)
+        logger.info(stdout)
 
     def _compute_node_stat(self):
         stdout = self.stdout + self.fmt_stat_name.format("Node stat")
@@ -238,7 +235,7 @@ class ANALYZER(LAMMPSTRJ):
                     labels.append(ca_node.label)
         for _node in self.ca_node:
             self.statistics["node_of_whole_ca"].append(_node.label)
-            # print(_node.label, _node.C)
+            # logger.info(_node.label, _node.C)
         self.statistics["node_of_co3_n_connected_ca"].append(labels)
         for labelDic in labels:
             if labelDic == {}:
@@ -246,9 +243,9 @@ class ANALYZER(LAMMPSTRJ):
             fmt_ = " |{}| "
             out_ = "  ".join(f"{k}: {v}" for k, v in labelDic.items())
             stdout += fmt_.format(out_)
-        
-        print(stdout)
-        
+
+        logger.info(stdout)
+
     def analyze_absorption(self):
         for node in self.co3_node:
             self._setattr_co3_node(node)
@@ -268,7 +265,7 @@ class ANALYZER(LAMMPSTRJ):
         _Cas = np.unique(bond_Ca, return_counts=True)
         if len(_Cas[0]) != 0:
             _Cas = np.vstack(_Cas).T
-            for (Cas, count) in _Cas:
+            for Cas, count in _Cas:
                 _node = self._get_node_by_index_(Cas, "ca")
                 if _node is None:
                     _node = Absorption(Cas, "Ca", _label={"free": 1})
@@ -285,18 +282,19 @@ class ANALYZER(LAMMPSTRJ):
         hydrogen_bond = self.bond.H_O[HO_mask]
         if hydrogen_bond.size != 0:
             for H_of_sioh in np.unique(hydrogen_bond[:, 0]):
-                O_of_sioh = self.bond.SiOH[np.isin(self.bond.SiOH[:, 1], H_of_sioh)][:, 0]
+                O_of_sioh = self.bond.SiOH[np.isin(self.bond.SiOH[:, 1], H_of_sioh)][
+                    :, 0
+                ]
                 for O in O_of_sioh:
                     label = self._get_label_of_csh_O(O)
                     if label is not None:
                         label = label.replace("O", "H")
                         node.label = (label, 1)
-                        print(node.label)
+                        logger.info(node.label)
                     else:
                         msg = "[Error] The Label of silicate layer is not allocated"
                         raise ValueError(msg)
-                
-                
+
     def _link_hco3_to_sio(self, node):
         HO_mask = np.isin(self.bond.H_O[:, 0], node._Hs)
         hydrogen_bond = self.bond.H_O[HO_mask]
@@ -306,32 +304,26 @@ class ANALYZER(LAMMPSTRJ):
                 if label is not None:
                     label = label.replace("O", "H_")
                     node.label = (label, 1)
-                    
-            
+
     def _get_label_of_csh_O(self, index: int):
         for key in [key for key in self.labels if "O" in key]:
             val = getattr(self, key)
             if index in val:
                 return key
         return None
-    
-    def _get_node_by_index_(self, index: int, mole: str): # mole: co3 | ca
+
+    def _get_node_by_index_(self, index: int, mole: str):  # mole: co3 | ca
         indexDic = getattr(self, f"_index_of_{mole}_node_")
         return indexDic.get(index, None)
-        
 
-    def vprint(self, string):
-        if self.verbose:
-            print(string)
-            
 
-class Run_trj_analysis():
+class Run_trj_analysis:
     verbose = False
     crystal_centered = True
-    
+
     def __init__(self, infile=None, mode="trace"):
         if infile is None:
-            print("[INFO] No trj exists")
+            logger.info("No trj exists")
         ANALYZER.verbose = Run_trj_analysis.verbose
         ANALYZER.crystal_centered = Run_trj_analysis.crystal_centered
         self.analyzer = ANALYZER(infile, UnitCell(infile))
@@ -343,27 +335,45 @@ class Run_trj_analysis():
     def center(self):
         self.analyzer.center_step_()
 
-        
+
 def main():
     import argparse
     from pathlib import Path
+
     par = argparse.ArgumentParser(description="", prog="")
-    par.add_argument('infiles', nargs="*",
-                    help="#Infile")
-    par.add_argument('-v', '--verbose', default=False, action="store_true",
-                    help="set verbosity level by True 'or' 'False'")
-    par.add_argument('-m', '--mode', choices=["trace", "center"], default="trace",
-                     help=" Choose 'trace' or 'center'")
-    par.add_argument('-c', '--crystal_centered', default=True, action="store_false",
-                     help="set C-S-H in middle of the system")
-    
+    par.add_argument("infiles", nargs="*", help="#Infile")
+    par.add_argument(
+        "-v",
+        "--verbose",
+        default=False,
+        action="store_true",
+        help="set verbosity level by True 'or' 'False'",
+    )
+    par.add_argument(
+        "-m",
+        "--mode",
+        choices=["trace", "center"],
+        default="trace",
+        help=" Choose 'trace' or 'center'",
+    )
+    par.add_argument(
+        "-c",
+        "--crystal_centered",
+        default=True,
+        action="store_false",
+        help="set C-S-H in middle of the system",
+    )
+
     args = par.parse_args()
     ANALYZER.verbose = args.verbose
     ANALYZER.crystal_centered = args.crystal_centered
-    infiles = args.infiles if len(args.infiles) != 0 else list(Path(".").rglob("e.lammpstrj"))
+    infiles = (
+        args.infiles if len(args.infiles) != 0 else list(Path(".").rglob("e.lammpstrj"))
+    )
     for infile in infiles:
         Run_trj_analysis(infile, args.mode)
     return 0
-    
+
+
 if __name__ == "__main__":
     main()

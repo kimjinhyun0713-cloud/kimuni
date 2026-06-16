@@ -1,0 +1,120 @@
+03/04 16:04 [INFO] cshmd.structure (__init__)                : T14_111_base.cif was loaded
+03/04 16:04 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+03/04 16:04 [DEBUG] cshmd.analysis (__del_bond__)            : loaded
+03/04 16:04 [DEBUG] cshmd.analysis (__initialize_mole__)     : loaded
+03/04 16:04 [INFO] cshmd.structure (__init__)                : Does not setted 'config'
+03/04 16:04 [DEBUG] cshmd.analysis (find_bond)               : find_bond O - H 
+03/04 16:04 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:04 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 2
+03/04 16:04 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 
+03/04 16:04 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:04 [DEBUG] cshmd.analysis (get_mole)                : get_mole Si - O -> nbonds: 4
+03/04 16:04 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 1
+03/04 16:04 [DEBUG] cshmd.analysis (find_bond)               : find_bond C - O 
+03/04 16:04 [DEBUG] cshmd.analysis (get_mole)                : get_mole C - O -> nbonds: 3
+03/04 16:04 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+03/04 16:04 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : Searching 'OH' in 'SiO4
+03/04 16:04 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : point loaded
+03/04 16:04 [DEBUG] cshmd.analysis (find_bond)               : find_bond Ca - O 
+03/04 16:04 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:04 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 
+03/04 16:04 [INFO] cshmd.structure (__init__)                : T14_111_base.cif was loaded
+03/04 16:04 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+03/04 16:04 [DEBUG] cshmd.analysis (__del_bond__)            : loaded
+03/04 16:04 [DEBUG] cshmd.analysis (__initialize_mole__)     : loaded
+03/04 16:04 [INFO] cshmd.structure (__init__)                : Does not setted 'config'
+03/04 16:04 [DEBUG] cshmd.analysis (find_bond)               : find_bond O - H 
+03/04 16:04 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:04 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 2
+03/04 16:04 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 
+03/04 16:04 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:04 [DEBUG] cshmd.analysis (get_mole)                : get_mole Si - O -> nbonds: 4
+03/04 16:04 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 1
+03/04 16:04 [DEBUG] cshmd.analysis (find_bond)               : find_bond C - O 
+03/04 16:04 [DEBUG] cshmd.analysis (get_mole)                : get_mole C - O -> nbonds: 3
+03/04 16:04 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+03/04 16:04 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : Searching 'OH' in 'SiO4
+03/04 16:04 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : point loaded
+03/04 16:04 [DEBUG] cshmd.analysis (find_bond)               : find_bond Ca - O 
+03/04 16:04 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:04 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 
+03/04 16:11 [INFO] cshmd.structure (__init__)                : T14_111_base.cif was loaded
+03/04 16:11 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+03/04 16:11 [DEBUG] cshmd.analysis (__del_bond__)            : loaded
+03/04 16:11 [DEBUG] cshmd.analysis (__initialize_mole__)     : loaded
+03/04 16:11 [INFO] cshmd.structure (__init__)                : Does not setted 'config'
+03/04 16:11 [DEBUG] cshmd.analysis (find_bond)               : find_bond O - H 
+03/04 16:11 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:11 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 2
+03/04 16:11 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 
+03/04 16:11 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:11 [DEBUG] cshmd.analysis (get_mole)                : get_mole Si - O -> nbonds: 4
+03/04 16:11 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 1
+03/04 16:11 [DEBUG] cshmd.analysis (find_bond)               : find_bond C - O 
+03/04 16:11 [DEBUG] cshmd.analysis (get_mole)                : get_mole C - O -> nbonds: 3
+03/04 16:11 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+03/04 16:11 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : Searching 'OH' in 'SiO4
+03/04 16:11 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : point loaded
+03/04 16:11 [DEBUG] cshmd.analysis (find_bond)               : find_bond Ca - O 
+03/04 16:11 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:11 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 
+03/04 16:12 [INFO] cshmd.structure (__init__)                : T14_111_base.cif was loaded
+03/04 16:12 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+03/04 16:12 [DEBUG] cshmd.analysis (__del_bond__)            : loaded
+03/04 16:12 [DEBUG] cshmd.analysis (__initialize_mole__)     : loaded
+03/04 16:12 [INFO] cshmd.structure (__init__)                : Does not setted 'config'
+03/04 16:12 [DEBUG] cshmd.analysis (find_bond)               : find_bond O - H 
+03/04 16:12 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:12 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 2
+03/04 16:12 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 
+03/04 16:12 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:12 [DEBUG] cshmd.analysis (get_mole)                : get_mole Si - O -> nbonds: 4
+03/04 16:12 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 1
+03/04 16:12 [DEBUG] cshmd.analysis (find_bond)               : find_bond C - O 
+03/04 16:12 [DEBUG] cshmd.analysis (get_mole)                : get_mole C - O -> nbonds: 3
+03/04 16:12 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+03/04 16:12 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : Searching 'OH' in 'SiO4
+03/04 16:12 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : point loaded
+03/04 16:12 [DEBUG] cshmd.analysis (find_bond)               : find_bond Ca - O 
+03/04 16:12 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:12 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 
+03/04 16:14 [INFO] cshmd.structure (__init__)                : T14_111_base.cif was loaded
+03/04 16:14 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+03/04 16:14 [DEBUG] cshmd.analysis (__del_bond__)            : loaded
+03/04 16:14 [DEBUG] cshmd.analysis (__initialize_mole__)     : loaded
+03/04 16:14 [INFO] cshmd.structure (__init__)                : Does not setted 'config'
+03/04 16:14 [DEBUG] cshmd.analysis (find_bond)               : find_bond O - H 
+03/04 16:14 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:14 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 2
+03/04 16:14 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 
+03/04 16:14 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:14 [DEBUG] cshmd.analysis (get_mole)                : get_mole Si - O -> nbonds: 4
+03/04 16:14 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 1
+03/04 16:14 [DEBUG] cshmd.analysis (find_bond)               : find_bond C - O 
+03/04 16:14 [DEBUG] cshmd.analysis (get_mole)                : get_mole C - O -> nbonds: 3
+03/04 16:14 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+03/04 16:14 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : Searching 'OH' in 'SiO4
+03/04 16:14 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : point loaded
+03/04 16:14 [DEBUG] cshmd.analysis (find_bond)               : find_bond Ca - O 
+03/04 16:14 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:14 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 
+03/04 16:16 [INFO] cshmd.structure (__init__)                : T14_111_base.cif was loaded
+03/04 16:16 [DEBUG] cshmd.analysis (__init__)                : [Structure] Now new data setted for get Bonds
+03/04 16:16 [DEBUG] cshmd.analysis (__del_bond__)            : loaded
+03/04 16:16 [DEBUG] cshmd.analysis (__initialize_mole__)     : loaded
+03/04 16:16 [INFO] cshmd.structure (__init__)                : Does not setted 'config'
+03/04 16:16 [DEBUG] cshmd.analysis (find_bond)               : find_bond O - H 
+03/04 16:16 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:16 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 2
+03/04 16:16 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 
+03/04 16:16 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:16 [DEBUG] cshmd.analysis (get_mole)                : get_mole Si - O -> nbonds: 4
+03/04 16:16 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 1
+03/04 16:16 [DEBUG] cshmd.analysis (find_bond)               : find_bond C - O 
+03/04 16:16 [DEBUG] cshmd.analysis (get_mole)                : get_mole C - O -> nbonds: 3
+03/04 16:16 [DEBUG] cshmd.analysis (_check_and_find_co3s)    : [Info]: Searching 'OH' in 'CO3'
+03/04 16:16 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : Searching 'OH' in 'SiO4
+03/04 16:16 [DEBUG] cshmd.analysis (_check_and_find_sioh)    : point loaded
+03/04 16:16 [DEBUG] cshmd.analysis (find_bond)               : find_bond Ca - O 
+03/04 16:16 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.000 seconds
+03/04 16:16 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O 

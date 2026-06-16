@@ -1,0 +1,240 @@
+----------------------------------------------------------------------
+[INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 4, PT: 8
+[StructureManager] MCL: inf
+
+[StructureManager] Reading command 'supercell'...
+[StructureManager] with arguments 'supercell: [6, 6, 1]'...
+[StructureManager] Supercell created 6 * 6 * 1
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 144, PT: 288
+[StructureManager] MCL: inf
+[StructureManager] Number of atoms: 90 -> 3240
+
+[StructureManager] Reading command 'defect_BT'...
+[StructureManager] with arguments 'scope: all termination: False add_Ca: True seed: 109 keep_OH: False'...
+[StructureManager] Termination scope: False
+[StructureManager] Exists 36 Bridging Tetra in 'top' side
+[StructureManager] Exists 36 Bridging Tetra in 'bottom' side
+[StructureManager] Delete 360 atoms
+[StructureManager] Q1: 0.400
+[StructureManager] Q2: 0.600
+[StructureManager] C/S: 0.900
+[StructureManager] BT: 72, PT: 288
+[StructureManager] MCL: 2.000
+[StructureManager] Number of atoms: 3240 -> 2952
+[INFO] L2H0.cif was created
+[INFO] Total Charge: 0
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+[INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 4, PT: 8
+[StructureManager] MCL: inf
+
+[StructureManager] Reading command 'supercell'...
+[StructureManager] with arguments 'supercell: [6, 6, 1]'...
+[StructureManager] Supercell created 6 * 6 * 1
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 144, PT: 288
+[StructureManager] MCL: inf
+[StructureManager] Number of atoms: 90 -> 3240
+
+[StructureManager] Reading command 'defect_BT'...
+[StructureManager] with arguments 'scope: all termination: half add_Ca: True seed: 109 keep_OH: False'...
+[StructureManager] Termination scope: 'half'
+[StructureManager] Exists 36 Bridging Tetra in 'top' side
+[StructureManager] Exists 36 Bridging Tetra in 'bottom' side
+[StructureManager] Delete 360 atoms
+[StructureManager] Q1: 0.400
+[StructureManager] Q2: 0.600
+[StructureManager] C/S: 0.900
+[StructureManager] BT: 72, PT: 288
+[StructureManager] MCL: 2.000
+[StructureManager] Number of atoms: 3240 -> 3024
+[INFO] L2H1.cif was created
+[INFO] Total Charge: 72
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+[INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 4, PT: 8
+[StructureManager] MCL: inf
+
+[StructureManager] Reading command 'supercell'...
+[StructureManager] with arguments 'supercell: [6, 6, 1]'...
+[StructureManager] Supercell created 6 * 6 * 1
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 144, PT: 288
+[StructureManager] MCL: inf
+[StructureManager] Number of atoms: 90 -> 3240
+
+[StructureManager] Reading command 'defect_BT'...
+[StructureManager] with arguments 'scope: half termination: False add_Ca: True seed: 109 keep_OH: False'...
+[StructureManager] Termination scope: False
+[StructureManager] Exists 36 Bridging Tetra in 'top' side
+[StructureManager] Remove 18 Bridging Tetra of 'top' side
+[StructureManager] Exists 36 Bridging Tetra in 'bottom' side
+[StructureManager] Remove 18 Bridging Tetra of 'bottom' side
+[StructureManager] Delete 180 atoms
+[StructureManager] Q1: 0.182
+[StructureManager] Q2: 0.818
+[StructureManager] C/S: 0.818
+[StructureManager] BT: 108, PT: 288
+[StructureManager] MCL: 5.000
+[StructureManager] Number of atoms: 3240 -> 3096
+
+[StructureManager] Reading command 'add_ca_BT'...
+[StructureManager] with arguments 'auto: False'...
+[StructureManager] 'Add Ca above all Bridging Tetra'
+[StructureManager] Q1: 0.182
+[StructureManager] Q2: 0.818
+[StructureManager] C/S: 0.818
+[StructureManager] BT: 108, PT: 288
+[StructureManager] MCL: 5.000
+[StructureManager] Number of atoms: 3096 -> 3132
+
+[StructureManager] Reading command 'dprot_BT'...
+[StructureManager] with arguments 'scope: all site: all'...
+[StructureManager] Delete 72 atoms
+[StructureManager] Q1: 0.182
+[StructureManager] Q2: 0.818
+[StructureManager] C/S: 0.818
+[StructureManager] BT: 108, PT: 288
+[StructureManager] MCL: 5.000
+[StructureManager] Number of atoms: 3132 -> 3060
+[INFO] L5H0.cif was created
+[INFO] Total Charge: 0
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+[INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 4, PT: 8
+[StructureManager] MCL: inf
+
+[StructureManager] Reading command 'supercell'...
+[StructureManager] with arguments 'supercell: [6, 6, 1]'...
+[StructureManager] Supercell created 6 * 6 * 1
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 144, PT: 288
+[StructureManager] MCL: inf
+[StructureManager] Number of atoms: 90 -> 3240
+
+[StructureManager] Reading command 'defect_BT'...
+[StructureManager] with arguments 'scope: half termination: half add_Ca: True seed: 109 keep_OH: False'...
+[StructureManager] Termination scope: 'half'
+[StructureManager] Exists 36 Bridging Tetra in 'top' side
+[StructureManager] Remove 18 Bridging Tetra of 'top' side
+[StructureManager] Exists 36 Bridging Tetra in 'bottom' side
+[StructureManager] Remove 18 Bridging Tetra of 'bottom' side
+[StructureManager] Delete 180 atoms
+[StructureManager] Q1: 0.182
+[StructureManager] Q2: 0.818
+[StructureManager] C/S: 0.818
+[StructureManager] BT: 108, PT: 288
+[StructureManager] MCL: 5.000
+[StructureManager] Number of atoms: 3240 -> 3132
+
+[StructureManager] Reading command 'add_ca_BT'...
+[StructureManager] with arguments 'auto: False'...
+[StructureManager] 'Add Ca above all Bridging Tetra'
+[StructureManager] Q1: 0.182
+[StructureManager] Q2: 0.818
+[StructureManager] C/S: 0.818
+[StructureManager] BT: 108, PT: 288
+[StructureManager] MCL: 5.000
+[StructureManager] Number of atoms: 3132 -> 3168
+
+[StructureManager] Reading command 'dprot_BT'...
+[StructureManager] with arguments 'scope: all site: lower'...
+[StructureManager] Delete 36 atoms
+[StructureManager] Q1: 0.182
+[StructureManager] Q2: 0.818
+[StructureManager] C/S: 0.818
+[StructureManager] BT: 108, PT: 288
+[StructureManager] MCL: 5.000
+[StructureManager] Number of atoms: 3168 -> 3132
+[INFO] L5H1.cif was created
+[INFO] Total Charge: 72
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+[INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 4, PT: 8
+[StructureManager] MCL: inf
+
+[StructureManager] Reading command 'supercell'...
+[StructureManager] with arguments 'supercell: [6, 6, 1]'...
+[StructureManager] Supercell created 6 * 6 * 1
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 144, PT: 288
+[StructureManager] MCL: inf
+[StructureManager] Number of atoms: 90 -> 3240
+
+[StructureManager] Reading command 'add_ca_BT'...
+[StructureManager] with arguments 'auto: False'...
+[StructureManager] 'Add Ca above all Bridging Tetra'
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 144, PT: 288
+[StructureManager] MCL: inf
+[StructureManager] Number of atoms: 3240 -> 3312
+
+[StructureManager] Reading command 'dprot_BT'...
+[StructureManager] with arguments 'scope: all site: all'...
+[StructureManager] Delete 144 atoms
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 144, PT: 288
+[StructureManager] MCL: inf
+[StructureManager] Number of atoms: 3312 -> 3168
+[INFO] LiH0.cif was created
+[INFO] Total Charge: 0
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+[INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 4, PT: 8
+[StructureManager] MCL: inf
+
+[StructureManager] Reading command 'supercell'...
+[StructureManager] with arguments 'supercell: [6, 6, 1]'...
+[StructureManager] Supercell created 6 * 6 * 1
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 144, PT: 288
+[StructureManager] MCL: inf
+[StructureManager] Number of atoms: 90 -> 3240
+
+[StructureManager] Reading command 'add_ca_BT'...
+[StructureManager] with arguments 'auto: False'...
+[StructureManager] 'Add Ca above all Bridging Tetra'
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 144, PT: 288
+[StructureManager] MCL: inf
+[StructureManager] Number of atoms: 3240 -> 3312
+
+[StructureManager] Reading command 'dprot_BT'...
+[StructureManager] with arguments 'scope: all site: lower'...
+[StructureManager] Delete 72 atoms
+[StructureManager] Q2: 1.000
+[StructureManager] C/S: 0.750
+[StructureManager] BT: 144, PT: 288
+[StructureManager] MCL: inf
+[StructureManager] Number of atoms: 3312 -> 3240
+[INFO] LiH1.cif was created
+[INFO] Total Charge: 72
+----------------------------------------------------------------------

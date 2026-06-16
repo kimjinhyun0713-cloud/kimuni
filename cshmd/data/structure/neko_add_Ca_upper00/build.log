@@ -1,0 +1,240 @@
+----------------------------------------------------------------------
+[INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 4, PT: 8
+[Structure] MCL: inf
+
+[Structure] Reading command 'supercell'...
+[Structure] with arguments 'supercell: [6, 6, 1]'...
+[Structure] Supercell created 6 * 6 * 1
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 144, PT: 288
+[Structure] MCL: inf
+[Structure] Number of atoms: 90 -> 3240
+
+[Structure] Reading command 'defect_BT'...
+[Structure] with arguments 'scope: all termination: False add_Ca: True seed: 109 keep_OH: False'...
+[Structure] Termination scope: False
+[Structure] Exists 36 Bridging Tetra in 'top' side
+[Structure] Exists 36 Bridging Tetra in 'bottom' side
+[Structure] Delete 360 atoms
+[Structure] Q1: 0.400
+[Structure] Q2: 0.600
+[Structure] C/S: 0.900
+[Structure] BT: 72, PT: 288
+[Structure] MCL: 2.000
+[Structure] Number of atoms: 3240 -> 2952
+[INFO] L2H0.cif was created
+[INFO] Total Charge: 0
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+[INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 4, PT: 8
+[Structure] MCL: inf
+
+[Structure] Reading command 'supercell'...
+[Structure] with arguments 'supercell: [6, 6, 1]'...
+[Structure] Supercell created 6 * 6 * 1
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 144, PT: 288
+[Structure] MCL: inf
+[Structure] Number of atoms: 90 -> 3240
+
+[Structure] Reading command 'defect_BT'...
+[Structure] with arguments 'scope: all termination: half add_Ca: True seed: 109 keep_OH: False'...
+[Structure] Termination scope: 'half'
+[Structure] Exists 36 Bridging Tetra in 'top' side
+[Structure] Exists 36 Bridging Tetra in 'bottom' side
+[Structure] Delete 360 atoms
+[Structure] Q1: 0.400
+[Structure] Q2: 0.600
+[Structure] C/S: 0.900
+[Structure] BT: 72, PT: 288
+[Structure] MCL: 2.000
+[Structure] Number of atoms: 3240 -> 3024
+[INFO] L2H1.cif was created
+[INFO] Total Charge: 72
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+[INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 4, PT: 8
+[Structure] MCL: inf
+
+[Structure] Reading command 'supercell'...
+[Structure] with arguments 'supercell: [6, 6, 1]'...
+[Structure] Supercell created 6 * 6 * 1
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 144, PT: 288
+[Structure] MCL: inf
+[Structure] Number of atoms: 90 -> 3240
+
+[Structure] Reading command 'defect_BT'...
+[Structure] with arguments 'scope: half termination: False add_Ca: True seed: 109 keep_OH: False'...
+[Structure] Termination scope: False
+[Structure] Exists 36 Bridging Tetra in 'top' side
+[Structure] Remove 18 Bridging Tetra of 'top' side
+[Structure] Exists 36 Bridging Tetra in 'bottom' side
+[Structure] Remove 18 Bridging Tetra of 'bottom' side
+[Structure] Delete 180 atoms
+[Structure] Q1: 0.182
+[Structure] Q2: 0.818
+[Structure] C/S: 0.818
+[Structure] BT: 108, PT: 288
+[Structure] MCL: 5.000
+[Structure] Number of atoms: 3240 -> 3096
+
+[Structure] Reading command 'add_ca_BT'...
+[Structure] with arguments 'auto: False'...
+[Structure] 'Add Ca above all Bridging Tetra'
+[Structure] Q1: 0.182
+[Structure] Q2: 0.818
+[Structure] C/S: 0.818
+[Structure] BT: 108, PT: 288
+[Structure] MCL: 5.000
+[Structure] Number of atoms: 3096 -> 3132
+
+[Structure] Reading command 'dprot_BT'...
+[Structure] with arguments 'scope: all site: all'...
+[Structure] Delete 72 atoms
+[Structure] Q1: 0.182
+[Structure] Q2: 0.818
+[Structure] C/S: 0.818
+[Structure] BT: 108, PT: 288
+[Structure] MCL: 5.000
+[Structure] Number of atoms: 3132 -> 3060
+[INFO] L5H0.cif was created
+[INFO] Total Charge: 0
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+[INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 4, PT: 8
+[Structure] MCL: inf
+
+[Structure] Reading command 'supercell'...
+[Structure] with arguments 'supercell: [6, 6, 1]'...
+[Structure] Supercell created 6 * 6 * 1
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 144, PT: 288
+[Structure] MCL: inf
+[Structure] Number of atoms: 90 -> 3240
+
+[Structure] Reading command 'defect_BT'...
+[Structure] with arguments 'scope: half termination: half add_Ca: True seed: 109 keep_OH: False'...
+[Structure] Termination scope: 'half'
+[Structure] Exists 36 Bridging Tetra in 'top' side
+[Structure] Remove 18 Bridging Tetra of 'top' side
+[Structure] Exists 36 Bridging Tetra in 'bottom' side
+[Structure] Remove 18 Bridging Tetra of 'bottom' side
+[Structure] Delete 180 atoms
+[Structure] Q1: 0.182
+[Structure] Q2: 0.818
+[Structure] C/S: 0.818
+[Structure] BT: 108, PT: 288
+[Structure] MCL: 5.000
+[Structure] Number of atoms: 3240 -> 3132
+
+[Structure] Reading command 'add_ca_BT'...
+[Structure] with arguments 'auto: False'...
+[Structure] 'Add Ca above all Bridging Tetra'
+[Structure] Q1: 0.182
+[Structure] Q2: 0.818
+[Structure] C/S: 0.818
+[Structure] BT: 108, PT: 288
+[Structure] MCL: 5.000
+[Structure] Number of atoms: 3132 -> 3168
+
+[Structure] Reading command 'dprot_BT'...
+[Structure] with arguments 'scope: all site: lower'...
+[Structure] Delete 36 atoms
+[Structure] Q1: 0.182
+[Structure] Q2: 0.818
+[Structure] C/S: 0.818
+[Structure] BT: 108, PT: 288
+[Structure] MCL: 5.000
+[Structure] Number of atoms: 3168 -> 3132
+[INFO] L5H1.cif was created
+[INFO] Total Charge: 72
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+[INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 4, PT: 8
+[Structure] MCL: inf
+
+[Structure] Reading command 'supercell'...
+[Structure] with arguments 'supercell: [6, 6, 1]'...
+[Structure] Supercell created 6 * 6 * 1
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 144, PT: 288
+[Structure] MCL: inf
+[Structure] Number of atoms: 90 -> 3240
+
+[Structure] Reading command 'add_ca_BT'...
+[Structure] with arguments 'auto: False'...
+[Structure] 'Add Ca above all Bridging Tetra'
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 144, PT: 288
+[Structure] MCL: inf
+[Structure] Number of atoms: 3240 -> 3312
+
+[Structure] Reading command 'dprot_BT'...
+[Structure] with arguments 'scope: all site: all'...
+[Structure] Delete 144 atoms
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 144, PT: 288
+[Structure] MCL: inf
+[Structure] Number of atoms: 3312 -> 3168
+[INFO] LiH0.cif was created
+[INFO] Total Charge: 0
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+[INFO] /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_base.cif was loaded
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 4, PT: 8
+[Structure] MCL: inf
+
+[Structure] Reading command 'supercell'...
+[Structure] with arguments 'supercell: [6, 6, 1]'...
+[Structure] Supercell created 6 * 6 * 1
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 144, PT: 288
+[Structure] MCL: inf
+[Structure] Number of atoms: 90 -> 3240
+
+[Structure] Reading command 'add_ca_BT'...
+[Structure] with arguments 'auto: False'...
+[Structure] 'Add Ca above all Bridging Tetra'
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 144, PT: 288
+[Structure] MCL: inf
+[Structure] Number of atoms: 3240 -> 3312
+
+[Structure] Reading command 'dprot_BT'...
+[Structure] with arguments 'scope: all site: lower'...
+[Structure] Delete 72 atoms
+[Structure] Q2: 1.000
+[Structure] C/S: 0.750
+[Structure] BT: 144, PT: 288
+[Structure] MCL: inf
+[Structure] Number of atoms: 3312 -> 3240
+[INFO] LiH1.cif was created
+[INFO] Total Charge: 72
+----------------------------------------------------------------------

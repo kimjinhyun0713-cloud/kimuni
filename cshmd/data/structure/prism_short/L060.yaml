@@ -1,0 +1,21 @@
+info:
+  base: T14_111_short.cif
+      
+command:
+  - func: supercell
+    supercell: [8, 8, 1]
+    
+  - func: defect_BT
+    where:
+      - surface
+      - bulk
+    MCL: 6
+    termination: False
+    add: Ca
+    
+  - func: terminate_NBO
+    ratio: 0
+      
+  - func: add_BT
+    auto: False
+    add: Ca

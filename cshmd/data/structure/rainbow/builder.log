@@ -1,0 +1,283 @@
+03/25 11:43 [INFO] csh_builder (main)                        : ----------------------------------------------------------------------
+03/25 11:43 [INFO] cshmd.structure (__init__)                : /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_term.cif was loaded
+03/25 11:43 [INFO] cshmd.analysis (__init__)                 : Not any C-S-H Model
+03/25 11:43 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+03/25 11:43 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+03/25 11:43 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 4, PT: 8
+03/25 11:43 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 3
+03/25 11:43 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 3.0
+03/25 11:43 [INFO] csh_builder (main)                        : [Structure] Reading command 'supercell'...
+03/25 11:43 [INFO] csh_builder (main)                        : [Structure] with arguments 'supercell: [8, 8, 1]'...
+03/25 11:43 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 8 * 8 * 1
+03/25 11:43 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+03/25 11:43 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+03/25 11:43 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 256, PT: 512
+03/25 11:43 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 24 24 24 24 24 24 24 24
+03/25 11:43 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 24.0
+03/25 11:43 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 86 -> 5504
+03/25 11:43 [INFO] csh_builder (main)                        : [Structure] Reading command 'defect_BT'...
+03/25 11:43 [INFO] csh_builder (main)                        : [Structure] with arguments 'scope: all termination: False add: Ca'...
+03/25 11:43 [INFO] cshmd.builder (defect_BT)                 : [Structure] Termination scope: False
+03/25 11:43 [INFO] cshmd.builder (defect_BT)                 : [Structure] Exists 64 Bridging Tetra in 'top' side
+03/25 11:43 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:43 [INFO] cshmd.builder (defect_BT)                 : [Structure] Exists 64 Bridging Tetra in 'bottom' side
+03/25 11:43 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:43 [INFO] cshmd.structure (check_rm_list)           : Delete 384 atoms in rm_list
+03/25 11:43 [INFO] cshmd.analysis (Qn)                       : [Structure] Q1: 0.400
+03/25 11:43 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 0.600
+03/25 11:43 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.900
+03/25 11:43 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 128, PT: 512
+03/25 11:43 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2
+03/25 11:43 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 2.0
+03/25 11:43 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 5504 -> 5248
+03/25 11:43 [INFO] csh_builder (main)                        : [Structure] Reading command 'terminate_NBO'...
+03/25 11:43 [INFO] csh_builder (main)                        : [Structure] with arguments 'ratio: 0'...
+03/25 11:43 [INFO] cshmd.builder (terminate_NBO)             : Do not run terminate, ratio == 0
+03/25 11:43 [INFO] cshmd.structure (writeCif)                : L02.cif was created
+03/25 11:43 [INFO] cshmd.builder (out_model)                 : Total Charge: 0
+03/25 11:43 [INFO] csh_builder (main)                        : ----------------------------------------------------------------------
+03/25 11:43 [INFO] csh_builder (main)                        : ----------------------------------------------------------------------
+03/25 11:43 [INFO] cshmd.structure (__init__)                : /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_term.cif was loaded
+03/25 11:43 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+03/25 11:43 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+03/25 11:43 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 4, PT: 8
+03/25 11:43 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 3
+03/25 11:43 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 3.0
+03/25 11:43 [INFO] csh_builder (main)                        : [Structure] Reading command 'supercell'...
+03/25 11:43 [INFO] csh_builder (main)                        : [Structure] with arguments 'supercell: [8, 8, 1]'...
+03/25 11:43 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 8 * 8 * 1
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 256, PT: 512
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 24 24 24 24 24 24 24 24
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 24.0
+03/25 11:44 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 86 -> 5504
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'defect_BT'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'MCL: 4 termination: False add: Ca'...
+03/25 11:44 [INFO] cshmd.builder (defect_BT)                 : [Structure] Termination scope: False
+03/25 11:44 [INFO] cshmd.builder (defect_BT)                 : [Structure] Exists 64 Bridging Tetra in 'top' side
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.builder (defect_BT)                 : [Structure] Exists 64 Bridging Tetra in 'bottom' side
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.structure (check_rm_list)           : Delete 234 atoms in rm_list
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q1: 0.226
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 0.774
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.835
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 178, PT: 512
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 3.923076923076923
+03/25 11:44 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 5504 -> 5348
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'terminate_NBO'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'ratio: 0'...
+03/25 11:44 [INFO] cshmd.builder (terminate_NBO)             : Do not run terminate, ratio == 0
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'add_BT'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'auto: False add: Ca'...
+03/25 11:44 [INFO] cshmd.builder (add_BT)                    : [Structure] 'Add Ca above all Bridging Tetra'
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q1: 0.226
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 0.774
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.835
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 178, PT: 512
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 2 2 2 2 2 2 2 2 2 2 2 2 2 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 3.923076923076923
+03/25 11:44 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 5348 -> 5398
+03/25 11:44 [INFO] cshmd.structure (writeCif)                : L04.cif was created
+03/25 11:44 [INFO] cshmd.builder (out_model)                 : Total Charge: 0
+03/25 11:44 [INFO] csh_builder (main)                        : ----------------------------------------------------------------------
+03/25 11:44 [INFO] csh_builder (main)                        : ----------------------------------------------------------------------
+03/25 11:44 [INFO] cshmd.structure (__init__)                : /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_term.cif was loaded
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 4, PT: 8
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 3
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 3.0
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'supercell'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'supercell: [8, 8, 1]'...
+03/25 11:44 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 8 * 8 * 1
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 256, PT: 512
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 24 24 24 24 24 24 24 24
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 24.0
+03/25 11:44 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 86 -> 5504
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'defect_BT'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'MCL: 6 termination: False add: Ca'...
+03/25 11:44 [INFO] cshmd.builder (defect_BT)                 : [Structure] Termination scope: False
+03/25 11:44 [INFO] cshmd.builder (defect_BT)                 : [Structure] Exists 64 Bridging Tetra in 'top' side
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.builder (defect_BT)                 : [Structure] Exists 64 Bridging Tetra in 'bottom' side
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.structure (check_rm_list)           : Delete 168 atoms in rm_list
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q1: 0.157
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 0.843
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.809
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 200, PT: 512
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 2 2 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 8 8 8 8 8 8 8 8 8 11
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 5.857142857142857
+03/25 11:44 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 5504 -> 5392
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'terminate_NBO'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'ratio: 0'...
+03/25 11:44 [INFO] cshmd.builder (terminate_NBO)             : Do not run terminate, ratio == 0
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'add_BT'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'auto: False add: Ca'...
+03/25 11:44 [INFO] cshmd.builder (add_BT)                    : [Structure] 'Add Ca above all Bridging Tetra'
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q1: 0.157
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 0.843
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.809
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 200, PT: 512
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 2 2 2 5 5 5 5 5 5 5 5 5 5 5 5 5 5 5 8 8 8 8 8 8 8 8 8 11
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 5.857142857142857
+03/25 11:44 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 5392 -> 5464
+03/25 11:44 [INFO] cshmd.structure (writeCif)                : L06.cif was created
+03/25 11:44 [INFO] cshmd.builder (out_model)                 : Total Charge: 0
+03/25 11:44 [INFO] csh_builder (main)                        : ----------------------------------------------------------------------
+03/25 11:44 [INFO] csh_builder (main)                        : ----------------------------------------------------------------------
+03/25 11:44 [INFO] cshmd.structure (__init__)                : /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_term.cif was loaded
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 4, PT: 8
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 3
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 3.0
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'supercell'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'supercell: [8, 8, 1]'...
+03/25 11:44 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 8 * 8 * 1
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 256, PT: 512
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 24 24 24 24 24 24 24 24
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 24.0
+03/25 11:44 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 86 -> 5504
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'defect_BT'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'MCL: 8 termination: False add: Ca'...
+03/25 11:44 [INFO] cshmd.builder (defect_BT)                 : [Structure] Termination scope: False
+03/25 11:44 [INFO] cshmd.builder (defect_BT)                 : [Structure] Exists 64 Bridging Tetra in 'top' side
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.builder (defect_BT)                 : [Structure] Exists 64 Bridging Tetra in 'bottom' side
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.structure (check_rm_list)           : Delete 132 atoms in rm_list
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q1: 0.122
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 0.878
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.796
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 212, PT: 512
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 2 2 5 5 5 5 5 5 5 5 8 8 11 11 11 11 11 11 11 11 11 11
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 7.7272727272727275
+03/25 11:44 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 5504 -> 5416
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'terminate_NBO'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'ratio: 0'...
+03/25 11:44 [INFO] cshmd.builder (terminate_NBO)             : Do not run terminate, ratio == 0
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'add_BT'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'auto: False add: Ca'...
+03/25 11:44 [INFO] cshmd.builder (add_BT)                    : [Structure] 'Add Ca above all Bridging Tetra'
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q1: 0.122
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 0.878
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.796
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 212, PT: 512
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 2 2 5 5 5 5 5 5 5 5 8 8 11 11 11 11 11 11 11 11 11 11
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 7.7272727272727275
+03/25 11:44 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 5416 -> 5500
+03/25 11:44 [INFO] cshmd.structure (writeCif)                : L08.cif was created
+03/25 11:44 [INFO] cshmd.builder (out_model)                 : Total Charge: 0
+03/25 11:44 [INFO] csh_builder (main)                        : ----------------------------------------------------------------------
+03/25 11:44 [INFO] csh_builder (main)                        : ----------------------------------------------------------------------
+03/25 11:44 [INFO] cshmd.structure (__init__)                : /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_term.cif was loaded
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 4, PT: 8
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 3
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 3.0
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'supercell'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'supercell: [8, 8, 1]'...
+03/25 11:44 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 8 * 8 * 1
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 256, PT: 512
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 24 24 24 24 24 24 24 24
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 24.0
+03/25 11:44 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 86 -> 5504
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'defect_BT'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'MCL: 10 termination: False add: Ca'...
+03/25 11:44 [INFO] cshmd.builder (defect_BT)                 : [Structure] Termination scope: False
+03/25 11:44 [INFO] cshmd.builder (defect_BT)                 : [Structure] Exists 64 Bridging Tetra in 'top' side
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.builder (defect_BT)                 : [Structure] Exists 64 Bridging Tetra in 'bottom' side
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.structure (check_rm_list)           : Delete 108 atoms in rm_list
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q1: 0.098
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 0.902
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.787
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 220, PT: 512
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 5 5 8 8 8 8 8 8 8 8 8 11 11 14 14 14 14 14
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 9.666666666666666
+03/25 11:44 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 5504 -> 5432
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'terminate_NBO'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'ratio: 0'...
+03/25 11:44 [INFO] cshmd.builder (terminate_NBO)             : Do not run terminate, ratio == 0
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'add_BT'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'auto: False add: Ca'...
+03/25 11:44 [INFO] cshmd.builder (add_BT)                    : [Structure] 'Add Ca above all Bridging Tetra'
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q1: 0.098
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 0.902
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.787
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 220, PT: 512
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 5 5 8 8 8 8 8 8 8 8 8 11 11 14 14 14 14 14
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 9.666666666666666
+03/25 11:44 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 5432 -> 5524
+03/25 11:44 [INFO] cshmd.structure (writeCif)                : L10.cif was created
+03/25 11:44 [INFO] cshmd.builder (out_model)                 : Total Charge: 0
+03/25 11:44 [INFO] csh_builder (main)                        : ----------------------------------------------------------------------
+03/25 11:44 [INFO] csh_builder (main)                        : ----------------------------------------------------------------------
+03/25 11:44 [INFO] cshmd.structure (__init__)                : /Users/kimuni/bin/kimuni/cshmd/data/resources/cif/T14_111_term.cif was loaded
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 4, PT: 8
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 3
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 3.0
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'supercell'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'supercell: [8, 8, 1]'...
+03/25 11:44 [INFO] cshmd.structure (makeSupercell)           : [Structure] Supercell created 8 * 8 * 1
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 1.000
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.750
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 256, PT: 512
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 24 24 24 24 24 24 24 24
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 24.0
+03/25 11:44 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 86 -> 5504
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'defect_BT'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'MCL: 12 termination: False add: Ca'...
+03/25 11:44 [INFO] cshmd.builder (defect_BT)                 : [Structure] Termination scope: False
+03/25 11:44 [INFO] cshmd.builder (defect_BT)                 : [Structure] Exists 64 Bridging Tetra in 'top' side
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.builder (defect_BT)                 : [Structure] Exists 64 Bridging Tetra in 'bottom' side
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.structure (check_rm_list)           : Delete 90 atoms in rm_list
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q1: 0.081
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 0.919
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.780
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 226, PT: 512
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 5 8 11 11 11 11 11 11 11 11 11 11 14 17 23
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 11.8
+03/25 11:44 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 5504 -> 5444
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'terminate_NBO'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'ratio: 0'...
+03/25 11:44 [INFO] cshmd.builder (terminate_NBO)             : Do not run terminate, ratio == 0
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] Reading command 'add_BT'...
+03/25 11:44 [INFO] csh_builder (main)                        : [Structure] with arguments 'auto: False add: Ca'...
+03/25 11:44 [INFO] cshmd.builder (add_BT)                    : [Structure] 'Add Ca above all Bridging Tetra'
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.structure (add_Ca)                  : [Structure] Add Ca
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q1: 0.081
+03/25 11:44 [INFO] cshmd.analysis (Qn)                       : [Structure] Q2: 0.919
+03/25 11:44 [INFO] cshmd.analysis (CS)                       : [Structure] C/S: 0.780
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] BT: 226, PT: 512
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] CL : 5 8 11 11 11 11 11 11 11 11 11 11 14 17 23
+03/25 11:44 [INFO] cshmd.analysis (validate_tetra)           : [Structure] MCL : 11.8
+03/25 11:44 [INFO] cshmd.builder (update_manager)            : [Structure] Number of atoms: 5444 -> 5542
+03/25 11:44 [INFO] cshmd.structure (writeCif)                : L12.cif was created
+03/25 11:44 [INFO] cshmd.builder (out_model)                 : Total Charge: 0
+03/25 11:44 [INFO] csh_builder (main)                        : ----------------------------------------------------------------------

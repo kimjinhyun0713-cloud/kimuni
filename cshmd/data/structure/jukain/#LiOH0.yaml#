@@ -1,0 +1,31 @@
+info:
+  base: T14_111_base.cif
+  model:
+    BT:
+      surface:
+        - [0.870,0.950]
+        - [0.048,0.117]
+      bulk:
+        - [0.540,0.625]
+        - [0.374,0.452]
+
+    PT:
+      surface:
+        - [0.793,0.875]
+        - [0.125,0.206]
+      bulk:
+        - [0.625,0.707]
+        - [0.293,0.375]
+      
+command:
+  - func: supercell
+    args:
+      supercell: [6, 6, 1]
+    
+  - func: defect_BT
+    args:
+      scope: 
+      termination: False
+      add: Ca
+      seed: 109
+      

@@ -1,0 +1,22 @@
+info:
+  base: T14_111_term.cif
+      
+command:
+  - func: supercell
+    args:
+      supercell: [6, 6, 1]
+    
+  - func: defect_BT
+    args:
+      MCL: 8
+      termination: False
+      add: Ca
+
+  - func: terminate_NBO
+    args:
+      ratio: 0.4
+      
+  - func: add_BT
+    args:
+      auto: False
+      add: Ca

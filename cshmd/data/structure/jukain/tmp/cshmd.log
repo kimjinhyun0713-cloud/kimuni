@@ -1,0 +1,70 @@
+03/17 22:07 [INFO] cif2neko (<module>)                       : Logger loaded
+03/17 22:07 [INFO] cif2neko (main)                           : [PosixPath('L2OH2_w1100.cif')]
+03/17 22:07 [INFO] cshmd.structure (__init__)                : L2OH2_w1100.cif was loaded
+03/17 22:07 [DEBUG] cshmd.analysis (__init__)                : [StructureManager] Now new data setted for get Bonds
+03/17 22:07 [DEBUG] cshmd.analysis (__del_bond__)            : del -> Si_O O_H H_O Ca_O C_O BO
+03/17 22:07 [DEBUG] cshmd.analysis (__initialize_mole__)     : initalize -> H2O SiO4 OH CO3 H3O
+03/17 22:07 [DEBUG] cshmd.analysis (__initialize_mole__)     : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+03/17 22:07 [DEBUG] cshmd.analysis (find_bond)               : find_bond O - H rcut -> 1.2
+03/17 22:07 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 1.337 seconds
+03/17 22:07 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 2
+03/17 22:07 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O rcut -> 2.0
+03/17 22:07 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.147 seconds
+03/17 22:07 [DEBUG] cshmd.analysis (get_mole)                : get_mole Si - O -> nbonds: 4
+03/17 22:07 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 1
+03/17 22:07 [DEBUG] cshmd.analysis (find_bond)               : find_bond C - O rcut -> 1.6
+03/17 22:07 [DEBUG] cshmd.analysis (get_mole)                : get_mole C - O -> nbonds: 3
+03/17 22:07 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 3
+03/17 22:07 [DEBUG] cshmd.analysis (find_bond)               : find_bond Ca - O rcut -> 3.0
+03/17 22:07 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.163 seconds
+03/17 22:07 [DEBUG] cshmd.analysis (full_search)             : Search layer details
+03/17 22:07 [DEBUG] cshmd.analysis (find_bond)               : find_bond Ca - O rcut -> 3.0
+03/17 22:07 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O rcut -> 2.0
+03/17 22:07 [DEBUG] cshmd.analysis (__detail_search_oh_co3)  : No CO3 in basic search
+03/17 22:07 [DEBUG] cshmd.analysis (__detail_search_oh_sioh) : Searching 'OH' in 'SiO4
+03/17 22:07 [DEBUG] cshmd.analysis (__detail_search_oh_caoh) : Searching 'OH' in 'CaOH
+03/17 22:07 [INFO] cshmd.analysis (Qn)                       : [StructureManager] Q1: 0.400
+03/17 22:07 [INFO] cshmd.analysis (Qn)                       : [StructureManager] Q2: 0.600
+03/17 22:07 [INFO] cshmd.analysis (CS)                       : [StructureManager] C/S: 0.900
+03/17 22:07 [INFO] cif2neko (stdout_lammps_data)             : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/L2OH2_w1100.data' created
+03/17 22:07 [INFO] cif2neko (stdout_lammps_in)               : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/00.L2OH2_w1100/000/eq.000.in' created
+03/17 22:07 [INFO] cif2neko (stdout_lammps_in)               : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/00.L2OH2_w1100/000/rst.000.in' created
+03/17 22:07 [INFO] cif2neko (stdout_lammps_in)               : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/00.L2OH2_w1100/001/eq.001.in' created
+03/17 22:07 [INFO] cif2neko (stdout_lammps_in)               : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/00.L2OH2_w1100/001/rst.001.in' created
+03/17 22:07 [INFO] cif2neko (stdout_lammps_in)               : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/00.L2OH2_w1100/002/eq.002.in' created
+03/17 22:07 [INFO] cif2neko (stdout_lammps_in)               : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/00.L2OH2_w1100/002/rst.002.in' created
+03/17 22:07 [INFO] cif2neko (stdout_lammps_in)               : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/00.L2OH2_w1100/003/eq.003.in' created
+03/17 22:07 [INFO] cif2neko (stdout_lammps_in)               : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/00.L2OH2_w1100/003/rst.003.in' created
+03/17 22:07 [INFO] cif2neko (stdout_lammps_in)               : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/00.L2OH2_w1100/004/eq.004.in' created
+03/17 22:07 [INFO] cif2neko (stdout_lammps_in)               : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/00.L2OH2_w1100/004/rst.004.in' created
+03/17 22:07 [INFO] cshmd.structure (__init__)                : L2OH2_w1100.cif was loaded
+03/17 22:07 [DEBUG] cshmd.analysis (__init__)                : [StructureManager] Now new data setted for get Bonds
+03/17 22:07 [DEBUG] cshmd.analysis (__del_bond__)            : del -> Si_O O_H H_O Ca_O C_O BO
+03/17 22:07 [DEBUG] cshmd.analysis (__initialize_mole__)     : initalize -> H2O SiO4 OH CO3 H3O
+03/17 22:07 [DEBUG] cshmd.analysis (__initialize_mole__)     : initalize -> SiOH CaOH HCO3 H2CO3 H3CO3
+03/17 22:07 [DEBUG] cshmd.analysis (find_bond)               : find_bond O - H rcut -> 1.2
+03/17 22:07 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 1.265 seconds
+03/17 22:07 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 2
+03/17 22:07 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O rcut -> 2.0
+03/17 22:07 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.147 seconds
+03/17 22:07 [DEBUG] cshmd.analysis (get_mole)                : get_mole Si - O -> nbonds: 4
+03/17 22:07 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 1
+03/17 22:07 [DEBUG] cshmd.analysis (find_bond)               : find_bond C - O rcut -> 1.6
+03/17 22:07 [DEBUG] cshmd.analysis (get_mole)                : get_mole C - O -> nbonds: 3
+03/17 22:07 [DEBUG] cshmd.analysis (get_mole)                : get_mole O - H -> nbonds: 3
+03/17 22:07 [DEBUG] cshmd.analysis (find_bond)               : find_bond Ca - O rcut -> 3.0
+03/17 22:07 [DEBUG] cshmd.common (time_wrapper)              : [RUNTIME] get_distance_table in 0.161 seconds
+03/17 22:07 [DEBUG] cshmd.analysis (full_search)             : Search layer details
+03/17 22:07 [DEBUG] cshmd.analysis (find_bond)               : find_bond Ca - O rcut -> 3.0
+03/17 22:07 [DEBUG] cshmd.analysis (find_bond)               : find_bond Si - O rcut -> 2.0
+03/17 22:07 [DEBUG] cshmd.analysis (__detail_search_oh_co3)  : No CO3 in basic search
+03/17 22:07 [DEBUG] cshmd.analysis (__detail_search_oh_sioh) : Searching 'OH' in 'SiO4
+03/17 22:07 [DEBUG] cshmd.analysis (__detail_search_oh_caoh) : Searching 'OH' in 'CaOH
+03/17 22:07 [INFO] cshmd.analysis (Qn)                       : [StructureManager] Q1: 0.400
+03/17 22:07 [INFO] cshmd.analysis (Qn)                       : [StructureManager] Q2: 0.600
+03/17 22:07 [INFO] cshmd.analysis (CS)                       : [StructureManager] C/S: 0.900
+03/17 22:07 [INFO] cif2neko (stdout_lammps_data)             : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/L2OH2_w1100.data' created
+03/17 22:07 [INFO] cif2neko (stdout_lammps_in)               : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/00.L2OH2_w1100_test/000/eq.005.in' created
+03/17 22:07 [INFO] cif2neko (stdout_lammps_in)               : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/00.L2OH2_w1100_test/000/rst.005.in' created
+03/17 22:07 [INFO] cif2neko (stdout_lammps_in)               : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/00.L2OH2_w1100_test/001/eq.006.in' created
+03/17 22:07 [INFO] cif2neko (stdout_lammps_in)               : '/Users/kimuni/bin/kimuni/cshmd/data/structure/jukain/tmp/00.L2OH2_w1100_test/001/rst.006.in' created

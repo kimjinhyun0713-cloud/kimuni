@@ -1,0 +1,12 @@
+cmake_minimum_required(VERSION 3.10)
+project(LammpsTool)
+
+# C++17を使用する
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# 実行ファイルを作成 (src/main.cpp をコンパイル)
+add_executable(main src/main.cpp)
+
+# include ディレクトリをヘッダの検索パスに追加
+target_include_directories(main PRIVATE include)

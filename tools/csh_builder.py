@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import sys
 import yaml
-from cshmd.builder import BUILDER
+from cshmd.builder import Builder
 
 class Typo_checker():
     def __init__(self, config):
@@ -29,10 +29,10 @@ def main():
             config["name"] = infile
             tc = Typo_checker(config)
             config = tc.config
-            build = BUILDER(**config["info"])
+            build = Builder(**config["info"])
             build.set_model()
             for c in config["command"]:
-                print(f"\n [Structure] Reading command '{c['func']}'...")
+                print(f"\n [StructureManager] Reading command '{c['func']}'...")
                 getattr(build, c["func"])(**c["args"])
             build.out_model()
         print("-"*70)
